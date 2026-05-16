@@ -1,14 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RoomBridge — Find a Room in the US</title>
-
-  <!-- Favicon fix -->
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="shortcut icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-
-  <!-- Open Graph -->
   <meta property="og:title" content="The smarter way to find a room in the US." />
   <meta property="og:description" content="Skip the back-and-forth. We verify both sides — then send direct contact details. Fast, honest, done." />
   <meta property="og:image" content="logo.png" />
@@ -28,7 +26,6 @@
 }
 body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var(--white);padding-bottom:64px;}
 
-/* DESKTOP NAV — hidden on mobile */
 .desk-nav{background:var(--navy);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:100;}
 .logo{display:flex;align-items:center;gap:9px;cursor:pointer;}
 .logo-icon{width:30px;height:30px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -40,31 +37,22 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .nav-cta{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-left:8px;}
 .nav-cta:hover{background:var(--pd);}
 
-/* MOBILE TOP BAR */
 .mob-topbar{display:none;background:var(--navy);padding:0 18px;height:52px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .mob-logo-text{font-family:'Sora',sans-serif;font-size:16px;color:#fff;font-weight:700;}
 .mob-logo-text em{color:var(--primary);font-style:normal;}
 .mob-cta{background:var(--primary);color:#fff;border:none;border-radius:7px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
 
-/* MOBILE BOTTOM NAV */
 .mob-bottom{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);height:60px;z-index:200;align-items:center;justify-content:space-around;padding:0 4px;}
-.mbn-item{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;padding:8px 4px;cursor:pointer;border-radius:8px;transition:background .15s;}
+.mbn-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:1;min-width:0;padding:8px 4px;cursor:pointer;border-radius:8px;transition:background .15s;}
 .mbn-item.on .mbn-icon{color:var(--primary);}
 .mbn-item.on .mbn-label{color:var(--primary);}
 .mbn-icon{color:#5a7090;transition:color .15s;}
 .mbn-label{font-size:10px;color:#5a7090;font-weight:600;transition:color .15s;text-align:center;}
 
-.mbn-item{
-  flex:1;
-  min-width:0;
-}
-
-/* PAGE SYSTEM */
 .pg{display:none;}
 .pg.on{display:block;animation:fi .2s ease;}
 @keyframes fi{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
 
-/* HERO */
 .hero{background:var(--navy);padding:52px 20px 44px;text-align:center;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:-60px;right:-80px;width:280px;height:280px;background:rgba(255,92,53,.07);border-radius:50%;}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,92,53,.15);color:#ff8f75;font-size:11px;font-weight:600;letter-spacing:.07em;padding:5px 13px;border-radius:20px;margin-bottom:18px;text-transform:uppercase;}
@@ -79,25 +67,21 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .hpill{display:flex;align-items:center;gap:6px;font-size:12px;color:#7a95b0;font-weight:500;}
 .hck{width:17px;height:17px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
-/* STATS */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--navy2);border-bottom:1px solid rgba(255,255,255,.06);}
 .stat{padding:18px 10px;text-align:center;border-right:1px solid rgba(255,255,255,.06);}
 .stat:last-child{border-right:none;}
 .stn{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:var(--primary);line-height:1;}
 .stl{font-size:11px;color:#6a7f96;margin-top:3px;font-weight:500;}
 
-/* SECTIONS */
 .sec{padding:52px 20px;max-width:860px;margin:0 auto;}
 .eyebrow{font-size:11px;font-weight:700;color:var(--primary);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
 .sec h2{font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-.3px;}
 .sec-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.7;}
 
-/* UBOX */
 .ubox{background:var(--navy);border-radius:12px;padding:18px 20px;margin-bottom:28px;border-left:4px solid var(--primary);}
 .ubox p{font-size:13px;color:#8aa0b8;line-height:1.75;}
 .ubox strong{color:#fff;font-weight:600;}
 
-/* STEPS */
 .steps{display:flex;flex-direction:column;}
 .step{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--border);}
 .step:last-child{border:none;}
@@ -105,14 +89,12 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .step h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
 .step p{font-size:13px;color:var(--muted);line-height:1.6;}
 
-/* FEAT GRID */
 .fg2{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;}
 .fc{background:var(--bg);border-radius:12px;padding:18px 16px;border:1px solid var(--border);}
 .fc-icon{width:38px;height:38px;background:var(--primary);border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
 .fc h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
 .fc p{font-size:13px;color:var(--muted);line-height:1.5;}
 
-/* REVIEWS */
 .rv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
 .rv{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;}
 .rv-stars{color:var(--gold);font-size:14px;margin-bottom:9px;}
@@ -122,7 +104,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .rv-name{font-size:13px;font-weight:700;color:var(--text);}
 .rv-loc{font-size:11px;color:var(--muted);}
 
-/* PRICING */
 .pr-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:560px;margin:0 auto;}
 .prc{border:1.5px solid var(--border);border-radius:14px;padding:24px 20px;background:var(--white);}
 .prc.hot{border-color:var(--primary);background:var(--pp);}
@@ -136,7 +117,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .pr-btn{width:100%;padding:12px;background:var(--primary);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
 .pr-btn.nv{background:var(--navy);}
 
-/* FORMS */
 .fw{max-width:540px;margin:0 auto;background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:28px 22px;}
 .fw h2{font-family:'Sora',sans-serif;font-size:20px;font-weight:700;margin-bottom:5px;}
 .fw .fsb{font-size:13px;color:var(--muted);margin-bottom:22px;}
@@ -152,7 +132,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .fsub.sky{background:var(--sky);}
 .ok{background:var(--green-pale);border:1px solid #5dcaa5;border-radius:10px;padding:22px;text-align:center;display:none;}
 .ok h3{font-family:'Sora',sans-serif;font-size:18px;color:#0a5c42;margin-bottom:5px;}
-.ok p{font-size:13px;color:#0f6e56;line-height:1.6;} 
+.ok p{font-size:13px;color:#0f6e56;line-height:1.6;}
 
 .cal-wrap{position:relative;display:inline-block;width:100%;}
 .cal-input{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;outline:none;background:#fff;cursor:pointer;box-sizing:border-box;}
@@ -172,7 +152,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .cal-cell.past{color:#ccc;cursor:default;}
 .cal-cell.empty{cursor:default;}
 
-/* CONTACT */
 .ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
 .ct-info{background:var(--navy);border-radius:14px;padding:24px;}
 .ct-info h3{font-family:'Sora',sans-serif;font-size:18px;color:#fff;margin-bottom:7px;}
@@ -184,12 +163,10 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .ct-form{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:22px;}
 .ct-form h3{font-family:'Sora',sans-serif;font-size:16px;margin-bottom:16px;}
 
-/* PAGE HEADER */
 .ph{background:var(--navy);padding:36px 20px 28px;text-align:center;}
 .ph h1{font-family:'Sora',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.3px;}
 .ph p{font-size:14px;color:#7a95b0;}
 
-/* CTA BAND */
 .cta-band{background:var(--primary);padding:48px 20px;text-align:center;}
 .cta-band h2{font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:9px;letter-spacing:-.3px;}
 .cta-band p{font-size:14px;color:rgba(255,255,255,.8);margin-bottom:24px;line-height:1.7;}
@@ -197,7 +174,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .cwb{background:#fff;color:var(--primary);border:none;border-radius:9px;padding:12px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
 .cdb{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4);border-radius:9px;padding:12px 22px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
 
-/* FOOTER */
 footer{background:var(--navy);padding:36px 20px 20px;}
 .ft-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.07);}
 .ft-brand{font-family:'Sora',sans-serif;font-size:17px;color:#fff;font-weight:700;}
@@ -208,7 +184,30 @@ footer{background:var(--navy);padding:36px 20px 20px;}
 .ft-lnk:hover{color:#fff;}
 .ft-copy{font-size:11px;color:#374b5e;margin-top:14px;}
 
-/* ===== MOBILE RESPONSIVE ===== */
+/* ── HOW IT WORKS PAGE ── */
+.hiw-tabs-row{display:flex;gap:8px;justify-content:center;margin-bottom:36px;}
+.hiw-tab{padding:9px 22px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--muted);transition:all .15s;font-family:'Plus Jakarta Sans',sans-serif;}
+.hiw-tab.on{background:var(--primary);color:#fff;border-color:var(--primary);}
+
+.hiw-steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-bottom:40px;}
+.hiw-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px;position:relative;}
+.hiw-step:not(:last-child)::after{content:'';position:absolute;top:23px;left:calc(50% + 24px);right:calc(-50% + 24px);height:1px;border-top:2px dashed #dce4ef;z-index:0;}
+.hiw-icon-ring{width:48px;height:48px;border-radius:50%;background:var(--pp);border:2px solid var(--primary);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;margin:0 auto 14px;flex-shrink:0;}
+.hiw-num{position:absolute;top:-5px;right:-5px;width:18px;height:18px;border-radius:50%;background:var(--primary);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;}
+.hiw-step h3{font-size:13px;font-weight:700;color:var(--text);margin-bottom:5px;}
+.hiw-step p{font-size:12px;color:var(--muted);line-height:1.55;}
+
+.hiw-tab-content{display:none;}
+.hiw-tab-content.on{display:block;}
+
+.hiw-guarantee{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px;}
+.hiw-g{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:18px 16px;}
+.hiw-g-icon{width:36px;height:36px;background:var(--primary);border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.hiw-g h4{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.hiw-g p{font-size:12px;color:var(--muted);line-height:1.5;}
+
+.hiw-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:36px 0 0;}
+
 @media(max-width:640px){
   body{padding-bottom:80px;}
   .desk-nav{display:none;}
@@ -250,24 +249,17 @@ footer{background:var(--navy);padding:36px 20px 20px;}
   .cta-band h2{font-size:20px;}
   .cta-btns{flex-direction:column;align-items:center;gap:8px;}
   .cwb,.cdb{width:100%;max-width:280px;}
-}
 
-.mbn-item{
-  justify-content:center;
+  .hiw-steps-grid{grid-template-columns:1fr 1fr;gap:24px 8px;}
+  .hiw-step:not(:last-child)::after{display:none;}
+  .hiw-guarantee{grid-template-columns:1fr;}
 }
 
 @media(max-width:768px){
-  .desk-nav{
-    display:none !important;
-  }
-  .mob-topbar{
-    display:flex !important;
-  }
-  .mob-bottom{
-    display:flex !important;
-  }
+  .desk-nav{display:none !important;}
+  .mob-topbar{display:flex !important;}
+  .mob-bottom{display:flex !important;}
 }
-
 </style>
 
 <!-- DESKTOP NAV -->
@@ -282,7 +274,7 @@ footer{background:var(--navy);padding:36px 20px 20px;}
     <span class="nl on" id="nl-home" onclick="go('home')">Home</span>
     <span class="nl" id="nl-renter" onclick="go('renter')">Find a Room</span>
     <span class="nl" id="nl-landlord" onclick="go('landlord')">List a Room</span>
-    <span class="nl" id="nl-pricing" onclick="go('pricing')">Pricing</span>
+    <span class="nl" id="nl-howitworks" onclick="go('howitworks')">How It Works</span>
     <span class="nl" id="nl-reviews" onclick="go('reviews')">Reviews</span>
     <span class="nl" id="nl-contact" onclick="go('contact')">Contact</span>
   </div>
@@ -297,7 +289,7 @@ footer{background:var(--navy);padding:36px 20px 20px;}
     </div>
     <div class="mob-logo-text">Room<em>Bridge</em></div>
   </div>
-  <button class="mob-cta" onclick="go('renter')">Find a Room → </button>
+  <button class="mob-cta" onclick="go('renter')">Find a Room →</button>
 </div>
 
 <!-- MOBILE BOTTOM NAV -->
@@ -308,15 +300,15 @@ footer{background:var(--navy);padding:36px 20px 20px;}
   </div>
   <div class="mbn-item" id="mb-renter" onclick="go('renter')">
     <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M3 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
-    <span class="mbn-label">Find a Room</span>
+    <span class="mbn-label">Find Room</span>
   </div>
   <div class="mbn-item" id="mb-landlord" onclick="go('landlord')">
     <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="10" width="14" height="9" rx="1.5" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M1 10L10 2l9 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="7.5" y="13" width="5" height="6" rx="1" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
-    <span class="mbn-label">List a Room</span>
+    <span class="mbn-label">List Room</span>
   </div>
-  <div class="mbn-item" id="mb-pricing" onclick="go('pricing')">
-    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M10 5v1.5M10 13.5V15M7.5 12.5c0 1.1.9 2 2.5 2s2.5-.9 2.5-2-1-1.8-2.5-2-2.5-.9-2.5-2 .9-2 2.5-2 2.5.9 2.5 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    <span class="mbn-label">Pricing</span>
+  <div class="mbn-item" id="mb-howitworks" onclick="go('howitworks')">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <span class="mbn-label">How It Works</span>
   </div>
   <div class="mbn-item" id="mb-reviews" onclick="go('reviews')">
     <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l2.4 5h5.2l-4.2 3.1 1.6 5L10 12l-5 3.1 1.6-5L2.4 7h5.2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
@@ -335,8 +327,8 @@ footer{background:var(--navy);padding:36px 20px 20px;}
     <h1>The smarter way to find a <span>room in the US.</span></h1>
     <p class="hero-sub">Skip the back-and-forth. We verify both sides — then send direct contact details. Fast, honest, done.</p>
     <div class="hero-btns">
-      <button class="btn-p" onclick="go('renter')">Find a Room </button>
-      <button class="btn-g" onclick="go('landlord')">List a Room </button>
+      <button class="btn-p" onclick="go('renter')">Find a Room</button>
+      <button class="btn-g" onclick="go('landlord')">List a Room</button>
     </div>
     <div class="hpills">
       <div class="hpill"><div class="hck"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Verified only</div>
@@ -388,8 +380,8 @@ footer{background:var(--navy);padding:36px 20px 20px;}
     <h2>Ready to stop wasting time?</h2>
     <p>Thousands found their match in under 24 hours.</p>
     <div class="cta-btns">
-      <button class="cwb" onclick="go('renter')">Find a Room </button>
-      <button class="cdb" onclick="go('landlord')">List a Room </button>
+      <button class="cwb" onclick="go('renter')">Find a Room</button>
+      <button class="cdb" onclick="go('landlord')">List a Room</button>
     </div>
   </div>
 </div>
@@ -409,12 +401,9 @@ footer{background:var(--navy);padding:36px 20px 20px;}
           <div class="fgrp"><label class="fl">Budget/month</label><select class="fs" id="r-bd"><option value="">Select</option><option>Under $800</option><option>$800–$1,200</option><option>$1,200–$1,800</option><option>$1,800–$2,500</option><option>$2,500+</option></select></div>
           <div class="fgrp"><label class="fl">Room type</label><select class="fs" id="r-tp"><option value="">Select</option><option>Private room</option><option>Shared room</option><option>Studio</option><option>1BHK</option><option>Any</option></select></div>
         </div>
-        <div class="frow"><div class="fgrp"><label class="fl">Move-in date</label><div class="cal-wrap" id="w-rdt">
-  <input class="cal-input" id="r-dt" placeholder="Select move-in date" readonly onclick="toggleCal('cal-rdt','w-rdt')"/>
-  <div class="cal-dropdown" id="cal-rdt"></div>
-</div></div><div class="fgrp"><label class="fl">Status</label><select class="fs" id="r-st"><option value="">Select</option><option>Employed full-time</option><option>Self-employed</option><option>Student (F1)</option><option>Student (domestic)</option><option>Other</option></select></div></div>
+        <div class="frow"><div class="fgrp"><label class="fl">Move-in date</label><div class="cal-wrap" id="w-rdt"><input class="cal-input" id="r-dt" placeholder="Select move-in date" readonly onclick="toggleCal('cal-rdt','w-rdt')"/><div class="cal-dropdown" id="cal-rdt"></div></div></div><div class="fgrp"><label class="fl">Status</label><select class="fs" id="r-st"><option value="">Select</option><option>Employed full-time</option><option>Self-employed</option><option>Student (F1)</option><option>Student (domestic)</option><option>Other</option></select></div></div>
         <div class="fgrp"><label class="fl">Specific needs (optional)</label><textarea class="ft" id="r-nt" placeholder="e.g. pet-friendly, near BART, furnished..."></textarea></div>
-        <button class="fsub" onclick="subR()"> Submit →</button>
+        <button class="fsub" onclick="subR()">Submit →</button>
         <p style="font-size:12px;color:var(--muted);margin-top:8px;text-align:center;">Secure payment via PayPal. Contact within 24 hours.</p>
       </div>
       <div class="ok" id="r-ok"><h3>You're on the list!</h3><p>After payment confirmation, verified landlord contact will be sent within 24 hours to your email and WhatsApp.</p></div>
@@ -434,12 +423,9 @@ footer{background:var(--navy);padding:36px 20px 20px;}
         <div class="frow"><div class="fgrp"><label class="fl">Full name</label><input class="fi" id="l-nm" placeholder="Your full name"/></div><div class="fgrp"><label class="fl">Email</label><input class="fi" type="email" id="l-em" placeholder="you@email.com"/></div></div>
         <div class="frow"><div class="fgrp"><label class="fl">Phone / WhatsApp</label><input class="fi" id="l-ph" placeholder="+1 415 000 0000"/></div><div class="fgrp"><label class="fl">Address / City</label><input class="fi" id="l-ct" placeholder="Mission St, SF, CA"/></div></div>
         <div class="frow"><div class="fgrp"><label class="fl">Monthly rent</label><input class="fi" id="l-rt" placeholder="$1,200/month"/></div><div class="fgrp"><label class="fl">Room type</label><select class="fs" id="l-tp"><option value="">Select</option><option>Private room</option><option>Shared room</option><option>Studio</option><option>Full apartment</option></select></div></div>
-        <div class="frow"><div class="fgrp"><label class="fl">Available from</label><div class="cal-wrap" id="w-ldt">
-  <input class="cal-input" id="l-dt" placeholder="Select available date" readonly onclick="toggleCal('cal-ldt','w-ldt')"/>
-  <div class="cal-dropdown" id="cal-ldt"></div>
-</div></div><div class="fgrp"><label class="fl">Lease</label><select class="fs" id="l-ls"><option value="">Select</option><option>Month-to-month</option><option>3 months</option><option>6 months</option><option>1 year</option><option>Flexible</option></select></div></div>
+        <div class="frow"><div class="fgrp"><label class="fl">Available from</label><div class="cal-wrap" id="w-ldt"><input class="cal-input" id="l-dt" placeholder="Select available date" readonly onclick="toggleCal('cal-ldt','w-ldt')"/><div class="cal-dropdown" id="cal-ldt"></div></div></div><div class="fgrp"><label class="fl">Lease</label><select class="fs" id="l-ls"><option value="">Select</option><option>Month-to-month</option><option>3 months</option><option>6 months</option><option>1 year</option><option>Flexible</option></select></div></div>
         <div class="fgrp"><label class="fl">Room details (optional)</label><textarea class="ft" id="l-nt" placeholder="furnished, parking, utilities included, pets ok..."></textarea></div>
-        <button class="fsub sky" onclick="subL()"> List →</button>
+        <button class="fsub sky" onclick="subL()">List →</button>
         <p style="font-size:12px;color:var(--muted);margin-top:8px;text-align:center;">Secure payment via PayPal. Renter details within 24 hours.</p>
       </div>
       <div class="ok" id="l-ok"><h3>Room listed!</h3><p>After payment confirmation, verified renter contact will be sent within 24 hours.</p></div>
@@ -447,14 +433,131 @@ footer{background:var(--navy);padding:36px 20px 20px;}
   </div>
 </div>
 
-<!-- PRICING -->
-<div class="pg" id="pg-pricing">
-  <div class="ph"><h1>Simple pricing</h1><p>One flat fee. Direct contact delivered. No subscriptions.</p></div>
+<!-- HOW IT WORKS -->
+<div class="pg" id="pg-howitworks">
+  <div class="ph">
+    <h1>How It Works</h1>
+    <p>From signup to move-in — most users are done in under a week.</p>
+  </div>
   <div class="sec">
-    <div class="pr-wrap">
-      <div class="prc hot"><div class="pr-tag">For Renters</div><div class="pr-amt">$9</div><div class="pr-per">one-time · per match</div><div class="pr-desc">Pay once, get verified landlord contact within 24 hours.</div><div class="pr-feats"><div class="pr-feat"><span class="ck">✓</span> Landlord's direct phone</div><div class="pr-feat"><span class="ck">✓</span> Landlord's email</div><div class="pr-feat"><span class="ck">✓</span> Verified listing details</div><div class="pr-feat"><span class="ck">✓</span> Within 24 hours</div><div class="pr-feat"><span class="ck">✓</span> Zero fake listings</div></div><button class="pr-btn" onclick="go('renter')">Find a Room →</button></div>
-      <div class="prc hot"><div class="pr-tag">For Landlords</div><div class="pr-amt">$19</div><div class="pr-per">one-time · per match</div><div class="pr-desc">Pay once, get verified renter contact. No time wasters.</div><div class="pr-feats"><div class="pr-feat"><span class="ck">✓</span> Renter's direct phone</div><div class="pr-feat"><span class="ck">✓</span> Renter's email</div><div class="pr-feat"><span class="ck">✓</span> Employment verified</div><div class="pr-feat"><span class="ck">✓</span> Within 24 hours</div><div class="pr-feat"><span class="ck">✓</span> Genuine renters only</div></div><button class="pr-btn nv" onclick="go('landlord')">List a Room →</button></div>
+
+    <div class="eyebrow">Simple process</div>
+    <h2>Four steps. Direct contact. Zero drama.</h2>
+    <p class="sec-sub">Choose your role below to see exactly what happens after you submit.</p>
+
+    <div class="hiw-tabs-row">
+      <button class="hiw-tab on" onclick="hiwTab('renter',this)">I'm a Renter</button>
+      <button class="hiw-tab" onclick="hiwTab('landlord',this)">I'm a Landlord</button>
     </div>
+
+    <!-- RENTER STEPS -->
+    <div class="hiw-tab-content on" id="hiw-renter">
+      <div class="hiw-steps-grid">
+        <div class="hiw-step">
+          <div class="hiw-icon-ring">
+            <span class="hiw-num">1</span>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="4" y="3" width="14" height="16" rx="2" stroke="#FF5C35" stroke-width="1.7" fill="none"/><path d="M7 8h8M7 11h8M7 14h5" stroke="#FF5C35" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Fill your details</h3>
+          <p>City, budget, move-in date, and a few trust questions. Takes 2 minutes.</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-icon-ring">
+            <span class="hiw-num">2</span>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="7.5" stroke="#FF5C35" stroke-width="1.7" fill="none"/><path d="M8 11l2.5 2.5 4-4" stroke="#FF5C35" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Pay &amp; get verified</h3>
+          <p>Secure $9 one-time payment via PayPal. We review your submission to confirm you're genuine.</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-icon-ring">
+            <span class="hiw-num">3</span>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 4h14v11H4z" stroke="#FF5C35" stroke-width="1.7" rx="2" fill="none"/><path d="M8 19h6M11 15v4" stroke="#FF5C35" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Get direct contact</h3>
+          <p>Within 24 hours you receive the landlord's real phone and email. No middleman.</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-icon-ring">
+            <span class="hiw-num">4</span>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 12l4 4 10-9" stroke="#FF5C35" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Move in — done</h3>
+          <p>Schedule a viewing, sign your lease. Most renters move in within a week.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LANDLORD STEPS -->
+    <div class="hiw-tab-content" id="hiw-landlord">
+      <div class="hiw-steps-grid">
+        <div class="hiw-step">
+          <div class="hiw-icon-ring">
+            <span class="hiw-num">1</span>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 11L11 4l8 7v7H14v-5H8v5H3V11z" stroke="#FF5C35" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+          <h3>List your room</h3>
+          <p>Share address, rent, availability, and lease type. Quick 2-minute form.</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-icon-ring">
+            <span class="hiw-num">2</span>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="7" width="16" height="11" rx="2" stroke="#FF5C35" stroke-width="1.7" fill="none"/><path d="M7 7V5a4 4 0 018 0v2" stroke="#FF5C35" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Pay &amp; submit</h3>
+          <p>One-time $19 fee via PayPal. We verify your listing is genuine before matching.</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-icon-ring">
+            <span class="hiw-num">3</span>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" stroke="#FF5C35" stroke-width="1.7" fill="none"/><path d="M4 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#FF5C35" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+          </div>
+          <h3>We screen renters</h3>
+          <p>Every renter is verified before their contact reaches you. No time-wasters, no scams.</p>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-icon-ring">
+            <span class="hiw-num">4</span>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 12l4 4 10-9" stroke="#FF5C35" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Get genuine leads</h3>
+          <p>Receive verified renter contact within 24 hours. Talk to them directly — no platform chat.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GUARANTEE CARDS -->
+    <div class="eyebrow" style="margin-top:48px;">Our guarantee</div>
+    <h2 style="margin-bottom:20px;">What we promise every time.</h2>
+    <div class="hiw-guarantee">
+      <div class="hiw-g">
+        <div class="hiw-g-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="white" stroke-width="1.8" fill="none"/><path d="M9 5.5v3.5l2 2" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h4>24-hour response</h4>
+        <p>Every verified submission gets a response within 24 hours. No ghosting, ever.</p>
+      </div>
+      <div class="hiw-g">
+        <div class="hiw-g-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Zero fake listings</h4>
+        <p>Both sides are verified before any contact is shared. Scams never reach you.</p>
+      </div>
+      <div class="hiw-g">
+        <div class="hiw-g-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6.5" r="3.5" stroke="white" stroke-width="1.8" fill="none"/><path d="M2 16c0-3.5 3-6 7-6s7 2.5 7 6" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+        </div>
+        <h4>Real humans</h4>
+        <p>Questions? We reply within 24 hours. Real people review every submission.</p>
+      </div>
+    </div>
+
+    <div class="hiw-cta">
+      <button class="btn-p" onclick="go('renter')">Find a Room →</button>
+      <button class="btn-g" style="background:var(--navy);border-color:var(--navy);" onclick="go('landlord')">List a Room</button>
+    </div>
+
   </div>
 </div>
 
@@ -490,7 +593,7 @@ footer{background:var(--navy);padding:36px 20px 20px;}
           <div class="fgrp"><label class="fl">Email</label><input class="fi" type="email" id="c-em" placeholder="you@email.com"/></div>
           <div class="fgrp"><label class="fl">Subject</label><select class="fs" id="c-sb"><option value="">Select</option><option>Question about my submission</option><option>Payment issue</option><option>How does RoomBridge work?</option><option>Partnership inquiry</option><option>Other</option></select></div>
           <div class="fgrp"><label class="fl">Message</label><textarea class="ft" id="c-ms" placeholder="How can we help?"></textarea></div>
-          <button class="fsub" onclick="subC()">Send Message </button>
+          <button class="fsub" onclick="subC()">Send Message</button>
         </div>
         <div class="ok" id="c-ok"><h3>Message sent!</h3><p>We'll reply within 24 hours to your email.</p></div>
       </div>
@@ -498,75 +601,45 @@ footer{background:var(--navy);padding:36px 20px 20px;}
   </div>
 </div>
 
-<footer style="background: #1a1f2e; color: #e2e8f0; font-family: 'Sora', sans-serif; padding: 48px 40px 28px;">
-  <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; padding-bottom: 32px; border-bottom: 0.5px solid rgba(255,255,255,0.12);">
-    
-    <!-- Left: Branding + Social -->
+<footer style="background:#1a1f2e;color:#e2e8f0;font-family:'Sora',sans-serif;padding:48px 40px 28px;">
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;padding-bottom:32px;border-bottom:0.5px solid rgba(255,255,255,0.12);">
     <div>
-      <p style="font-size: 22px; font-weight: 700; margin: 0 0 6px; color: #fff;">
-        Room<span style="color: #f97316;">Bridge</span>
-      </p>
-      <p style="font-size: 13px; color: #94a3b8; margin: 0 0 20px;">
-        The smarter way to find a room in the US.
-      </p>
-      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/roombridge.vercel.app/" style="display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 7px 14px; font-size: 13px; color: #e2e8f0; text-decoration: none;">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-          </svg>
+      <p style="font-size:22px;font-weight:700;margin:0 0 6px;color:#fff;">Room<span style="color:#f97316;">Bridge</span></p>
+      <p style="font-size:13px;color:#94a3b8;margin:0 0 20px;">The smarter way to find a room in the US.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="https://www.instagram.com/roombridge.vercel.app/" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;font-size:13px;color:#e2e8f0;text-decoration:none;">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           Instagram
         </a>
-
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/groups/31743317415255510" style="display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 7px 14px; font-size: 13px; color: #e2e8f0; text-decoration: none;">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
+        <a href="https://www.facebook.com/groups/31743317415255510" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;font-size:13px;color:#e2e8f0;text-decoration:none;">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           Facebook
         </a>
-
       </div>
     </div>
-
-    <!-- Right: Contact Us -->
     <div>
-      <p style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #f97316; margin: 0 0 14px;">
-        Contact Us
-      </p>
-      <div style="display: flex; align-items: flex-start; gap: 10px;">
-        <div style="width: 20px; height: 20px; border-radius: 50%; background: rgba(249,115,22,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;">
-          <svg width="11" height="11" fill="#f97316" viewBox="0 0 24 24">
-            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-          </svg>
+      <p style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#f97316;margin:0 0 14px;">Contact Us</p>
+      <div style="display:flex;align-items:flex-start;gap:10px;">
+        <div style="width:20px;height:20px;border-radius:50%;background:rgba(249,115,22,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+          <svg width="11" height="11" fill="#f97316" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </div>
-        <div style="font-size: 13px; color: #cbd5e1; line-height: 1.5;">
-          <span style="font-size: 12px; color: #64748b;">We reply within 24 hours</span>
-        </div>
+        <div style="font-size:13px;color:#cbd5e1;line-height:1.5;"><span style="font-size:12px;color:#64748b;">We reply within 24 hours</span></div>
       </div>
     </div>
-
   </div>
-
-  <!-- Bottom copyright -->
-  <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 22px; flex-wrap: wrap; gap: 10px;">
-    <p style="font-size: 12px; color: #64748b; margin: 0;">© 2026 RoomBridge</p>
-    <div style="display: inline-flex; gap: 6px; align-items: center; font-size: 12px; color: #64748b;">
-      <span>Verified rooms</span>
-      <span style="color: #334155;">·</span>
-      <span>Direct contact</span>
-      <span style="color: #334155;">·</span>
-      <span>All 50 US states</span>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding-top:22px;flex-wrap:wrap;gap:10px;">
+    <p style="font-size:12px;color:#64748b;margin:0;">© 2026 RoomBridge</p>
+    <div style="display:inline-flex;gap:6px;align-items:center;font-size:12px;color:#64748b;">
+      <span>Verified rooms</span><span style="color:#334155;">·</span><span>Direct contact</span><span style="color:#334155;">·</span><span>All 50 US states</span>
     </div>
   </div>
-
 </footer>
 
 <script>
 var PP_R="https://www.paypal.com/ncp/payment/EHAAXMCW2V5JS";
 var PP_L="https://www.paypal.com/ncp/payment/BP2P2LBJYHP8A";
 var SH="https://script.google.com/macros/s/AKfycbzKFfF7bhnvb8J2iMleR1kUM5a_4VPiSCWSuHrDWdMKgB6Sq0t-OtFKUEEOxKJFKIE/exec";
+
 function go(p){
   document.querySelectorAll('.pg').forEach(function(e){e.classList.remove('on');});
   document.querySelectorAll('.nl,.mbn-item').forEach(function(e){e.classList.remove('on');});
@@ -575,6 +648,14 @@ function go(p){
   var m=document.getElementById('mb-'+p);if(m)m.classList.add('on');
   window.scrollTo(0,0);
 }
+
+function hiwTab(tab, btn){
+  document.querySelectorAll('.hiw-tab-content').forEach(function(e){e.classList.remove('on');});
+  document.querySelectorAll('.hiw-tab').forEach(function(e){e.classList.remove('on');});
+  document.getElementById('hiw-'+tab).classList.add('on');
+  btn.classList.add('on');
+}
+
 function send(d,cb){fetch(SH+'?'+new URLSearchParams(d).toString(),{method:'GET',mode:'no-cors'}).then(cb).catch(cb);}
 function subR(){
   var nm=document.getElementById('r-nm').value.trim(),em=document.getElementById('r-em').value.trim(),ph=document.getElementById('r-ph').value.trim(),ct=document.getElementById('r-ct').value.trim(),bd=document.getElementById('r-bd').value;
@@ -599,6 +680,7 @@ function subC(){
     document.getElementById('cf').style.display='none';document.getElementById('c-ok').style.display='block';
   });
 }
+
 var _calState={};
 var _months=["January","February","March","April","May","June","July","August","September","October","November","December"];
 var _days=["Su","Mo","Tu","We","Th","Fr","Sa"];
@@ -633,5 +715,5 @@ function selDay(id,d){
   document.getElementById(id).classList.remove('open');
 }
 document.addEventListener('click',function(e){if(!e.target.closest('.cal-wrap'))document.querySelectorAll('.cal-dropdown').forEach(function(el){el.classList.remove('open');});});
-
 </script>
+</html>
