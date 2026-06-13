@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RoomBridge — Find a Room in the US</title>
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="shortcut icon" type="image/png" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
-  <meta property="og:title" content="The smarter way to find a room in the US." />
-  <meta property="og:description" content="Skip the back-and-forth. We verify both sides — then send direct contact details. Fast, honest, done." />
-  <meta property="og:image" content="logo.png" />
-  <meta property="og:url" content="https://roombridge.vercel.app" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="RoomBridge" />
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoomBridge — Find a Room in the US</title>
+<link rel="icon" type="image/png" href="logo.png">
+<meta property="og:title" content="The smarter way to find a room in the US." />
+<meta property="og:description" content="Skip the back-and-forth. We verify both sides — then send direct contact details. Fast, honest, done." />
+<meta property="og:image" content="logo.png" />
+<meta property="og:url" content="https://roombridge.vercel.app" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="RoomBridge" />
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -25,7 +22,6 @@
   --text:#0F1B2D;--muted:#5a6a7e;--gold:#F5A623;
 }
 body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var(--white);padding-bottom:64px;}
-
 .desk-nav{background:var(--navy);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:100;}
 .logo{display:flex;align-items:center;gap:9px;cursor:pointer;}
 .logo-icon{width:30px;height:30px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -36,23 +32,17 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .nl:hover,.nl.on{background:rgba(255,255,255,.08);color:#fff;}
 .nav-cta{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-left:8px;}
 .nav-cta:hover{background:var(--pd);}
-
 .mob-topbar{display:none;background:var(--navy);padding:0 18px;height:52px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .mob-logo-text{font-family:'Sora',sans-serif;font-size:16px;color:#fff;font-weight:700;}
 .mob-logo-text em{color:var(--primary);font-style:normal;}
 .mob-cta{background:var(--primary);color:#fff;border:none;border-radius:7px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
-
 .mob-bottom{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);height:60px;z-index:200;align-items:center;justify-content:space-around;padding:0 4px;}
 .mbn-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:1;min-width:0;padding:8px 4px;cursor:pointer;border-radius:8px;transition:background .15s;}
-.mbn-item.on .mbn-icon{color:var(--primary);}
-.mbn-item.on .mbn-label{color:var(--primary);}
+.mbn-item.on .mbn-icon,.mbn-item.on .mbn-label{color:var(--primary);}
 .mbn-icon{color:#5a7090;transition:color .15s;}
 .mbn-label{font-size:10px;color:#5a7090;font-weight:600;transition:color .15s;text-align:center;}
-
-.pg{display:none;}
-.pg.on{display:block;animation:fi .2s ease;}
-@keyframes fi{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
-
+.pg{display:none !important;}
+.pg.on{display:block !important;}
 .hero{background:var(--navy);padding:52px 20px 44px;text-align:center;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:-60px;right:-80px;width:280px;height:280px;background:rgba(255,92,53,.07);border-radius:50%;}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,92,53,.15);color:#ff8f75;font-size:11px;font-weight:600;letter-spacing:.07em;padding:5px 13px;border-radius:20px;margin-bottom:18px;text-transform:uppercase;}
@@ -66,35 +56,29 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .hpills{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
 .hpill{display:flex;align-items:center;gap:6px;font-size:12px;color:#7a95b0;font-weight:500;}
 .hck{width:17px;height:17px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-
 .stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--navy2);border-bottom:1px solid rgba(255,255,255,.06);}
 .stat{padding:18px 10px;text-align:center;border-right:1px solid rgba(255,255,255,.06);}
 .stat:last-child{border-right:none;}
 .stn{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:var(--primary);line-height:1;}
 .stl{font-size:11px;color:#6a7f96;margin-top:3px;font-weight:500;}
-
 .sec{padding:52px 20px;max-width:860px;margin:0 auto;}
 .eyebrow{font-size:11px;font-weight:700;color:var(--primary);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
 .sec h2{font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-.3px;}
 .sec-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.7;}
-
 .ubox{background:var(--navy);border-radius:12px;padding:18px 20px;margin-bottom:28px;border-left:4px solid var(--primary);}
 .ubox p{font-size:13px;color:#8aa0b8;line-height:1.75;}
 .ubox strong{color:#fff;font-weight:600;}
-
 .steps{display:flex;flex-direction:column;}
 .step{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--border);}
 .step:last-child{border:none;}
 .step-num{width:36px;height:36px;background:var(--primary);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;margin-top:2px;}
 .step h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
 .step p{font-size:13px;color:var(--muted);line-height:1.6;}
-
 .fg2{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;}
 .fc{background:var(--bg);border-radius:12px;padding:18px 16px;border:1px solid var(--border);}
 .fc-icon{width:38px;height:38px;background:var(--primary);border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
 .fc h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
 .fc p{font-size:13px;color:var(--muted);line-height:1.5;}
-
 .rv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
 .rv{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;}
 .rv-stars{color:var(--gold);font-size:14px;margin-bottom:9px;}
@@ -103,20 +87,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .rv-av{width:34px;height:34px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;}
 .rv-name{font-size:13px;font-weight:700;color:var(--text);}
 .rv-loc{font-size:11px;color:var(--muted);}
-
-.pr-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:560px;margin:0 auto;}
-.prc{border:1.5px solid var(--border);border-radius:14px;padding:24px 20px;background:var(--white);}
-.prc.hot{border-color:var(--primary);background:var(--pp);}
-.pr-tag{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--primary);margin-bottom:6px;}
-.pr-amt{font-family:'Sora',sans-serif;font-size:40px;font-weight:700;color:var(--navy);line-height:1;}
-.pr-per{font-size:12px;color:var(--muted);margin:4px 0 12px;}
-.pr-desc{font-size:13px;color:#555;line-height:1.6;margin-bottom:14px;}
-.pr-feats{margin-bottom:18px;}
-.pr-feat{font-size:13px;color:var(--text);padding:4px 0;display:flex;align-items:center;gap:7px;}
-.ck{color:var(--green);font-weight:700;}
-.pr-btn{width:100%;padding:12px;background:var(--primary);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
-.pr-btn.nv{background:var(--navy);}
-
 .fw{max-width:540px;margin:0 auto;background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:28px 22px;}
 .fw h2{font-family:'Sora',sans-serif;font-size:20px;font-weight:700;margin-bottom:5px;}
 .fw .fsb{font-size:13px;color:var(--muted);margin-bottom:22px;}
@@ -129,38 +99,35 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .fnote{background:var(--navy);border-radius:9px;padding:12px 14px;font-size:13px;color:#8aa0b8;margin-bottom:18px;line-height:1.6;}
 .fnote strong{color:#fff;}
 .fsub{width:100%;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-top:4px;}
+.fsub:disabled{opacity:.6;cursor:not-allowed;}
 .fsub.sky{background:var(--sky);}
 .ok{background:var(--green-pale);border:1px solid #5dcaa5;border-radius:10px;padding:22px;text-align:center;display:none;}
 .ok h3{font-family:'Sora',sans-serif;font-size:18px;color:#0a5c42;margin-bottom:5px;}
 .ok p{font-size:13px;color:#0f6e56;line-height:1.6;}
-
-/* ── SOCIAL MEDIA HANDLES SECTION ── */
+/* Social handles */
 .social-section{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:14px;}
 .social-section-title{font-size:11px;font-weight:700;color:#7a8a9a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px;display:flex;align-items:center;gap:7px;}
-.social-section-title svg{flex-shrink:0;}
 .social-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .social-input-wrap{position:relative;}
-.social-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:16px;height:16px;display:flex;align-items:center;justify-content:center;pointer-events:none;}
+.social-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);pointer-events:none;display:flex;align-items:center;}
 .fi-social{width:100%;padding:10px 13px 10px 34px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;outline:none;background:#fff;transition:border-color .15s;}
 .fi-social:focus{border-color:var(--primary);}
-.fi-social::placeholder{color:#b0bec8;}
-
-/* ── PHOTO UPLOAD SECTION ── */
-.photo-upload-area{border:2px dashed var(--border);border-radius:10px;padding:20px 16px;text-align:center;cursor:pointer;transition:all .2s;background:#fff;margin-bottom:14px;position:relative;}
+/* Photo upload */
+.photo-upload-area{border:2px dashed var(--border);border-radius:10px;padding:20px 16px;text-align:center;cursor:pointer;transition:all .2s;background:#fff;margin-bottom:8px;position:relative;overflow:hidden;}
 .photo-upload-area:hover,.photo-upload-area.drag-over{border-color:var(--primary);background:var(--pp);}
 .photo-upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
 .pua-icon{width:40px;height:40px;background:var(--pp);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;}
 .pua-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;}
 .pua-sub{font-size:12px;color:var(--muted);}
-.photo-previews{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
-.photo-thumb{width:64px;height:64px;border-radius:8px;object-fit:cover;border:2px solid var(--border);position:relative;}
+.photo-previews{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+.photo-thumb{width:64px;height:64px;border-radius:8px;object-fit:cover;border:2px solid var(--border);}
 .photo-thumb-wrap{position:relative;display:inline-block;}
-.photo-remove{position:absolute;top:-5px;right:-5px;width:18px;height:18px;background:var(--primary);border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:700;line-height:1;}
-.upload-progress{display:none;margin-top:8px;}
+.photo-remove{position:absolute;top:-5px;right:-5px;width:18px;height:18px;background:var(--primary);border-radius:50%;border:none;cursor:pointer;color:#fff;font-weight:700;font-size:12px;line-height:18px;text-align:center;padding:0;}
+.upload-progress{display:none;margin-bottom:10px;}
 .upload-bar-wrap{background:#e0e7ef;border-radius:4px;height:4px;overflow:hidden;margin-bottom:4px;}
 .upload-bar{height:100%;background:var(--primary);border-radius:4px;transition:width .3s;width:0%;}
 .upload-status{font-size:11px;color:var(--muted);}
-
+/* Calendar */
 .cal-wrap{position:relative;display:inline-block;width:100%;}
 .cal-input{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;outline:none;background:#fff;cursor:pointer;box-sizing:border-box;}
 .cal-input:focus{border-color:var(--primary);}
@@ -178,7 +145,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .cal-cell.today{font-weight:700;color:var(--primary);}
 .cal-cell.past{color:#ccc;cursor:default;}
 .cal-cell.empty{cursor:default;}
-
+/* contact grid */
 .ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
 .ct-info{background:var(--navy);border-radius:14px;padding:24px;}
 .ct-info h3{font-family:'Sora',sans-serif;font-size:18px;color:#fff;margin-bottom:7px;}
@@ -189,33 +156,19 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .ct-val{font-size:13px;color:#a0b8cc;}
 .ct-form{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:22px;}
 .ct-form h3{font-family:'Sora',sans-serif;font-size:16px;margin-bottom:16px;}
-
 .ph{background:var(--navy);padding:36px 20px 28px;text-align:center;}
 .ph h1{font-family:'Sora',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.3px;}
 .ph p{font-size:14px;color:#7a95b0;}
-
 .cta-band{background:var(--primary);padding:48px 20px;text-align:center;}
 .cta-band h2{font-family:'Sora',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:9px;letter-spacing:-.3px;}
 .cta-band p{font-size:14px;color:rgba(255,255,255,.8);margin-bottom:24px;line-height:1.7;}
 .cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
 .cwb{background:#fff;color:var(--primary);border:none;border-radius:9px;padding:12px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
 .cdb{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4);border-radius:9px;padding:12px 22px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
-
-footer{background:var(--navy);padding:36px 20px 20px;}
-.ft-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.07);}
-.ft-brand{font-family:'Sora',sans-serif;font-size:17px;color:#fff;font-weight:700;}
-.ft-brand em{color:var(--primary);font-style:normal;}
-.ft-tag{font-size:12px;color:#4a6070;margin-top:3px;}
-.ft-links{display:flex;gap:14px;flex-wrap:wrap;}
-.ft-lnk{font-size:12px;color:#4a6070;cursor:pointer;font-weight:500;}
-.ft-lnk:hover{color:#fff;}
-.ft-copy{font-size:11px;color:#374b5e;margin-top:14px;}
-
-/* ── HOW IT WORKS PAGE ── */
+/* HIW */
 .hiw-tabs-row{display:flex;gap:8px;justify-content:center;margin-bottom:36px;}
 .hiw-tab{padding:9px 22px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--muted);transition:all .15s;font-family:'Plus Jakarta Sans',sans-serif;}
 .hiw-tab.on{background:var(--primary);color:#fff;border-color:var(--primary);}
-
 .hiw-steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-bottom:40px;}
 .hiw-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px;position:relative;}
 .hiw-step:not(:last-child)::after{content:'';position:absolute;top:23px;left:calc(50% + 24px);right:calc(-50% + 24px);height:1px;border-top:2px dashed #dce4ef;z-index:0;}
@@ -223,79 +176,48 @@ footer{background:var(--navy);padding:36px 20px 20px;}
 .hiw-num{position:absolute;top:-5px;right:-5px;width:18px;height:18px;border-radius:50%;background:var(--primary);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;}
 .hiw-step h3{font-size:13px;font-weight:700;color:var(--text);margin-bottom:5px;}
 .hiw-step p{font-size:12px;color:var(--muted);line-height:1.55;}
-
 .hiw-tab-content{display:none;}
 .hiw-tab-content.on{display:block;}
-
 .hiw-guarantee{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px;}
 .hiw-g{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:18px 16px;}
 .hiw-g-icon{width:36px;height:36px;background:var(--primary);border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
 .hiw-g h4{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;}
 .hiw-g p{font-size:12px;color:var(--muted);line-height:1.5;}
-
 .hiw-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:36px 0 0;}
-
-@media(max-width:640px){
+@media(max-width:768px){
   body{padding-bottom:80px;}
-  .desk-nav{display:none;}
-  .mob-topbar{display:flex;}
-  .mob-bottom{display:flex;}
-
+  .desk-nav{display:none!important;}
+  .mob-topbar{display:flex!important;}
+  .mob-bottom{display:flex!important;}
   .hero{padding:36px 16px 32px;}
   .hero h1{font-size:24px;}
   .hero-sub{font-size:13px;}
   .hero-btns{flex-direction:column;align-items:stretch;gap:8px;max-width:280px;margin-left:auto;margin-right:auto;margin-bottom:24px;}
-  .btn-p,.btn-g{padding:13px 16px;font-size:14px;}
-  .hpills{gap:10px;}
-  .hpill{font-size:11px;}
-
   .stats{grid-template-columns:repeat(2,1fr);}
-  .stat{padding:14px 8px;}
-  .stn{font-size:20px;}
-  .stl{font-size:10px;}
-
   .sec{padding:36px 16px;}
   .sec h2{font-size:20px;}
-
-  .fg2{grid-template-columns:1fr;}
-  .rv-grid{grid-template-columns:1fr;}
-  .pr-wrap{grid-template-columns:1fr;max-width:340px;}
-  .ct-grid{grid-template-columns:1fr;}
-
+  .fg2,.rv-grid{grid-template-columns:1fr;}
+  .ct-grid,.frow,.social-row{grid-template-columns:1fr;}
   .fw{padding:22px 16px;border-radius:12px;}
-  .frow{grid-template-columns:1fr;}
   .fw h2{font-size:18px;}
-  .social-row{grid-template-columns:1fr;}
-
-  .ft-top{flex-direction:column;gap:12px;}
-  .ft-links{gap:10px;}
-
   .ph{padding:28px 16px 22px;}
   .ph h1{font-size:22px;}
-
   .cta-band{padding:36px 16px;}
   .cta-band h2{font-size:20px;}
-  .cta-btns{flex-direction:column;align-items:center;gap:8px;}
+  .cta-btns{flex-direction:column;align-items:center;}
   .cwb,.cdb{width:100%;max-width:280px;}
-
   .hiw-steps-grid{grid-template-columns:1fr 1fr;gap:24px 8px;}
   .hiw-step:not(:last-child)::after{display:none;}
   .hiw-guarantee{grid-template-columns:1fr;}
 }
-
-@media(max-width:768px){
-  .desk-nav{display:none !important;}
-  .mob-topbar{display:flex !important;}
-  .mob-bottom{display:flex !important;}
-}
 </style>
+</head>
+<body>
 
 <!-- DESKTOP NAV -->
 <nav class="desk-nav">
   <div class="logo" onclick="go('home')">
-    <div class="logo-icon">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 11Q8 2 15 11" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="1" y="10" width="5" height="5" rx="1.5" fill="white"/><rect x="10" y="10" width="5" height="5" rx="1.5" fill="white"/></svg>
-    </div>
+    <div class="logo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 11Q8 2 15 11" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="1" y="10" width="5" height="5" rx="1.5" fill="white"/><rect x="10" y="10" width="5" height="5" rx="1.5" fill="white"/></svg></div>
     <div class="logo-text">Room<em>Bridge</em></div>
   </div>
   <div class="desk-links">
@@ -306,18 +228,16 @@ footer{background:var(--navy);padding:36px 20px 20px;}
     <span class="nl" id="nl-reviews" onclick="go('reviews')">Reviews</span>
     <span class="nl" id="nl-contact" onclick="go('contact')">Contact</span>
   </div>
-  <button class="nav-cta" onclick="go('renter')">Find a Room →</button>
+  <button class="nav-cta" onclick="go('renter')">Find a Room &rarr;</button>
 </nav>
 
 <!-- MOBILE TOP BAR -->
 <div class="mob-topbar">
   <div class="logo" onclick="go('home')">
-    <div class="logo-icon" style="width:26px;height:26px;border-radius:7px;">
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M1 11Q8 2 15 11" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="1" y="10" width="5" height="5" rx="1.5" fill="white"/><rect x="10" y="10" width="5" height="5" rx="1.5" fill="white"/></svg>
-    </div>
+    <div class="logo-icon" style="width:26px;height:26px;border-radius:7px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M1 11Q8 2 15 11" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="1" y="10" width="5" height="5" rx="1.5" fill="white"/><rect x="10" y="10" width="5" height="5" rx="1.5" fill="white"/></svg></div>
     <div class="mob-logo-text">Room<em>Bridge</em></div>
   </div>
-  <button class="mob-cta" onclick="go('renter')">Find a Room →</button>
+  <button class="mob-cta" onclick="go('renter')">Find a Room &rarr;</button>
 </div>
 
 <!-- MOBILE BOTTOM NAV -->
@@ -348,12 +268,12 @@ footer{background:var(--navy);padding:36px 20px 20px;}
   </div>
 </div>
 
-<!-- HOME -->
-<div class="pg on" id="pg-home">
+<!-- ═══ HOME ═══ -->
+<div class="pg on" id="pg-home" style="display:block;">
   <div class="hero">
-    <div class="hero-badge"><div class="bdot"></div>Verified · Direct · All 50 states</div>
+    <div class="hero-badge"><div class="bdot"></div>Verified &middot; Direct &middot; All 50 states</div>
     <h1>The smarter way to find a <span>room in the US.</span></h1>
-    <p class="hero-sub">Skip the back-and-forth. We verify both sides — then send direct contact details. Fast, honest, done.</p>
+    <p class="hero-sub">Skip the back-and-forth. We verify both sides &mdash; then send direct contact details. Fast, honest, done.</p>
     <div class="hero-btns">
       <button class="btn-p" onclick="go('renter')">Find a Room</button>
       <button class="btn-g" onclick="go('landlord')">List a Room</button>
@@ -373,13 +293,13 @@ footer{background:var(--navy);padding:36px 20px 20px;}
   </div>
   <div class="sec">
     <div class="eyebrow">Why RoomBridge is different</div>
-    <h2>Other platforms waste your time. We don't.</h2>
-    <div class="ubox"><p>Most room rental sites make you send a message, wait days, get ghosted, and repeat. <strong>RoomBridge is different.</strong> You fill a short form, we verify your details, and if you're genuine — we send you the landlord's direct phone + email within 24 hours. <strong>No waiting. No middlemen. No drama.</strong></p></div>
+    <h2>Other platforms waste your time. We don&rsquo;t.</h2>
+    <div class="ubox"><p>Most room rental sites make you send a message, wait days, get ghosted, and repeat. <strong>RoomBridge is different.</strong> You fill a short form, we verify your details, and if you&rsquo;re genuine &mdash; we send you the landlord&rsquo;s direct phone + email within 24 hours. <strong>No waiting. No middlemen. No drama.</strong></p></div>
     <div class="steps">
-      <div class="step"><div class="step-num">1</div><div><h3>Fill your details — 2 minutes</h3><p>Tell us your city, budget, and move-in date. We ask trust questions to filter fake requests before anything reaches a landlord.</p></div></div>
-      <div class="step"><div class="step-num">2</div><div><h3>We verify you're genuine</h3><p>Unlike Craigslist, we don't blindly forward requests. Every submission is reviewed. Only verified users get matched.</p></div></div>
-      <div class="step"><div class="step-num">3</div><div><h3>You get direct contact — fast</h3><p>Within 24 hours you get the landlord's real phone and email. Contact them directly — no bot, no middleman.</p></div></div>
-      <div class="step"><div class="step-num">4</div><div><h3>Move in — done</h3><p>Schedule a viewing, sign your lease. Most users move in within a week of submitting their form.</p></div></div>
+      <div class="step"><div class="step-num">1</div><div><h3>Fill your details &mdash; 2 minutes</h3><p>Tell us your city, budget, and move-in date. We ask trust questions to filter fake requests before anything reaches a landlord.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div><h3>We verify you&rsquo;re genuine</h3><p>Unlike Craigslist, we don&rsquo;t blindly forward requests. Every submission is reviewed. Only verified users get matched.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div><h3>You get direct contact &mdash; fast</h3><p>Within 24 hours you get the landlord&rsquo;s real phone and email. Contact them directly &mdash; no bot, no middleman.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div><h3>Move in &mdash; done</h3><p>Schedule a viewing, sign your lease. Most users move in within a week of submitting their form.</p></div></div>
     </div>
   </div>
   <div style="background:var(--bg);padding:48px 20px;">
@@ -388,10 +308,10 @@ footer{background:var(--navy);padding:36px 20px 20px;}
       <h2>Everything Craigslist should have been.</h2>
       <p class="sec-sub">Every feature saves you time and protects you from scams.</p>
       <div class="fg2">
-        <div class="fc"><div class="fc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Verified before contact</h3><p>Both sides verified before any contact is shared. Scams don't reach you.</p></div>
-        <div class="fc"><div class="fc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6.5" r="3.5" stroke="white" stroke-width="1.8" fill="none"/><path d="M2 16c0-3.5 3-6 7-6s7 2.5 7 6" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></div><h3>Direct contact always</h3><p>Real phone and email — not a platform DM. Talk to a real person directly.</p></div>
+        <div class="fc"><div class="fc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Verified before contact</h3><p>Both sides verified before any contact is shared. Scams don&rsquo;t reach you.</p></div>
+        <div class="fc"><div class="fc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6.5" r="3.5" stroke="white" stroke-width="1.8" fill="none"/><path d="M2 16c0-3.5 3-6 7-6s7 2.5 7 6" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></div><h3>Direct contact always</h3><p>Real phone and email &mdash; not a platform DM.</p></div>
         <div class="fc"><div class="fc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="white" stroke-width="1.8" fill="none"/><path d="M9 5.5v3.5l2 2" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3>24-hour guarantee</h3><p>We respond to every verified submission within 24 hours. No ghosting, ever.</p></div>
-        <div class="fc"><div class="fc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div><h3>All 50 US states</h3><p>SF to NYC to Austin — verified listings across every state.</p></div>
+        <div class="fc"><div class="fc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div><h3>All 50 US states</h3><p>SF to NYC to Austin &mdash; verified listings across every state.</p></div>
       </div>
     </div>
   </div>
@@ -399,9 +319,9 @@ footer{background:var(--navy);padding:36px 20px 20px;}
     <div class="eyebrow">Real people, real results</div>
     <h2>What renters and landlords say.</h2>
     <div class="rv-grid">
-      <div class="rv"><div class="rv-stars">★★★★★</div><div class="rv-text">"Spent 3 weeks on Craigslist getting ghosted. RoomBridge gave me 3 landlord numbers in 20 hours. Found my SF room in 2 days."</div><div class="rv-auth"><div class="rv-av">AR</div><div><div class="rv-name">Arjun R.</div><div class="rv-loc">San Francisco, CA</div></div></div></div>
-      <div class="rv"><div class="rv-stars">★★★★★</div><div class="rv-text">"New F1 student, terrified of scams. RoomBridge verified everything and gave me a real number. Peace of mind for $9."</div><div class="rv-auth"><div class="rv-av">PS</div><div><div class="rv-name">Priya S.</div><div class="rv-loc">New York, NY</div></div></div></div>
-      <div class="rv"><div class="rv-stars">★★★★★</div><div class="rv-text">"Listed my room and had 4 genuine contacts the next morning. All serious. Worth every dollar of that $19."</div><div class="rv-auth"><div class="rv-av">JM</div><div><div class="rv-name">James M.</div><div class="rv-loc">Austin, TX · Landlord</div></div></div></div>
+      <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"Spent 3 weeks on Craigslist getting ghosted. RoomBridge gave me 3 landlord numbers in 20 hours. Found my SF room in 2 days."</div><div class="rv-auth"><div class="rv-av">AR</div><div><div class="rv-name">Arjun R.</div><div class="rv-loc">San Francisco, CA</div></div></div></div>
+      <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"New F1 student, terrified of scams. RoomBridge verified everything and gave me a real number. Peace of mind for $9."</div><div class="rv-auth"><div class="rv-av">PS</div><div><div class="rv-name">Priya S.</div><div class="rv-loc">New York, NY</div></div></div></div>
+      <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"Listed my room and had 4 genuine contacts the next morning. All serious. Worth every dollar of that $19."</div><div class="rv-auth"><div class="rv-av">JM</div><div><div class="rv-name">James M.</div><div class="rv-loc">Austin, TX &middot; Landlord</div></div></div></div>
     </div>
   </div>
   <div class="cta-band">
@@ -414,57 +334,49 @@ footer{background:var(--navy);padding:36px 20px 20px;}
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     RENTER PAGE
-══════════════════════════════════════════ -->
+<!-- ═══ RENTER ═══ -->
 <div class="pg" id="pg-renter">
-  <div class="ph"><h1>Find a Room</h1><p>Fill this — get verified landlord contact within 24 hrs.</p></div>
+  <div class="ph"><h1>Find a Room</h1><p>Fill this &mdash; get verified landlord contact within 24 hrs.</p></div>
   <div class="sec">
     <div class="fw">
-      <h2>I'm looking for a room</h2>
+      <h2>I&rsquo;m looking for a room</h2>
       <p class="fsb">After payment, we review and send verified landlord contact (phone + email) within 24 hours.</p>
-      <div class="fnote"><strong>How it works:</strong> Fill form → We verify → You get direct landlord contact within 24 hrs. No platform chat. Real contact details.</div>
+      <div class="fnote"><strong>How it works:</strong> Fill form &rarr; We verify &rarr; You get direct landlord contact within 24 hrs.</div>
       <div id="rf">
-        <!-- Basic Info -->
         <div class="frow">
-          <div class="fgrp"><label class="fl">Full name</label><input class="fi" id="r-nm" placeholder="Your full name"/></div>
-          <div class="fgrp"><label class="fl">Email</label><input class="fi" type="email" id="r-em" placeholder="you@email.com"/></div>
+          <div class="fgrp"><label class="fl">Full name *</label><input class="fi" id="r-nm" placeholder="Your full name"/></div>
+          <div class="fgrp"><label class="fl">Email *</label><input class="fi" type="email" id="r-em" placeholder="you@email.com"/></div>
         </div>
         <div class="frow">
-          <div class="fgrp"><label class="fl">WhatsApp / Phone</label><input class="fi" id="r-ph" placeholder="+1 415 000 0000"/></div>
-          <div class="fgrp"><label class="fl">City & State</label><input class="fi" id="r-ct" placeholder="San Francisco, CA"/></div>
+          <div class="fgrp"><label class="fl">WhatsApp / Phone *</label><input class="fi" id="r-ph" placeholder="+1 415 000 0000"/></div>
+          <div class="fgrp"><label class="fl">City &amp; State *</label><input class="fi" id="r-ct" placeholder="San Francisco, CA"/></div>
         </div>
         <div class="frow">
-          <div class="fgrp"><label class="fl">Budget/month</label><select class="fs" id="r-bd"><option value="">Select</option><option>Under $800</option><option>$800–$1,200</option><option>$1,200–$1,800</option><option>$1,800–$2,500</option><option>$2,500+</option></select></div>
+          <div class="fgrp"><label class="fl">Budget/month *</label><select class="fs" id="r-bd"><option value="">Select</option><option>Under $800</option><option>$800&ndash;$1,200</option><option>$1,200&ndash;$1,800</option><option>$1,800&ndash;$2,500</option><option>$2,500+</option></select></div>
           <div class="fgrp"><label class="fl">Room type</label><select class="fs" id="r-tp"><option value="">Select</option><option>Private room</option><option>Shared room</option><option>Studio</option><option>1BHK</option><option>Any</option></select></div>
         </div>
         <div class="frow">
           <div class="fgrp"><label class="fl">Move-in date</label><div class="cal-wrap" id="w-rdt"><input class="cal-input" id="r-dt" placeholder="Select move-in date" readonly onclick="toggleCal('cal-rdt','w-rdt')"/><div class="cal-dropdown" id="cal-rdt"></div></div></div>
           <div class="fgrp"><label class="fl">Status</label><select class="fs" id="r-st"><option value="">Select</option><option>Employed full-time</option><option>Self-employed</option><option>Student (F1)</option><option>Student (domestic)</option><option>Other</option></select></div>
         </div>
-
-        <!-- Social Media Handles -->
+        <!-- Social handles -->
         <div class="social-section">
           <div class="social-section-title">
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="#FF5C35" stroke-width="1.4" fill="none"/><path d="M5 7.5h5M7.5 5v5" stroke="#FF5C35" stroke-width="1.4" stroke-linecap="round"/></svg>
-            Social Media Handles <span style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">(optional — helps verify your identity)</span>
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="#FF5C35" stroke-width="1.4" fill="none"/><circle cx="7.5" cy="7.5" r="2" fill="#FF5C35"/></svg>
+            Social Media Handles &nbsp;<span style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">(optional &mdash; helps verify your identity)</span>
           </div>
           <div class="social-row">
             <div class="fgrp" style="margin-bottom:0;">
               <label class="fl">Instagram</label>
               <div class="social-input-wrap">
-                <div class="social-icon">
-                  <svg width="14" height="14" fill="#E1306C" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                </div>
+                <div class="social-icon"><svg width="14" height="14" fill="#E1306C" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
                 <input class="fi-social" id="r-ig" placeholder="@yourhandle"/>
               </div>
             </div>
             <div class="fgrp" style="margin-bottom:0;">
               <label class="fl">Facebook</label>
               <div class="social-input-wrap">
-                <div class="social-icon">
-                  <svg width="14" height="14" fill="#1877F2" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </div>
+                <div class="social-icon"><svg width="14" height="14" fill="#1877F2" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
                 <input class="fi-social" id="r-fb" placeholder="facebook.com/yourname"/>
               </div>
             </div>
@@ -473,102 +385,86 @@ footer{background:var(--navy);padding:36px 20px 20px;}
             <div class="fgrp" style="margin-bottom:0;">
               <label class="fl">LinkedIn</label>
               <div class="social-input-wrap">
-                <div class="social-icon">
-                  <svg width="14" height="14" fill="#0A66C2" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </div>
-                <input class="fi-social" id="r-li" placeholder="linkedin.com/in/yourname"/>
+                <div class="social-icon"><svg width="14" height="14" fill="#0A66C2" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+                <input class="fi-social" id="r-li" placeholder="linkedin.com/in/name"/>
               </div>
             </div>
             <div class="fgrp" style="margin-bottom:0;">
               <label class="fl">Twitter / X</label>
               <div class="social-input-wrap">
-                <div class="social-icon">
-                  <svg width="14" height="14" fill="#000" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                </div>
+                <div class="social-icon"><svg width="14" height="14" fill="#000" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
                 <input class="fi-social" id="r-tw" placeholder="@yourhandle"/>
               </div>
             </div>
           </div>
         </div>
-
         <div class="fgrp"><label class="fl">Specific needs (optional)</label><textarea class="ft" id="r-nt" placeholder="e.g. pet-friendly, near BART, furnished..."></textarea></div>
-        <button class="fsub" onclick="subR()">Submit →</button>
+        <button class="fsub" id="r-btn" onclick="subR()">Submit &rarr;</button>
         <p style="font-size:12px;color:var(--muted);margin-top:8px;text-align:center;">Secure payment via PayPal. Contact within 24 hours.</p>
       </div>
-      <div class="ok" id="r-ok"><h3>You're on the list!</h3><p>After payment confirmation, verified landlord contact will be sent within 24 hours to your email and WhatsApp.</p></div>
+      <div class="ok" id="r-ok"><h3>You&rsquo;re on the list!</h3><p>After payment confirmation, verified landlord contact will be sent within 24 hours to your email and WhatsApp.</p></div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     LANDLORD PAGE
-══════════════════════════════════════════ -->
+<!-- ═══ LANDLORD ═══ -->
 <div class="pg" id="pg-landlord">
-  <div class="ph"><h1>List Your Room</h1><p>List your room — get verified renter contact within 24 hrs.</p></div>
+  <div class="ph"><h1>List Your Room</h1><p>List your room &mdash; get verified renter contact within 24 hrs.</p></div>
   <div class="sec">
     <div class="fw">
       <h2>I have a room to rent</h2>
       <p class="fsb">After our small matching fee, you receive direct contact details of verified, genuine renters only.</p>
-      <div class="fnote"><strong>How it works:</strong> List room → We verify → You get direct renter contact within 24 hrs. Only serious, verified people reach you.</div>
+      <div class="fnote"><strong>How it works:</strong> List room &rarr; We verify &rarr; You get direct renter contact within 24 hrs.</div>
       <div id="lf">
-        <!-- Basic Info -->
         <div class="frow">
-          <div class="fgrp"><label class="fl">Full name</label><input class="fi" id="l-nm" placeholder="Your full name"/></div>
-          <div class="fgrp"><label class="fl">Email</label><input class="fi" type="email" id="l-em" placeholder="you@email.com"/></div>
+          <div class="fgrp"><label class="fl">Full name *</label><input class="fi" id="l-nm" placeholder="Your full name"/></div>
+          <div class="fgrp"><label class="fl">Email *</label><input class="fi" type="email" id="l-em" placeholder="you@email.com"/></div>
         </div>
         <div class="frow">
-          <div class="fgrp"><label class="fl">Phone / WhatsApp</label><input class="fi" id="l-ph" placeholder="+1 415 000 0000"/></div>
-          <div class="fgrp"><label class="fl">Address / City</label><input class="fi" id="l-ct" placeholder="Mission St, SF, CA"/></div>
+          <div class="fgrp"><label class="fl">Phone / WhatsApp *</label><input class="fi" id="l-ph" placeholder="+1 415 000 0000"/></div>
+          <div class="fgrp"><label class="fl">Address / City *</label><input class="fi" id="l-ct" placeholder="Mission St, SF, CA"/></div>
         </div>
         <div class="frow">
-          <div class="fgrp"><label class="fl">Monthly rent</label><input class="fi" id="l-rt" placeholder="$1,200/month"/></div>
+          <div class="fgrp"><label class="fl">Monthly rent *</label><input class="fi" id="l-rt" placeholder="$1,200/month"/></div>
           <div class="fgrp"><label class="fl">Room type</label><select class="fs" id="l-tp"><option value="">Select</option><option>Private room</option><option>Shared room</option><option>Studio</option><option>Full apartment</option></select></div>
         </div>
         <div class="frow">
           <div class="fgrp"><label class="fl">Available from</label><div class="cal-wrap" id="w-ldt"><input class="cal-input" id="l-dt" placeholder="Select available date" readonly onclick="toggleCal('cal-ldt','w-ldt')"/><div class="cal-dropdown" id="cal-ldt"></div></div></div>
           <div class="fgrp"><label class="fl">Lease</label><select class="fs" id="l-ls"><option value="">Select</option><option>Month-to-month</option><option>3 months</option><option>6 months</option><option>1 year</option><option>Flexible</option></select></div>
         </div>
-
-        <!-- Room Photos Upload -->
+        <!-- Photo upload -->
         <div class="fgrp">
-          <label class="fl">Room Photos <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">(optional — max 5 photos, JPG/PNG, 10MB each)</span></label>
+          <label class="fl">Room Photos <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">(optional &mdash; max 5, JPG/PNG)</span></label>
           <div class="photo-upload-area" id="pua" ondragover="puaDrag(event)" ondragleave="puaDragLeave(event)" ondrop="puaDrop(event)">
             <input type="file" id="l-photos" accept="image/jpeg,image/png,image/webp" multiple onchange="puaChange(event)"/>
-            <div class="pua-icon">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 13V4M6 7l4-4 4 4" stroke="#FF5C35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 14v1a2 2 0 002 2h10a2 2 0 002-2v-1" stroke="#FF5C35" stroke-width="1.6" stroke-linecap="round"/></svg>
-            </div>
+            <div class="pua-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 13V4M6 7l4-4 4 4" stroke="#FF5C35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 14v1a2 2 0 002 2h10a2 2 0 002-2v-1" stroke="#FF5C35" stroke-width="1.6" stroke-linecap="round"/></svg></div>
             <div class="pua-title">Click to upload or drag photos here</div>
-            <div class="pua-sub">JPG, PNG up to 10MB · Max 5 photos</div>
+            <div class="pua-sub">JPG, PNG up to 10MB &middot; Max 5 photos</div>
           </div>
           <div class="photo-previews" id="photo-previews"></div>
           <div class="upload-progress" id="upload-progress">
             <div class="upload-bar-wrap"><div class="upload-bar" id="upload-bar"></div></div>
-            <div class="upload-status" id="upload-status">Uploading photos…</div>
+            <div class="upload-status" id="upload-status">Uploading photos&hellip;</div>
           </div>
         </div>
-
-        <!-- Social Media Handles -->
+        <!-- Social handles -->
         <div class="social-section">
           <div class="social-section-title">
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="#FF5C35" stroke-width="1.4" fill="none"/><path d="M5 7.5h5M7.5 5v5" stroke="#FF5C35" stroke-width="1.4" stroke-linecap="round"/></svg>
-            Social Media Handles <span style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">(optional — builds trust with renters)</span>
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="#FF5C35" stroke-width="1.4" fill="none"/><circle cx="7.5" cy="7.5" r="2" fill="#FF5C35"/></svg>
+            Social Media Handles &nbsp;<span style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">(optional &mdash; builds trust with renters)</span>
           </div>
           <div class="social-row">
             <div class="fgrp" style="margin-bottom:0;">
               <label class="fl">Instagram</label>
               <div class="social-input-wrap">
-                <div class="social-icon">
-                  <svg width="14" height="14" fill="#E1306C" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                </div>
+                <div class="social-icon"><svg width="14" height="14" fill="#E1306C" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
                 <input class="fi-social" id="l-ig" placeholder="@yourhandle"/>
               </div>
             </div>
             <div class="fgrp" style="margin-bottom:0;">
               <label class="fl">Facebook</label>
               <div class="social-input-wrap">
-                <div class="social-icon">
-                  <svg width="14" height="14" fill="#1877F2" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </div>
+                <div class="social-icon"><svg width="14" height="14" fill="#1877F2" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
                 <input class="fi-social" id="l-fb" placeholder="facebook.com/yourname"/>
               </div>
             </div>
@@ -577,26 +473,21 @@ footer{background:var(--navy);padding:36px 20px 20px;}
             <div class="fgrp" style="margin-bottom:0;">
               <label class="fl">LinkedIn</label>
               <div class="social-input-wrap">
-                <div class="social-icon">
-                  <svg width="14" height="14" fill="#0A66C2" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </div>
-                <input class="fi-social" id="l-li" placeholder="linkedin.com/in/yourname"/>
+                <div class="social-icon"><svg width="14" height="14" fill="#0A66C2" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+                <input class="fi-social" id="l-li" placeholder="linkedin.com/in/name"/>
               </div>
             </div>
             <div class="fgrp" style="margin-bottom:0;">
               <label class="fl">Twitter / X</label>
               <div class="social-input-wrap">
-                <div class="social-icon">
-                  <svg width="14" height="14" fill="#000" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                </div>
+                <div class="social-icon"><svg width="14" height="14" fill="#000" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
                 <input class="fi-social" id="l-tw" placeholder="@yourhandle"/>
               </div>
             </div>
           </div>
         </div>
-
         <div class="fgrp"><label class="fl">Room details (optional)</label><textarea class="ft" id="l-nt" placeholder="furnished, parking, utilities included, pets ok..."></textarea></div>
-        <button class="fsub sky" onclick="subL()">List →</button>
+        <button class="fsub sky" id="l-btn" onclick="subL()">List &rarr;</button>
         <p style="font-size:12px;color:var(--muted);margin-top:8px;text-align:center;">Secure payment via PayPal. Renter details within 24 hours.</p>
       </div>
       <div class="ok" id="l-ok"><h3>Room listed!</h3><p>After payment confirmation, verified renter contact will be sent within 24 hours.</p></div>
@@ -604,72 +495,69 @@ footer{background:var(--navy);padding:36px 20px 20px;}
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
+<!-- ═══ HOW IT WORKS ═══ -->
 <div class="pg" id="pg-howitworks">
-  <div class="ph">
-    <h1>How It Works</h1>
-    <p>From signup to move-in — most users are done in under a week.</p>
-  </div>
+  <div class="ph"><h1>How It Works</h1><p>From signup to move-in &mdash; most users are done in under a week.</p></div>
   <div class="sec">
     <div class="eyebrow">Simple process</div>
     <h2>Four steps. Direct contact. Zero drama.</h2>
     <p class="sec-sub">Choose your role below to see exactly what happens after you submit.</p>
     <div class="hiw-tabs-row">
-      <button class="hiw-tab on" onclick="hiwTab('renter',this)">I'm a Renter</button>
-      <button class="hiw-tab" onclick="hiwTab('landlord',this)">I'm a Landlord</button>
+      <button class="hiw-tab on" onclick="hiwTab('renter',this)">I&rsquo;m a Renter</button>
+      <button class="hiw-tab" onclick="hiwTab('landlord',this)">I&rsquo;m a Landlord</button>
     </div>
     <div class="hiw-tab-content on" id="hiw-renter">
       <div class="hiw-steps-grid">
         <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">1</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="4" y="3" width="14" height="16" rx="2" stroke="#FF5C35" stroke-width="1.7" fill="none"/><path d="M7 8h8M7 11h8M7 14h5" stroke="#FF5C35" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Fill your details</h3><p>City, budget, move-in date, and a few trust questions. Takes 2 minutes.</p></div>
-        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">2</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="7.5" stroke="#FF5C35" stroke-width="1.7" fill="none"/><path d="M8 11l2.5 2.5 4-4" stroke="#FF5C35" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Pay &amp; get verified</h3><p>Secure $9 one-time payment via PayPal. We review your submission to confirm you're genuine.</p></div>
-        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">3</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 4h14v11H4z" stroke="#FF5C35" stroke-width="1.7" rx="2" fill="none"/><path d="M8 19h6M11 15v4" stroke="#FF5C35" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Get direct contact</h3><p>Within 24 hours you receive the landlord's real phone and email. No middleman.</p></div>
-        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">4</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 12l4 4 10-9" stroke="#FF5C35" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Move in — done</h3><p>Schedule a viewing, sign your lease. Most renters move in within a week.</p></div>
+        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">2</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="7.5" stroke="#FF5C35" stroke-width="1.7" fill="none"/><path d="M8 11l2.5 2.5 4-4" stroke="#FF5C35" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Pay &amp; get verified</h3><p>Secure $9 one-time payment via PayPal.</p></div>
+        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">3</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 4h14v11H4z" stroke="#FF5C35" stroke-width="1.7" rx="2" fill="none"/><path d="M8 19h6M11 15v4" stroke="#FF5C35" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Get direct contact</h3><p>Within 24 hours you receive the landlord&rsquo;s real phone and email.</p></div>
+        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">4</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 12l4 4 10-9" stroke="#FF5C35" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Move in &mdash; done</h3><p>Schedule a viewing, sign your lease. Most renters move in within a week.</p></div>
       </div>
     </div>
     <div class="hiw-tab-content" id="hiw-landlord">
       <div class="hiw-steps-grid">
-        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">1</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 11L11 4l8 7v7H14v-5H8v5H3V11z" stroke="#FF5C35" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div><h3>List your room</h3><p>Share address, rent, availability, and lease type. Quick 2-minute form.</p></div>
-        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">2</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="7" width="16" height="11" rx="2" stroke="#FF5C35" stroke-width="1.7" fill="none"/><path d="M7 7V5a4 4 0 018 0v2" stroke="#FF5C35" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Pay &amp; submit</h3><p>One-time $19 fee via PayPal. We verify your listing is genuine before matching.</p></div>
-        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">3</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" stroke="#FF5C35" stroke-width="1.7" fill="none"/><path d="M4 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#FF5C35" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></div><h3>We screen renters</h3><p>Every renter is verified before their contact reaches you. No time-wasters, no scams.</p></div>
-        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">4</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 12l4 4 10-9" stroke="#FF5C35" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Get genuine leads</h3><p>Receive verified renter contact within 24 hours. Talk to them directly — no platform chat.</p></div>
+        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">1</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 11L11 4l8 7v7H14v-5H8v5H3V11z" stroke="#FF5C35" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div><h3>List your room</h3><p>Share address, rent, availability, and lease type.</p></div>
+        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">2</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="7" width="16" height="11" rx="2" stroke="#FF5C35" stroke-width="1.7" fill="none"/><path d="M7 7V5a4 4 0 018 0v2" stroke="#FF5C35" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Pay &amp; submit</h3><p>One-time $19 fee via PayPal.</p></div>
+        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">3</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" stroke="#FF5C35" stroke-width="1.7" fill="none"/><path d="M4 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#FF5C35" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></div><h3>We screen renters</h3><p>Every renter is verified before their contact reaches you.</p></div>
+        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">4</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 12l4 4 10-9" stroke="#FF5C35" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Get genuine leads</h3><p>Receive verified renter contact within 24 hours.</p></div>
       </div>
     </div>
     <div class="eyebrow" style="margin-top:48px;">Our guarantee</div>
     <h2 style="margin-bottom:20px;">What we promise every time.</h2>
     <div class="hiw-guarantee">
-      <div class="hiw-g"><div class="hiw-g-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="white" stroke-width="1.8" fill="none"/><path d="M9 5.5v3.5l2 2" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></div><h4>24-hour response</h4><p>Every verified submission gets a response within 24 hours. No ghosting, ever.</p></div>
-      <div class="hiw-g"><div class="hiw-g-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Zero fake listings</h4><p>Both sides are verified before any contact is shared. Scams never reach you.</p></div>
-      <div class="hiw-g"><div class="hiw-g-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6.5" r="3.5" stroke="white" stroke-width="1.8" fill="none"/><path d="M2 16c0-3.5 3-6 7-6s7 2.5 7 6" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></div><h4>Real humans</h4><p>Questions? We reply within 24 hours. Real people review every submission.</p></div>
+      <div class="hiw-g"><div class="hiw-g-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="white" stroke-width="1.8" fill="none"/><path d="M9 5.5v3.5l2 2" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></div><h4>24-hour response</h4><p>Every verified submission gets a response within 24 hours.</p></div>
+      <div class="hiw-g"><div class="hiw-g-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9l4.5 4.5 7.5-8" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Zero fake listings</h4><p>Both sides are verified before any contact is shared.</p></div>
+      <div class="hiw-g"><div class="hiw-g-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6.5" r="3.5" stroke="white" stroke-width="1.8" fill="none"/><path d="M2 16c0-3.5 3-6 7-6s7 2.5 7 6" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></div><h4>Real humans</h4><p>Real people review every submission.</p></div>
     </div>
     <div class="hiw-cta">
-      <button class="btn-p" onclick="go('renter')">Find a Room →</button>
+      <button class="btn-p" onclick="go('renter')">Find a Room &rarr;</button>
       <button class="btn-g" style="background:var(--navy);border-color:var(--navy);" onclick="go('landlord')">List a Room</button>
     </div>
   </div>
 </div>
 
-<!-- REVIEWS -->
+<!-- ═══ REVIEWS ═══ -->
 <div class="pg" id="pg-reviews">
   <div class="ph"><h1>Real reviews</h1><p>What renters and landlords across the US say.</p></div>
   <div class="sec">
     <div class="rv-grid">
-      <div class="rv"><div class="rv-stars">★★★★★</div><div class="rv-text">"Spent 3 weeks on Craigslist getting ghosted. RoomBridge gave me 3 landlord numbers in 20 hours. Found my SF room in 2 days."</div><div class="rv-auth"><div class="rv-av">AR</div><div><div class="rv-name">Taylor Herr</div><div class="rv-loc">San Francisco, CA · Renter</div></div></div></div>
-      <div class="rv"><div class="rv-stars">★★★★★</div><div class="rv-text">"New F1 student, terrified of scams. RoomBridge verified everything. Peace of mind for $9 — incredible."</div><div class="rv-auth"><div class="rv-av">PS</div><div><div class="rv-name">Caroline McCarthy</div><div class="rv-loc">New York, NY · Renter</div></div></div></div>
-      <div class="rv"><div class="rv-stars">★★★★★</div><div class="rv-text">"Listed my room, had 4 genuine renter contacts next morning. All serious. Worth every dollar of $19."</div><div class="rv-auth"><div class="rv-av">JM</div><div><div class="rv-name">James M.</div><div class="rv-loc">Austin, TX · Landlord</div></div></div></div>
-      <div class="rv"><div class="rv-stars">★★★★★</div><div class="rv-text">"Moving from India to California for work. RoomBridge had me a confirmed room before I even landed."</div><div class="rv-auth"><div class="rv-av">VK</div><div><div class="rv-name">Ana Natalia</div><div class="rv-loc">Sunnyvale, CA · Renter</div></div></div></div>
-      <div class="rv"><div class="rv-stars">★★★★★</div><div class="rv-text">"My last Craigslist tenant was a nightmare. RoomBridge sends verified, professional renters only. Never going back."</div><div class="rv-auth"><div class="rv-av">SL</div><div><div class="rv-name">Sandra L.</div><div class="rv-loc">Chicago, IL · Landlord</div></div></div></div>
-      <div class="rv"><div class="rv-stars">★★★★★</div><div class="rv-text">"Paid $9, got a landlord number in 18 hours, viewed next day, moved in that week. Fastest room hunt ever."</div><div class="rv-auth"><div class="rv-av">RN</div><div><div class="rv-name">Maria N.</div><div class="rv-loc">Seattle, WA · Renter</div></div></div></div>
+      <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"Spent 3 weeks on Craigslist getting ghosted. RoomBridge gave me 3 landlord numbers in 20 hours. Found my SF room in 2 days."</div><div class="rv-auth"><div class="rv-av">TH</div><div><div class="rv-name">Taylor Herr</div><div class="rv-loc">San Francisco, CA &middot; Renter</div></div></div></div>
+      <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"New F1 student, terrified of scams. RoomBridge verified everything. Peace of mind for $9 &mdash; incredible."</div><div class="rv-auth"><div class="rv-av">CM</div><div><div class="rv-name">Caroline McCarthy</div><div class="rv-loc">New York, NY &middot; Renter</div></div></div></div>
+      <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"Listed my room, had 4 genuine renter contacts next morning. All serious. Worth every dollar of $19."</div><div class="rv-auth"><div class="rv-av">JM</div><div><div class="rv-name">James M.</div><div class="rv-loc">Austin, TX &middot; Landlord</div></div></div></div>
+      <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"Moving from India to California for work. RoomBridge had me a confirmed room before I even landed."</div><div class="rv-auth"><div class="rv-av">AN</div><div><div class="rv-name">Ana Natalia</div><div class="rv-loc">Sunnyvale, CA &middot; Renter</div></div></div></div>
+      <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"My last Craigslist tenant was a nightmare. RoomBridge sends verified, professional renters only. Never going back."</div><div class="rv-auth"><div class="rv-av">SL</div><div><div class="rv-name">Sandra L.</div><div class="rv-loc">Chicago, IL &middot; Landlord</div></div></div></div>
+      <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"Paid $9, got a landlord number in 18 hours, viewed next day, moved in that week. Fastest room hunt ever."</div><div class="rv-auth"><div class="rv-av">MN</div><div><div class="rv-name">Maria N.</div><div class="rv-loc">Seattle, WA &middot; Renter</div></div></div></div>
     </div>
   </div>
 </div>
 
-<!-- CONTACT -->
+<!-- ═══ CONTACT ═══ -->
 <div class="pg" id="pg-contact">
   <div class="ph"><h1>Contact us</h1><p>Questions? We respond within 24 hours.</p></div>
   <div class="sec">
     <div class="ct-grid">
       <div class="ct-info">
-        <h3>We're here to help.</h3>
+        <h3>We&rsquo;re here to help.</h3>
         <p>Question about your submission, payment, or how RoomBridge works? We reply within 24 hours.</p>
         <div class="ct-item"><div class="ct-ic"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="#FF5C35" stroke-width="1.4" fill="none"/><path d="M7.5 4v3.5l2 1.5" stroke="#FF5C35" stroke-width="1.4" stroke-linecap="round"/></svg></div><div><div class="ct-lbl">Response time</div><div class="ct-val">Within 24 hours</div></div></div>
       </div>
@@ -682,7 +570,7 @@ footer{background:var(--navy);padding:36px 20px 20px;}
           <div class="fgrp"><label class="fl">Message</label><textarea class="ft" id="c-ms" placeholder="How can we help?"></textarea></div>
           <button class="fsub" onclick="subC()">Send Message</button>
         </div>
-        <div class="ok" id="c-ok"><h3>Message sent!</h3><p>We'll reply within 24 hours to your email.</p></div>
+        <div class="ok" id="c-ok"><h3>Message sent!</h3><p>We&rsquo;ll reply within 24 hours to your email.</p></div>
       </div>
     </div>
   </div>
@@ -694,128 +582,260 @@ footer{background:var(--navy);padding:36px 20px 20px;}
       <p style="font-size:22px;font-weight:700;margin:0 0 6px;color:#fff;">Room<span style="color:#f97316;">Bridge</span></p>
       <p style="font-size:13px;color:#94a3b8;margin:0 0 20px;">The smarter way to find a room in the US.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a href="https://www.instagram.com/roombridge.vercel.app/" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;font-size:13px;color:#e2e8f0;text-decoration:none;">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          Instagram
-        </a>
-        <a href="https://www.facebook.com/groups/31743317415255510" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;font-size:13px;color:#e2e8f0;text-decoration:none;">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          Facebook
-        </a>
+        <a href="https://www.instagram.com/roombridge.vercel.app/" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;font-size:13px;color:#e2e8f0;text-decoration:none;">Instagram</a>
+        <a href="https://www.facebook.com/groups/31743317415255510" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;font-size:13px;color:#e2e8f0;text-decoration:none;">Facebook</a>
       </div>
     </div>
     <div>
       <p style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#f97316;margin:0 0 14px;">Contact Us</p>
-      <div style="display:flex;align-items:flex-start;gap:10px;">
-        <div style="width:20px;height:20px;border-radius:50%;background:rgba(249,115,22,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
-          <svg width="11" height="11" fill="#f97316" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </div>
-        <div style="font-size:13px;color:#cbd5e1;line-height:1.5;"><span style="font-size:12px;color:#64748b;">We reply within 24 hours</span></div>
-      </div>
+      <p style="font-size:12px;color:#64748b;">We reply within 24 hours</p>
     </div>
   </div>
   <div style="display:flex;align-items:center;justify-content:space-between;padding-top:22px;flex-wrap:wrap;gap:10px;">
-    <p style="font-size:12px;color:#64748b;margin:0;">© 2026 RoomBridge</p>
+    <p style="font-size:12px;color:#64748b;margin:0;">&copy; 2026 RoomBridge</p>
     <div style="display:inline-flex;gap:6px;align-items:center;font-size:12px;color:#64748b;">
-      <span>Verified rooms</span><span style="color:#334155;">·</span><span>Direct contact</span><span style="color:#334155;">·</span><span>All 50 US states</span>
+      <span>Verified rooms</span><span style="color:#334155;">&middot;</span><span>Direct contact</span><span style="color:#334155;">&middot;</span><span>All 50 US states</span>
     </div>
   </div>
 </footer>
 
 <script>
-// ══════════════════════════════════════════
-// CONFIG — replace with your actual values
-// ══════════════════════════════════════════
 var PP_R = "https://www.paypal.com/ncp/payment/EHAAXMCW2V5JS";
 var PP_L = "https://www.paypal.com/ncp/payment/BP2P2LBJYHP8A";
-var SH   = "https://script.google.com/macros/s/AKfycbzczyd-hX22xTKUFi34mBgi4c80th1E4NaCGNmUmlMYHIWjkZvIP0OIFSz6gXkpSLzTGA/exec";
-
-// ══════════════════════════════════════════
-// GOOGLE DRIVE PHOTO UPLOAD
-// Replace DRIVE_UPLOAD_URL with your Apps Script web app URL
-// that handles multipart file uploads to Drive.
-// ══════════════════════════════════════════
+var SH   = "https://script.google.com/macros/s/AKfycbxMAO5djDP4V0F9yhVYXnPdN7aQadiC6OIUJEZCMsyhkbSk4UsdsecVSL0AH_OzX_n8Aw/exec";
 var DRIVE_UPLOAD_URL = "https://script.google.com/macros/s/AKfycbxMAO5djDP4V0F9yhVYXnPdN7aQadiC6OIUJEZCMsyhkbSk4UsdsecVSL0AH_OzX_n8Aw/exec";
 
-// ── Photo upload state ──
-var _selectedPhotos = [];
+// ── Navigation ──────────────────────────────
+function go(p) {
+  // Hide all pages
+  document.querySelectorAll('.pg').forEach(function(el) {
+    el.style.display = 'none';
+    el.classList.remove('on');
+  });
+  // Reset nav highlights
+  document.querySelectorAll('.nl, .mbn-item').forEach(function(el) { el.classList.remove('on'); });
 
-function puaChange(e) {
-  var files = Array.from(e.target.files);
-  addPhotos(files);
+  // Show target page
+  var pg = document.getElementById('pg-' + p);
+  if (pg) {
+    pg.style.display = 'block';
+    pg.classList.add('on');
+  }
+
+  // Highlight nav links
+  var n = document.getElementById('nl-' + p); if (n) n.classList.add('on');
+  var m = document.getElementById('mb-' + p); if (m) m.classList.add('on');
+
+  // Scroll after render
+  setTimeout(function() { window.scrollTo(0, 0); }, 10);
 }
-function puaDrag(e) {
-  e.preventDefault();
-  document.getElementById('pua').classList.add('drag-over');
+
+function hiwTab(tab, btn) {
+  document.querySelectorAll('.hiw-tab-content').forEach(function(e) { e.classList.remove('on'); });
+  document.querySelectorAll('.hiw-tab').forEach(function(e) { e.classList.remove('on'); });
+  document.getElementById('hiw-' + tab).classList.add('on');
+  btn.classList.add('on');
 }
-function puaDragLeave(e) {
-  document.getElementById('pua').classList.remove('drag-over');
+
+// ── Sheet send ──────────────────────────────
+function send(d, cb) {
+  fetch(SH + '?' + new URLSearchParams(d).toString(), { method: 'GET', mode: 'no-cors' })
+    .then(cb).catch(cb);
 }
+
+// ── Renter submit ───────────────────────────
+function subR() {
+  var nm = document.getElementById('r-nm').value.trim();
+  var em = document.getElementById('r-em').value.trim();
+  var ph = document.getElementById('r-ph').value.trim();
+  var ct = document.getElementById('r-ct').value.trim();
+  var bd = document.getElementById('r-bd').value;
+  if (!nm || !em || !ph || !ct || !bd) { alert('Please fill all required fields (marked *).'); return; }
+  var btn = document.getElementById('r-btn');
+  btn.disabled = true; btn.textContent = 'Submitting...';
+  send({
+    Type: 'Renter', Name: nm, Email: em, Phone: ph, City: ct, Budget: bd,
+    RoomType:  document.getElementById('r-tp').value,
+    MoveIn:    document.getElementById('r-dt').value,
+    Status:    document.getElementById('r-st').value,
+    Instagram: document.getElementById('r-ig').value.trim(),
+    Facebook:  document.getElementById('r-fb').value.trim(),
+    LinkedIn:  document.getElementById('r-li').value.trim(),
+    Twitter:   document.getElementById('r-tw').value.trim(),
+    Notes:     document.getElementById('r-nt').value,
+    Timestamp: new Date().toLocaleString()
+  }, function() {
+    document.getElementById('rf').style.display = 'none';
+    document.getElementById('r-ok').style.display = 'block';
+    setTimeout(function() { window.open(PP_R, '_blank'); }, 400);
+  });
+}
+
+// ── Photo upload state ──────────────────────
+var _photos = [];
+
+function puaChange(e) { addPhotos(Array.from(e.target.files)); }
+function puaDrag(e) { e.preventDefault(); document.getElementById('pua').classList.add('drag-over'); }
+function puaDragLeave() { document.getElementById('pua').classList.remove('drag-over'); }
 function puaDrop(e) {
   e.preventDefault();
   document.getElementById('pua').classList.remove('drag-over');
-  var files = Array.from(e.dataTransfer.files).filter(function(f){
-    return f.type.startsWith('image/');
-  });
-  addPhotos(files);
+  addPhotos(Array.from(e.dataTransfer.files).filter(function(f) { return f.type.startsWith('image/'); }));
 }
 function addPhotos(files) {
   files.forEach(function(f) {
-    if (_selectedPhotos.length >= 5) return;
+    if (_photos.length >= 5) return;
     if (f.size > 10 * 1024 * 1024) { alert(f.name + ' is too large (max 10MB).'); return; }
-    _selectedPhotos.push(f);
+    _photos.push(f);
   });
   renderPreviews();
 }
 function renderPreviews() {
   var wrap = document.getElementById('photo-previews');
   wrap.innerHTML = '';
-  _selectedPhotos.forEach(function(f, i) {
+  _photos.forEach(function(f, i) {
     var url = URL.createObjectURL(f);
-    var div = document.createElement('div');
-    div.className = 'photo-thumb-wrap';
-    div.innerHTML = '<img class="photo-thumb" src="' + url + '"/>' +
-      '<button class="photo-remove" onclick="removePhoto(' + i + ')">×</button>';
-    wrap.appendChild(div);
+    var d = document.createElement('div');
+    d.className = 'photo-thumb-wrap';
+    d.innerHTML = '<img class="photo-thumb" src="' + url + '"/><button class="photo-remove" onclick="removePhoto(' + i + ')">x</button>';
+    wrap.appendChild(d);
   });
 }
-function removePhoto(i) {
-  _selectedPhotos.splice(i, 1);
-  renderPreviews();
-}
+function removePhoto(i) { _photos.splice(i, 1); renderPreviews(); }
 
-// Upload photos to Google Drive via Apps Script
-// The Apps Script must accept multipart/form-data with fields: name, city, file_N
 function uploadPhotos(name, city, callback) {
-  if (_selectedPhotos.length === 0) { callback([]); return; }
-
+  if (_photos.length === 0) { callback([]); return; }
   var prog = document.getElementById('upload-progress');
   var bar  = document.getElementById('upload-bar');
   var stat = document.getElementById('upload-status');
   prog.style.display = 'block';
-  stat.textContent = 'Uploading photos…';
+  stat.textContent = 'Uploading photos...';
   bar.style.width = '10%';
-
-  var formData = new FormData();
-  formData.append('action', 'uploadPhotos');
-  formData.append('name', name);
-  formData.append('city', city);
-  _selectedPhotos.forEach(function(f, i) {
-    formData.append('file_' + i, f, f.name);
-  });
-
+  var fd = new FormData();
+  fd.append('action', 'uploadPhotos');
+  fd.append('name', name);
+  fd.append('city', city);
+  _photos.forEach(function(f, i) { fd.append('file_' + i, f, f.name); });
   var xhr = new XMLHttpRequest();
   xhr.open('POST', DRIVE_UPLOAD_URL, true);
   xhr.upload.onprogress = function(e) {
-    if (e.lengthComputable) {
-      bar.style.width = Math.round((e.loaded / e.total) * 85) + '%';
-    }
+    if (e.lengthComputable) bar.style.width = Math.round((e.loaded / e.total) * 85) + '%';
   };
   xhr.onload = function() {
     bar.style.width = '100%';
-    stat.textContent = 'Photos uploaded ✓';
-    try {
-      var res = JSON.parse(xhr.responseText);
-      callback(res.urls || []);
-    } catch(err) {
-   
+    stat.textContent = 'Photos uploaded!';
+    try { callback(JSON.parse(xhr.responseText).urls || []); }
+    catch(e) { callback([]); }
+  };
+  xhr.onerror = function() { stat.textContent = 'Photo upload failed - form will still submit.'; callback([]); };
+  xhr.send(fd);
+}
+
+// ── Landlord submit ─────────────────────────
+function subL() {
+  var nm = document.getElementById('l-nm').value.trim();
+  var em = document.getElementById('l-em').value.trim();
+  var ph = document.getElementById('l-ph').value.trim();
+  var ct = document.getElementById('l-ct').value.trim();
+  var rt = document.getElementById('l-rt').value.trim();
+  if (!nm || !em || !ph || !ct || !rt) { alert('Please fill all required fields (marked *).'); return; }
+  var btn = document.getElementById('l-btn');
+  btn.disabled = true; btn.textContent = 'Submitting...';
+  uploadPhotos(nm, ct, function(photoUrls) {
+    send({
+      Type: 'Landlord', Name: nm, Email: em, Phone: ph, City: ct, Rent: rt,
+      RoomType:      document.getElementById('l-tp').value,
+      AvailableFrom: document.getElementById('l-dt').value,
+      Lease:         document.getElementById('l-ls').value,
+      Instagram:     document.getElementById('l-ig').value.trim(),
+      Facebook:      document.getElementById('l-fb').value.trim(),
+      LinkedIn:      document.getElementById('l-li').value.trim(),
+      Twitter:       document.getElementById('l-tw').value.trim(),
+      Photos:        photoUrls.join(', '),
+      Notes:         document.getElementById('l-nt').value,
+      Timestamp:     new Date().toLocaleString()
+    }, function() {
+      document.getElementById('lf').style.display = 'none';
+      document.getElementById('l-ok').style.display = 'block';
+      setTimeout(function() { window.open(PP_L, '_blank'); }, 400);
+    });
+  });
+}
+
+// ── Contact submit ──────────────────────────
+function subC() {
+  var nm = document.getElementById('c-nm').value.trim();
+  var em = document.getElementById('c-em').value.trim();
+  var ms = document.getElementById('c-ms').value.trim();
+  if (!nm || !em || !ms) { alert('Please fill all fields.'); return; }
+  send({
+    Type: 'Contact', Name: nm, Email: em,
+    Subject:   document.getElementById('c-sb').value,
+    Message:   ms,
+    Timestamp: new Date().toLocaleString()
+  }, function() {
+    document.getElementById('cf').style.display = 'none';
+    document.getElementById('c-ok').style.display = 'block';
+  });
+}
+
+// ── Calendar ────────────────────────────────
+var _calState = {};
+var _months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var _days   = ["Su","Mo","Tu","We","Th","Fr","Sa"];
+
+function toggleCal(id, wid) {
+  var el = document.getElementById(id);
+  var isOpen = el.classList.contains('open');
+  document.querySelectorAll('.cal-dropdown').forEach(function(e) { e.classList.remove('open'); });
+  if (!isOpen) {
+    var n = new Date();
+    if (!_calState[id]) _calState[id] = { y: n.getFullYear(), m: n.getMonth(), sel: null };
+    renderCal(id);
+    el.classList.add('open');
+  }
+}
+function renderCal(id) {
+  var s = _calState[id];
+  var el = document.getElementById(id);
+  var firstDay = new Date(s.y, s.m, 1).getDay();
+  var dim = new Date(s.y, s.m + 1, 0).getDate();
+  var n = new Date(); var ty = n.getFullYear(), tm = n.getMonth(), td = n.getDate();
+  var h = '<div class="cal-header">' +
+    '<button class="cal-nav" onclick="chMo(\'' + id + '\',-1)">&#8249;</button>' +
+    '<span class="cal-month-lbl">' + _months[s.m] + ' ' + s.y + '</span>' +
+    '<button class="cal-nav" onclick="chMo(\'' + id + '\',1)">&#8250;</button>' +
+    '</div><div class="cal-grid">';
+  _days.forEach(function(d) { h += '<div class="cal-day-lbl">' + d + '</div>'; });
+  for (var i = 0; i < firstDay; i++) h += '<div class="cal-cell empty"></div>';
+  for (var d = 1; d <= dim; d++) {
+    var ip = (s.y < ty) || (s.y === ty && s.m < tm) || (s.y === ty && s.m === tm && d < td);
+    var it = (s.y === ty && s.m === tm && d === td);
+    var isel = s.sel && s.sel.d === d && s.sel.m === s.m && s.sel.y === s.y;
+    var cls = 'cal-cell' + (ip ? ' past' : '') + (it && !isel ? ' today' : '') + (isel ? ' selected' : '');
+    var oc = ip ? '' : 'onclick="selDay(\'' + id + '\',' + d + ')"';
+    h += '<div class="' + cls + '" ' + oc + '>' + d + '</div>';
+  }
+  h += '</div>';
+  el.innerHTML = h;
+}
+function chMo(id, dir) {
+  var s = _calState[id]; s.m += dir;
+  if (s.m > 11) { s.m = 0; s.y++; }
+  if (s.m < 0)  { s.m = 11; s.y--; }
+  renderCal(id);
+}
+function selDay(id, d) {
+  var s = _calState[id]; s.sel = { d: d, m: s.m, y: s.y };
+  var map = { 'cal-rdt': 'r-dt', 'cal-ldt': 'l-dt' };
+  var inp = document.getElementById(map[id]);
+  if (inp) inp.value = _months[s.m] + ' ' + d + ', ' + s.y;
+  document.getElementById(id).classList.remove('open');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.cal-wrap'))
+    document.querySelectorAll('.cal-dropdown').forEach(function(el) { el.classList.remove('open'); });
+});
+</script>
+</body>
+</html>
