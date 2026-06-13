@@ -603,7 +603,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 var PP_R = "https://www.paypal.com/ncp/payment/EHAAXMCW2V5JS";
 var PP_L = "https://www.paypal.com/ncp/payment/BP2P2LBJYHP8A";
 var SH   = "https://script.google.com/macros/s/AKfycbwB-QtfLp5mqP-JDM3060r6sPM2fDb-9b7avbWTiGDpyJAc-gXvA0YcG7AroCE9QbtHWQ/exec";
-var DRIVE_UPLOAD_URL = "https://drive.google.com/drive/folders/1uDY_0Bu7iUGD__6fdXvddgQfuPo8nsuJ?ths=true";
+var DRIVE_UPLOAD_URL = "https://drive.google.com/drive/u/0/folders/1uDY_0Bu7iUGD__6fdXvddgQfuPo8nsuJ?ths=true";
 
 // ── Navigation ──────────────────────────────
 function go(p) {
@@ -703,32 +703,54 @@ function renderPreviews() {
 }
 function removePhoto(i) { _photos.splice(i, 1); renderPreviews(); }
 
+// Convert File to base64
+function fileToBase64(file, cb) {
+  var reader = new FileReader();
+  reader.onload = function(ev) { cb(ev.target.result.split(',')[1]); };
+  reader.readAsDataURL(file);
+}
+
+// Upload photos one-by-one via GET (no-cors — avoids CORS block)
 function uploadPhotos(name, city, callback) {
   if (_photos.length === 0) { callback([]); return; }
   var prog = document.getElementById('upload-progress');
   var bar  = document.getElementById('upload-bar');
   var stat = document.getElementById('upload-status');
   prog.style.display = 'block';
-  stat.textContent = 'Uploading photos...';
-  bar.style.width = '10%';
-  var fd = new FormData();
-  fd.append('action', 'uploadPhotos');
-  fd.append('name', name);
-  fd.append('city', city);
-  _photos.forEach(function(f, i) { fd.append('file_' + i, f, f.name); });
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', DRIVE_UPLOAD_URL, true);
-  xhr.upload.onprogress = function(e) {
-    if (e.lengthComputable) bar.style.width = Math.round((e.loaded / e.total) * 85) + '%';
-  };
-  xhr.onload = function() {
-    bar.style.width = '100%';
-    stat.textContent = 'Photos uploaded!';
-    try { callback(JSON.parse(xhr.responseText).urls || []); }
-    catch(e) { callback([]); }
-  };
-  xhr.onerror = function() { stat.textContent = 'Photo upload failed - form will still submit.'; callback([]); };
-  xhr.send(fd);
+  bar.style.width = '5%';
+  stat.textContent = 'Uploading photos (0/' + _photos.length + ')...';
+  var total = _photos.length;
+  var done  = 0;
+
+  function uploadOne(idx) {
+    if (idx >= total) {
+      bar.style.width = '100%';
+      stat.textContent = 'Photos uploaded ✓';
+      callback([]);
+      return;
+    }
+    var file = _photos[idx];
+    fileToBase64(file, function(b64) {
+      var params = new URLSearchParams({
+        action:   'uploadPhoto',
+        name:     name,
+        city:     city,
+        fileName: file.name,
+        mimeType: file.type || 'image/jpeg',
+        photoNum: String(idx + 1),
+        data:     b64
+      });
+      fetch(DRIVE_UPLOAD_URL + '?' + params.toString(), { method: 'GET', mode: 'no-cors' })
+        .then(function() {
+          done++;
+          bar.style.width = Math.round((done / total) * 90) + '%';
+          stat.textContent = 'Uploading photos (' + done + '/' + total + ')...';
+          uploadOne(idx + 1);
+        })
+        .catch(function() { done++; uploadOne(idx + 1); });
+    });
+  }
+  uploadOne(0);
 }
 
 // ── Landlord submit ─────────────────────────
