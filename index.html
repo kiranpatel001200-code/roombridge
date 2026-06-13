@@ -602,8 +602,8 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 <script>
 var PP_R = "https://www.paypal.com/ncp/payment/EHAAXMCW2V5JS";
 var PP_L = "https://www.paypal.com/ncp/payment/BP2P2LBJYHP8A";
-var SH   = "https://script.google.com/macros/s/AKfycbx2d4wavS9c-nuhDCx_HoJFSXb_NgIanoD-0vgIPwfb1KP2df1woL44z4EH40XtoJu_QQ/exec";
-var DRIVE_UPLOAD_URL = "https://drive.google.com/drive/u/0/folders/1uDY_0Bu7iUGD__6fdXvddgQfuPo8nsuJ?ths=true";
+var SH   = "https://script.google.com/macros/s/AKfycbxMAO5djDP4V0F9yhVYXnPdN7aQadiC6OIUJEZCMsyhkbSk4UsdsecVSL0AH_OzX_n8Aw/exec";
+var DRIVE_UPLOAD_URL = "https://script.google.com/macros/s/AKfycbxMAO5djDP4V0F9yhVYXnPdN7aQadiC6OIUJEZCMsyhkbSk4UsdsecVSL0AH_OzX_n8Aw/exec";
 // Unique session ID for this page load — ties photos to the form submission
 var SESSION_ID = String(Date.now());
 
@@ -705,51 +705,63 @@ function renderPreviews() {
 }
 function removePhoto(i) { _photos.splice(i, 1); renderPreviews(); }
 
-// Convert File to base64
-function fileToBase64(file, cb) {
-  var reader = new FileReader();
-  reader.onload = function(ev) { cb(ev.target.result.split(',')[1]); };
-  reader.readAsDataURL(file);
-}
+// ── Photo Upload via Cloudinary (free, professional, CORS-safe) ──
+// Step 1: Sign up free at https://cloudinary.com
+// Step 2: Dashboard → Settings → Upload → Add upload preset
+//         Set preset to "Unsigned" and copy the preset name
+// Step 3: Fill in your Cloud Name and Upload Preset below
+var CLOUDINARY_CLOUD_NAME  = 'PASTE_YOUR_CLOUD_NAME_HERE';   // e.g. 'dxyz1234'
+var CLOUDINARY_UPLOAD_PRESET = 'PASTE_YOUR_UPLOAD_PRESET_HERE'; // e.g. 'roombridge_unsigned'
 
-// Upload photos one-by-one via GET (no-cors — avoids CORS block)
 function uploadPhotos(email, callback) {
   if (_photos.length === 0) { callback([]); return; }
-  var prog = document.getElementById('upload-progress');
-  var bar  = document.getElementById('upload-bar');
-  var stat = document.getElementById('upload-status');
+  var prog  = document.getElementById('upload-progress');
+  var bar   = document.getElementById('upload-bar');
+  var stat  = document.getElementById('upload-status');
   prog.style.display = 'block';
   bar.style.width = '5%';
   var total = _photos.length;
   var done  = 0;
-  stat.textContent = 'Uploading photos (0/' + total + ')...';
+  var urls  = [];
+  stat.textContent = 'Uploading photo 1 of ' + total + '...';
+
+  // Folder in Cloudinary: roombridge / email-username / session
+  var emailUser = email.split('@')[0];
+  var folder    = 'roombridge/' + emailUser + '/' + SESSION_ID;
 
   function uploadOne(idx) {
     if (idx >= total) {
       bar.style.width = '100%';
-      stat.textContent = 'Photos uploaded ✓';
-      callback([]);
+      stat.textContent = 'Photos uploaded ✓ (' + urls.length + '/' + total + ')';
+      callback(urls);
       return;
     }
+
     var file = _photos[idx];
-    fileToBase64(file, function(b64) {
-      var params = new URLSearchParams({
-        action:    'uploadPhoto',
-        email:     email,
-        sessionId: SESSION_ID,
-        fileName:  file.name,
-        mimeType:  file.type || 'image/jpeg',
-        photoNum:  String(idx + 1),
-        data:      b64
-      });
-      fetch(DRIVE_UPLOAD_URL + '?' + params.toString(), { method: 'GET', mode: 'no-cors' })
-        .then(function() {
-          done++;
-          bar.style.width = Math.round((done / total) * 90) + '%';
-          stat.textContent = 'Uploading photos (' + done + '/' + total + ')...';
-          uploadOne(idx + 1);
-        })
-        .catch(function() { done++; uploadOne(idx + 1); });
+    stat.textContent = 'Uploading photo ' + (idx + 1) + ' of ' + total + '...';
+    bar.style.width = Math.round((idx / total) * 85 + 5) + '%';
+
+    var fd = new FormData();
+    fd.append('file',          file);
+    fd.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+    fd.append('folder',        folder);
+    fd.append('public_id',     'photo_' + (idx + 1));
+
+    fetch('https://api.cloudinary.com/v1_1/' + CLOUDINARY_CLOUD_NAME + '/image/upload', {
+      method: 'POST',
+      body:   fd
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data && data.secure_url) {
+        urls.push(data.secure_url);
+      }
+      done++;
+      uploadOne(idx + 1);
+    })
+    .catch(function() {
+      done++;
+      uploadOne(idx + 1);
     });
   }
   uploadOne(0);
@@ -775,7 +787,7 @@ function subL() {
       Facebook:      document.getElementById('l-fb').value.trim(),
       LinkedIn:      document.getElementById('l-li').value.trim(),
       Twitter:       document.getElementById('l-tw').value.trim(),
-      Photos:        photoUrls.join(', '),
+      Photos:        photoUrls.length > 0 ? photoUrls.join(' | ') : 'No photos',
       Notes:         document.getElementById('l-nt').value,
       Timestamp:     new Date().toLocaleString()
     }, function() {
@@ -858,8 +870,11 @@ function selDay(id, d) {
 }
 document.addEventListener('click', function(e) {
   if (!e.target.closest('.cal-wrap'))
-    document.querySelectorAll('.cal-dropdown').forEach(function(el) { el.classList.remove('open'); });
+    document.querySelectorAll('.cal-dropdown').forEach(function(el) { el.classList.remove('open'); }); 
 });
+var CLOUDINARY_CLOUD_NAME   = 'duev0qyea';           // तुमचा cloud name
+var CLOUDINARY_UPLOAD_PRESET = 'roombridge_unsigned'; // step 2 मध्ये दिलेलं नाव
+  
 </script>
 </body>
 </html>
