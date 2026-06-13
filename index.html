@@ -602,8 +602,10 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 <script>
 var PP_R = "https://www.paypal.com/ncp/payment/EHAAXMCW2V5JS";
 var PP_L = "https://www.paypal.com/ncp/payment/BP2P2LBJYHP8A";
-var SH   = "https://script.google.com/macros/s/AKfycbwB-QtfLp5mqP-JDM3060r6sPM2fDb-9b7avbWTiGDpyJAc-gXvA0YcG7AroCE9QbtHWQ/exec";
+var SH   = "https://script.google.com/macros/s/AKfycbx2d4wavS9c-nuhDCx_HoJFSXb_NgIanoD-0vgIPwfb1KP2df1woL44z4EH40XtoJu_QQ/exec";
 var DRIVE_UPLOAD_URL = "https://drive.google.com/drive/u/0/folders/1uDY_0Bu7iUGD__6fdXvddgQfuPo8nsuJ?ths=true";
+// Unique session ID for this page load — ties photos to the form submission
+var SESSION_ID = String(Date.now());
 
 // ── Navigation ──────────────────────────────
 function go(p) {
@@ -711,16 +713,16 @@ function fileToBase64(file, cb) {
 }
 
 // Upload photos one-by-one via GET (no-cors — avoids CORS block)
-function uploadPhotos(name, city, callback) {
+function uploadPhotos(email, callback) {
   if (_photos.length === 0) { callback([]); return; }
   var prog = document.getElementById('upload-progress');
   var bar  = document.getElementById('upload-bar');
   var stat = document.getElementById('upload-status');
   prog.style.display = 'block';
   bar.style.width = '5%';
-  stat.textContent = 'Uploading photos (0/' + _photos.length + ')...';
   var total = _photos.length;
   var done  = 0;
+  stat.textContent = 'Uploading photos (0/' + total + ')...';
 
   function uploadOne(idx) {
     if (idx >= total) {
@@ -732,13 +734,13 @@ function uploadPhotos(name, city, callback) {
     var file = _photos[idx];
     fileToBase64(file, function(b64) {
       var params = new URLSearchParams({
-        action:   'uploadPhoto',
-        name:     name,
-        city:     city,
-        fileName: file.name,
-        mimeType: file.type || 'image/jpeg',
-        photoNum: String(idx + 1),
-        data:     b64
+        action:    'uploadPhoto',
+        email:     email,
+        sessionId: SESSION_ID,
+        fileName:  file.name,
+        mimeType:  file.type || 'image/jpeg',
+        photoNum:  String(idx + 1),
+        data:      b64
       });
       fetch(DRIVE_UPLOAD_URL + '?' + params.toString(), { method: 'GET', mode: 'no-cors' })
         .then(function() {
@@ -763,9 +765,9 @@ function subL() {
   if (!nm || !em || !ph || !ct || !rt) { alert('Please fill all required fields (marked *).'); return; }
   var btn = document.getElementById('l-btn');
   btn.disabled = true; btn.textContent = 'Submitting...';
-  uploadPhotos(nm, ct, function(photoUrls) {
+  uploadPhotos(em, function(photoUrls) {
     send({
-      Type: 'Landlord', Name: nm, Email: em, Phone: ph, City: ct, Rent: rt,
+      Type: 'Landlord', Name: nm, Email: em, Phone: ph, City: ct, Rent: rt, SessionId: SESSION_ID,
       RoomType:      document.getElementById('l-tp').value,
       AvailableFrom: document.getElementById('l-dt').value,
       Lease:         document.getElementById('l-ls').value,
