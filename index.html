@@ -230,9 +230,9 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
     <span class="nl" id="nl-landlord" onclick="go('landlord')">List a Room</span>
     <span class="nl" id="nl-howitworks" onclick="go('howitworks')">How It Works</span>
     <span class="nl" id="nl-reviews" onclick="go('reviews')">Reviews</span>
-    <a href="contact.html" target="_blank">
-    <button>Contact Us</button>
-</a>
+<button class="nav-cta" onclick="window.location.href='contact.html'">
+    Contact Us
+</button>
 
   </div>
   <button class="nav-cta" onclick="go('renter')">Find a Room &rarr;</button>
@@ -269,7 +269,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
     <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l2.4 5h5.2l-4.2 3.1 1.6 5L10 12l-5 3.1 1.6-5L2.4 7h5.2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
     <span class="mbn-label">Reviews</span>
   </div>
-  <div class="mbn-item" id="mb-contact" onclick="go('contact')">
+  <a class="mbn-item" href="contact.html">
     <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 4h16v12H2V4z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M2 4l8 7 8-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     <span class="mbn-label">Contact</span>
   </div>
@@ -787,6 +787,14 @@ function subL() {
   });
 }
 
+  function go(page) {
+
+    if (page === "contact") {
+        window.location.href = "contact.html";
+        return;
+    }
+
+    // बाकीचा तुझा code...
 function subC() {
   var nm = document.getElementById('c-nm').value.trim();
   var em = document.getElementById('c-em').value.trim();
