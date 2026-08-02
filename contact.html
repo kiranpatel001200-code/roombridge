@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — RoomBridge</title>
+<link rel="icon" type="image/png" href="logo.png">
+<meta property="og:title" content="Contact RoomBridge" />
+<meta property="og:description" content="Questions about your submission, payment, or how RoomBridge works? We reply within 24 hours." />
+<meta property="og:image" content="logo.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="RoomBridge" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --primary:#FF5C35;--pd:#e04520;--pp:#fff3f0;
+  --navy:#0F1B2D;--navy2:#1a2e48;
+  --sky:#00B4D8;--green:#1DB954;--green-pale:#e6f9ee;
+  --white:#fff;--bg:#F8F9FC;--border:#E8ECF2;
+  --text:#0F1B2D;--muted:#5a6a7e;--gold:#F5A623;
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var(--white);padding-bottom:64px;}
+.desk-nav{background:var(--navy);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:100;}
+.logo{display:flex;align-items:center;gap:9px;cursor:pointer;text-decoration:none;}
+.logo-icon{width:30px;height:30px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-text{font-family:'Sora',sans-serif;font-size:17px;color:#fff;font-weight:700;letter-spacing:-.3px;}
+.logo-text em{color:var(--primary);font-style:normal;}
+.desk-links{display:flex;align-items:center;gap:2px;}
+.nl{font-size:13px;color:#8a9bb0;padding:6px 11px;border-radius:6px;cursor:pointer;transition:all .15s;font-weight:500;text-decoration:none;}
+.nl:hover,.nl.on{background:rgba(255,255,255,.08);color:#fff;}
+.nav-cta{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-left:8px;text-decoration:none;display:inline-block;}
+.nav-cta:hover{background:var(--pd);}
+.mob-topbar{display:none;background:var(--navy);padding:0 18px;height:52px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.mob-logo-text{font-family:'Sora',sans-serif;font-size:16px;color:#fff;font-weight:700;}
+.mob-logo-text em{color:var(--primary);font-style:normal;}
+.mob-cta{background:var(--primary);color:#fff;border:none;border-radius:7px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;text-decoration:none;}
+.mob-bottom{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);height:60px;z-index:200;align-items:center;justify-content:space-around;padding:0 4px;}
+.mbn-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:1;min-width:0;padding:8px 4px;cursor:pointer;border-radius:8px;transition:background .15s;text-decoration:none;}
+.mbn-item.on .mbn-icon,.mbn-item.on .mbn-label{color:var(--primary);}
+.mbn-icon{color:#5a7090;transition:color .15s;}
+.mbn-label{font-size:10px;color:#5a7090;font-weight:600;transition:color .15s;text-align:center;}
+.ph{background:var(--navy);padding:36px 20px 28px;text-align:center;}
+.ph h1{font-family:'Sora',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.3px;}
+.ph p{font-size:14px;color:#7a95b0;}
+.sec{padding:52px 20px;max-width:860px;margin:0 auto;}
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
+.ct-info{background:var(--navy);border-radius:14px;padding:24px;}
+.ct-info h3{font-family:'Sora',sans-serif;font-size:18px;color:#fff;margin-bottom:7px;}
+.ct-info p{font-size:13px;color:#7a95b0;line-height:1.65;margin-bottom:18px;}
+.ct-item{display:flex;align-items:flex-start;gap:11px;margin-bottom:14px;}
+.ct-ic{width:32px;height:32px;background:rgba(255,92,53,.18);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ct-lbl{font-size:10px;color:#5a7090;margin-bottom:2px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
+.ct-val{font-size:13px;color:#a0b8cc;}
+.ct-form{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:22px;}
+.ct-form h3{font-family:'Sora',sans-serif;font-size:16px;margin-bottom:16px;}
+.fgrp{margin-bottom:14px;}
+.fl{font-size:11px;font-weight:700;color:#7a8a9a;margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:.05em;}
+.fi,.fs,.ft{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;outline:none;background:#fff;transition:border-color .15s;}
+.fi:focus,.fs:focus,.ft:focus{border-color:var(--primary);}
+.ft{min-height:75px;resize:vertical;}
+.fsub{width:100%;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-top:4px;}
+.fsub:disabled{opacity:.6;cursor:not-allowed;}
+.ok{background:var(--green-pale);border:1px solid #5dcaa5;border-radius:10px;padding:22px;text-align:center;display:none;}
+.ok h3{font-family:'Sora',sans-serif;font-size:18px;color:#0a5c42;margin-bottom:5px;}
+.ok p{font-size:13px;color:#0f6e56;line-height:1.6;}
+.err{color:var(--pd);font-size:12px;margin-top:10px;display:none;}
+@media(max-width:768px){
+  body{padding-bottom:80px;}
+  .desk-nav{display:none!important;}
+  .mob-topbar{display:flex!important;}
+  .mob-bottom{display:flex!important;}
+  .sec{padding:36px 16px;}
+  .ct-grid{grid-template-columns:1fr;}
+  .ph{padding:28px 16px 22px;}
+  .ph h1{font-size:22px;}
+}
+</style>
+</head>
+<body>
+
+<!-- DESKTOP NAV -->
+<nav class="desk-nav">
+  <a class="logo" href="index.html">
+    <div class="logo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 11Q8 2 15 11" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="1" y="10" width="5" height="5" rx="1.5" fill="white"/><rect x="10" y="10" width="5" height="5" rx="1.5" fill="white"/></svg></div>
+    <div class="logo-text">Room<em>Bridge</em></div>
+  </a>
+  <div class="desk-links">
+    <a class="nl" href="index.html">Home</a>
+    <a class="nl" href="index.html#renter">Find a Room</a>
+    <a class="nl" href="index.html#landlord">List a Room</a>
+    <a class="nl" href="index.html#howitworks">How It Works</a>
+    <a class="nl" href="index.html#reviews">Reviews</a>
+    <a class="nl on" href="contact.html">Contact</a>
+  </div>
+  <a class="nav-cta" href="index.html#renter">Find a Room &rarr;</a>
+</nav>
+
+<!-- MOBILE TOP BAR -->
+<div class="mob-topbar">
+  <a class="logo" href="index.html">
+    <div class="logo-icon" style="width:26px;height:26px;border-radius:7px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M1 11Q8 2 15 11" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="1" y="10" width="5" height="5" rx="1.5" fill="white"/><rect x="10" y="10" width="5" height="5" rx="1.5" fill="white"/></svg></div>
+    <div class="mob-logo-text">Room<em>Bridge</em></div>
+  </a>
+  <a class="mob-cta" href="index.html#renter">Find a Room &rarr;</a>
+</div>
+
+<!-- MOBILE BOTTOM NAV -->
+<div class="mob-bottom">
+  <a class="mbn-item" href="index.html">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 9.5L10 3l7 6.5V18H13v-5H7v5H3V9.5z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    <span class="mbn-label">Home</span>
+  </a>
+  <a class="mbn-item" href="index.html#renter">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M3 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+    <span class="mbn-label">Find Room</span>
+  </a>
+  <a class="mbn-item" href="index.html#landlord">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="10" width="14" height="9" rx="1.5" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M1 10L10 2l9 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="7.5" y="13" width="5" height="6" rx="1" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
+    <span class="mbn-label">List Room</span>
+  </a>
+  <a class="mbn-item" href="index.html#howitworks">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <span class="mbn-label">How It Works</span>
+  </a>
+  <a class="mbn-item on" href="contact.html">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 4h16v12H2V4z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M2 4l8 7 8-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <span class="mbn-label">Contact</span>
+  </a>
+</div>
+
+<div class="ph"><h1>Contact us</h1><p>Questions? We respond within 24 hours.</p></div>
+
+<div class="sec">
+  <div class="ct-grid">
+    <div class="ct-info">
+      <h3>We&rsquo;re here to help.</h3>
+      <p>Question about your submission, payment, or how RoomBridge works? We reply within 24 hours.</p>
+      <div class="ct-item"><div class="ct-ic"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="#FF5C35" stroke-width="1.4" fill="none"/><path d="M7.5 4v3.5l2 1.5" stroke="#FF5C35" stroke-width="1.4" stroke-linecap="round"/></svg></div><div><div class="ct-lbl">Response time</div><div class="ct-val">Within 24 hours</div></div></div>
+    </div>
+    <div class="ct-form">
+      <h3>Send a message</h3>
+      <div id="cf">
+        <div class="fgrp"><label class="fl">Name</label><input class="fi" id="c-nm" placeholder="Full name"/></div>
+        <div class="fgrp"><label class="fl">Email</label><input class="fi" type="email" id="c-em" placeholder="you@email.com"/></div>
+        <div class="fgrp"><label class="fl">Subject</label><select class="fs" id="c-sb"><option value="">Select</option><option>Question about my submission</option><option>Payment issue</option><option>How does RoomBridge work?</option><option>Partnership inquiry</option><option>Other</option></select></div>
+        <div class="fgrp"><label class="fl">Message</label><textarea class="ft" id="c-ms" placeholder="How can we help?"></textarea></div>
+        <button class="fsub" id="c-btn" onclick="subC()">Send Message</button>
+        <div class="err" id="c-err"></div>
+      </div>
+      <div class="ok" id="c-ok"><h3>Message sent!</h3><p>We&rsquo;ll reply within 24 hours to your email.</p></div>
+    </div>
+  </div>
+</div>
+
+<footer style="background:#1a1f2e;color:#e2e8f0;font-family:'Sora',sans-serif;padding:48px 40px 28px;">
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;padding-bottom:32px;border-bottom:0.5px solid rgba(255,255,255,0.12);">
+    <div>
+      <p style="font-size:22px;font-weight:700;margin:0 0 6px;color:#fff;">Room<span style="color:#f97316;">Bridge</span></p>
+      <p style="font-size:13px;color:#94a3b8;margin:0 0 20px;">The smarter way to find a room in the US.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="https://www.instagram.com/roombridge.vercel.app/" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;font-size:13px;color:#e2e8f0;text-decoration:none;">Instagram</a>
+        <a href="https://www.facebook.com/groups/31743317415255510" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;font-size:13px;color:#e2e8f0;text-decoration:none;">Facebook</a>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#f97316;margin:0 0 14px;">Contact Us</p>
+      <p style="font-size:12px;color:#64748b;">We reply within 24 hours</p>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding-top:22px;flex-wrap:wrap;gap:10px;">
+    <p style="font-size:12px;color:#64748b;margin:0;">&copy; 2026 RoomBridge</p>
+    <div style="display:inline-flex;gap:6px;align-items:center;font-size:12px;color:#64748b;">
+      <span>Verified rooms</span><span style="color:#334155;">·</span><span>Direct contact</span><span style="color:#334155;">·</span><span>All 50 US states</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 1) Deploy the Apps Script (contact-form-apps-script.gs) as a Web App.
+// 2) Paste the deployment URL below, replacing the placeholder.
+var CONTACT_SHEET_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+function isValidEmail(v) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+}
+
+function subC() {
+  var nm = document.getElementById('c-nm').value.trim();
+  var em = document.getElementById('c-em').value.trim();
+  var sb = document.getElementById('c-sb').value;
+  var ms = document.getElementById('c-ms').value.trim();
+  var errEl = document.getElementById('c-err');
+  errEl.style.display = 'none';
+
+  if (!nm || !em || !ms) {
+    errEl.textContent = 'Please fill your name, email, and message.';
+    errEl.style.display = 'block';
+    return;
+  }
+  if (!isValidEmail(em)) {
+    errEl.textContent = 'Please enter a valid email address.';
+    errEl.style.display = 'block';
+    return;
+  }
+  if (CONTACT_SHEET_URL.indexOf('PASTE_YOUR') === 0) {
+    errEl.textContent = 'Form is not connected yet — add your Apps Script URL in the code.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  var btn = document.getElementById('c-btn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  var payload = {
+    Type: 'Contact',
+    Name: nm,
+    Email: em,
+    Subject: sb,
+    Message: ms,
+    Timestamp: new Date().toLocaleString()
+  };
+
+  fetch(CONTACT_SHEET_URL + '?' + new URLSearchParams(payload).toString(), {
+    method: 'GET',
+    mode: 'no-cors'
+  })
+  .then(function() {
+    document.getElementById('cf').style.display = 'none';
+    document.getElementById('c-ok').style.display = 'block';
+  })
+  .catch(function() {
+    btn.disabled = false;
+    btn.textContent = 'Send Message';
+    errEl.textContent = 'Something went wrong. Please try again.';
+    errEl.style.display = 'block';
+  });
+}
+</script>
+</body>
+</html>
