@@ -1,0 +1,244 @@
+<!-- list-room.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Room | RoomBridge</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Room<span>Bridge</span></a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#find-room" class="nav-link">Find a Room</a>
+                <a href="list-room.html" class="nav-link active">List Your Room</a>
+                <a href="rooms.html" class="nav-link">Rooms Available</a>
+                <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+                <a href="index.html#reviews" class="nav-link">Reviews</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>List Your Property on RoomBridge</h1>
+                <p>Reach thousands of verified tenants quickly and securely.</p>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <form id="listing-form" class="listing-form" novalidate>
+                    <!-- Landlord Information -->
+                    <div class="form-group-container">
+                        <h2>1. Landlord Information</h2>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required placeholder="John Doe">
+                                <span class="error-msg">Please enter your full name.</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                                <span class="error-msg">Please enter a valid email.</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+1234567890">
+                                <span class="error-msg">Please enter a valid phone number.</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="whatsapp">WhatsApp Number</label>
+                                <input type="tel" id="whatsapp" name="whatsapp" placeholder="+1234567890">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property Details -->
+                    <div class="form-group-container">
+                        <h2>2. Property Details</h2>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="propertyType">Property Type *</label>
+                                <select id="propertyType" name="propertyType" required>
+                                    <option value="">Select Property Type</option>
+                                    <option value="Apartment">Apartment</option>
+                                    <option value="House">House</option>
+                                    <option value="Condo">Condo</option>
+                                    <option value="Townhouse">Townhouse</option>
+                                </select>
+                                <span class="error-msg">Please select a property type.</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="roomType">Room Type *</label>
+                                <select id="roomType" name="roomType" required>
+                                    <option value="">Select Room Type</option>
+                                    <option value="Private Room">Private Room</option>
+                                    <option value="Shared Room">Shared Room</option>
+                                    <option value="Entire Place">Entire Place</option>
+                                    <option value="Studio">Studio</option>
+                                </select>
+                                <span class="error-msg">Please select a room type.</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="rent">Monthly Rent ($) *</label>
+                                <input type="number" id="rent" name="rent" required min="0" placeholder="850">
+                                <span class="error-msg">Please enter a valid monthly rent.</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="deposit">Security Deposit ($) *</label>
+                                <input type="number" id="deposit" name="deposit" required min="0" placeholder="500">
+                                <span class="error-msg">Please enter a valid deposit amount.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Location Information -->
+                    <div class="form-group-container">
+                        <h2>3. Location</h2>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" required placeholder="New York">
+                                <span class="error-msg">Please enter a city.</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="state">State *</label>
+                                <input type="text" id="state" name="state" required placeholder="NY">
+                                <span class="error-msg">Please enter a state.</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="zipCode">ZIP Code *</label>
+                                <input type="text" id="zipCode" name="zipCode" required placeholder="10001">
+                                <span class="error-msg">Please enter a ZIP code.</span>
+                            </div>
+                            <div class="input-group full-width">
+                                <label for="address">Full Address *</label>
+                                <input type="text" id="address" name="address" required placeholder="123 Main St, Apt 4B">
+                                <span class="error-msg">Please enter your full address.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lease & Preferences -->
+                    <div class="form-group-container">
+                        <h2>4. Lease & Amenities</h2>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="availableFrom">Available From *</label>
+                                <input type="date" id="availableFrom" name="availableFrom" required>
+                                <span class="error-msg">Please select an availability date.</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="leaseDuration">Lease Duration *</label>
+                                <select id="leaseDuration" name="leaseDuration" required>
+                                    <option value="">Select Duration</option>
+                                    <option value="Month-to-Month">Month-to-Month</option>
+                                    <option value="6 Months">6 Months</option>
+                                    <option value="1 Year">1 Year</option>
+                                    <option value="Flexible">Flexible</option>
+                                </select>
+                                <span class="error-msg">Please select a lease duration.</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="genderPreference">Gender Preference *</label>
+                                <select id="genderPreference" name="genderPreference" required>
+                                    <option value="No Preference">No Preference</option>
+                                    <option value="Male Only">Male Only</option>
+                                    <option value="Female Only">Female Only</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-grid">
+                            <label class="checkbox-label"><input type="checkbox" name="amenities" value="Furnished"> Furnished</label>
+                            <label class="checkbox-label"><input type="checkbox" name="amenities" value="Parking"> Parking Available</label>
+                            <label class="checkbox-label"><input type="checkbox" name="amenities" value="WiFi"> High-Speed WiFi</label>
+                            <label class="checkbox-label"><input type="checkbox" name="amenities" value="Pets Allowed"> Pets Allowed</label>
+                            <label class="checkbox-label"><input type="checkbox" name="amenities" value="Smoking Allowed"> Smoking Allowed</label>
+                        </div>
+                    </div>
+
+                    <!-- Description & Photos -->
+                    <div class="form-group-container">
+                        <h2>5. Description & Photos</h2>
+                        <div class="input-group full-width">
+                            <label for="description">Description *</label>
+                            <textarea id="description" name="description" rows="5" required placeholder="Describe the room, house rules, neighborhood, and nearby amenities..."></textarea>
+                            <span class="error-msg">Please provide a description.</span>
+                        </div>
+
+                        <div class="input-group full-width">
+                            <label>Upload Photos (Up to 10) *</label>
+                            <div id="drop-zone" class="drop-zone">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop photos here or <span>browse</span></p>
+                                <input type="file" id="photo-upload" name="photos" multiple accept="image/*" style="display: none;">
+                            </div>
+                            <div id="upload-progress" class="upload-progress" style="display: none;">
+                                <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+                                <span id="progress-text">Uploading to Cloudinary... 0%</span>
+                            </div>
+                            <div id="image-preview-container" class="image-preview-container"></div>
+                        </div>
+                    </div>
+
+                    <!-- Terms & Submit -->
+                    <div class="form-group-container terms-container">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" name="terms" required> I agree to the RoomBridge <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>. *
+                        </label>
+                        <span class="error-msg" id="terms-error">You must agree to the terms.</span>
+                    </div>
+
+                    <div class="form-submit-container">
+                        <button type="submit" id="submit-btn" class="btn-primary">Submit Listing for Approval</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo">Room<span>Bridge</span></a>
+                <p>Connecting verified landlords and tenants safely and seamlessly.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="rooms.html">Rooms Available</a>
+                <a href="list-room.html">List Your Room</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> support@roombridge.com</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 234-5678</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RoomBridge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="cloudinary.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
