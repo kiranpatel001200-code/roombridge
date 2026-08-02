@@ -1,0 +1,137 @@
+<!-- room-details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Details | RoomBridge</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Room<span>Bridge</span></a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#find-room" class="nav-link">Find a Room</a>
+                <a href="list-room.html" class="nav-link">List Your Room</a>
+                <a href="rooms.html" class="nav-link active">Rooms Available</a>
+                <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+                <a href="index.html#reviews" class="nav-link">Reviews</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container details-container">
+            <div id="details-loader" class="loader-container">
+                <div class="spinner"></div>
+                <p>Loading room details...</p>
+            </div>
+            <div id="room-details-content" style="display: none;">
+                <!-- Gallery -->
+                <div class="gallery-section">
+                    <div class="main-gallery-image" id="main-gallery-image"></div>
+                    <div class="gallery-thumbs" id="gallery-thumbs"></div>
+                </div>
+
+                <!-- Info Grid -->
+                <div class="room-info-grid">
+                    <div class="room-main-info">
+                        <div class="room-title-row">
+                            <div>
+                                <span class="badge" id="detail-room-type"></span>
+                                <h1 id="detail-title"></h1>
+                                <p class="location-text"><i class="fas fa-map-marker-alt"></i> <span id="detail-address"></span></p>
+                            </div>
+                            <div class="price-tag">
+                                <span class="currency">$</span><span id="detail-rent"></span><span class="period">/month</span>
+                            </div>
+                        </div>
+
+                        <hr class="divider">
+
+                        <div class="quick-specs">
+                            <div class="spec-item"><i class="fas fa-home"></i> <span id="detail-property-type"></span></div>
+                            <div class="spec-item"><i class="fas fa-calendar-alt"></i> Available: <span id="detail-available"></span></div>
+                            <div class="spec-item"><i class="fas fa-file-contract"></i> Lease: <span id="detail-lease"></span></div>
+                            <div class="spec-item"><i class="fas fa-venus-mars"></i> Preference: <span id="detail-gender"></span></div>
+                        </div>
+
+                        <hr class="divider">
+
+                        <div class="section-block">
+                            <h3>Description</h3>
+                            <p id="detail-description"></p>
+                        </div>
+
+                        <hr class="divider">
+
+                        <div class="section-block">
+                            <h3>Amenities & Features</h3>
+                            <div class="amenities-grid" id="detail-amenities"></div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar / Landlord Contact Card -->
+                    <div class="room-sidebar">
+                        <div class="contact-card">
+                            <h3>Landlord Contact</h3>
+                            <div class="landlord-profile">
+                                <div class="avatar-placeholder"><i class="fas fa-user"></i></div>
+                                <div>
+                                    <h4 id="detail-landlord-name"></h4>
+                                    <p class="verified-badge"><i class="fas fa-check-circle"></i> Verified Landlord</p>
+                                </div>
+                            </div>
+                            <div class="contact-masked-info">
+                                <p><i class="fas fa-envelope"></i> <span id="detail-masked-email"></span></p>
+                                <p><i class="fas fa-phone"></i> <span id="detail-masked-phone"></span></p>
+                            </div>
+                            <a id="whatsapp-inquiry-btn" href="#" target="_blank" class="btn-whatsapp" style="display: none;">
+                                <i class="fab fa-whatsapp"></i> Inquire via WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo">Room<span>Bridge</span></a>
+                <p>Connecting verified landlords and tenants safely and seamlessly.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="rooms.html">Rooms Available</a>
+                <a href="list-room.html">List Your Room</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> support@roombridge.com</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 234-5678</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RoomBridge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
