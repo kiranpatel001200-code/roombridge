@@ -37,7 +37,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 .mob-logo-text em{color:var(--primary);font-style:normal;}
 .mob-cta{background:var(--primary);color:#fff;border:none;border-radius:7px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
 .mob-bottom{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);height:60px;z-index:200;align-items:center;justify-content:space-around;padding:0 4px;}
-.mbn-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:1;min-width:0;padding:8px 4px;cursor:pointer;border-radius:8px;transition:background .15s;}
+.mbn-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:1;min-width:0;padding:8px 4px;cursor:pointer;border-radius:8px;transition:background .15s;text-decoration:none;}
 .mbn-item.on .mbn-icon,.mbn-item.on .mbn-label{color:var(--primary);}
 .mbn-icon{color:#5a7090;transition:color .15s;}
 .mbn-label{font-size:10px;color:#5a7090;font-weight:600;transition:color .15s;text-align:center;}
@@ -272,7 +272,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
   <a class="mbn-item" href="contact.html">
     <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 4h16v12H2V4z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M2 4l8 7 8-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     <span class="mbn-label">Contact</span>
-  </div>
+  </a>
 </div>
 
 <!-- ═══ HOME ═══ -->
@@ -616,6 +616,7 @@ var CLOUDINARY_CLOUD_NAME   = 'duev0qyea';
 var CLOUDINARY_UPLOAD_PRESET = 'roombridge_unsigned';
 
 function go(p) {
+  if (p === 'contact') { window.location.href = 'contact.html'; return; }
   document.querySelectorAll('.pg').forEach(function(el) {
     el.style.display = 'none';
     el.classList.remove('on');
@@ -684,11 +685,13 @@ function puaDrop(e) {
   addPhotos(Array.from(e.dataTransfer.files).filter(function(f) { return f.type.startsWith('image/'); }));
 }
 function addPhotos(files) {
+  var skippedForLimit = false;
   files.forEach(function(f) {
-    if (_photos.length >= 5) return;
+    if (_photos.length >= 5) { skippedForLimit = true; return; }
     if (f.size > 10 * 1024 * 1024) { alert(f.name + ' is too large (max 10MB).'); return; }
     _photos.push(f);
   });
+  if (skippedForLimit) { alert('Max 5 photos allowed. Remove one to add another.'); }
   renderPreviews();
 }
 function renderPreviews() {
@@ -787,14 +790,6 @@ function subL() {
   });
 }
 
-  function go(page) {
-
-    if (page === "contact") {
-        window.location.href = "contact.html";
-        return;
-    }
-
-    // बाकीचा तुझा code...
 function subC() {
   var nm = document.getElementById('c-nm').value.trim();
   var em = document.getElementById('c-em').value.trim();
