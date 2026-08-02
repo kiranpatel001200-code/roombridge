@@ -856,6 +856,12 @@ document.addEventListener('click', function(e) {
   if (!e.target.closest('.cal-wrap'))
     document.querySelectorAll('.cal-dropdown').forEach(function(el) { el.classList.remove('open'); }); 
 });
+
+// Allow deep-linking from outside pages, e.g. index.html#renter, index.html#contact
+(function() {
+  var h = window.location.hash.replace('#', '');
+  if (h) go(h);
+})();
 </script>
 </body>
 </html>
