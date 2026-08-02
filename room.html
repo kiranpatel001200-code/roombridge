@@ -1,0 +1,129 @@
+<!-- rooms.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms Available | RoomBridge</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Room<span>Bridge</span></a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#find-room" class="nav-link">Find a Room</a>
+                <a href="list-room.html" class="nav-link">List Your Room</a>
+                <a href="rooms.html" class="nav-link active">Rooms Available</a>
+                <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+                <a href="index.html#reviews" class="nav-link">Reviews</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>Available Rooms</h1>
+                <p>Browse verified rooms and apartments from trusted landlords.</p>
+            </div>
+        </section>
+
+        <!-- Search & Filters -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-grid">
+                    <div class="filter-item">
+                        <input type="text" id="search-city" placeholder="Search by city...">
+                    </div>
+                    <div class="filter-item">
+                        <input type="text" id="search-state" placeholder="State (e.g., NY)">
+                    </div>
+                    <div class="filter-item">
+                        <select id="filter-room-type">
+                            <option value="">All Room Types</option>
+                            <option value="Private Room">Private Room</option>
+                            <option value="Shared Room">Shared Room</option>
+                            <option value="Entire Place">Entire Place</option>
+                            <option value="Studio">Studio</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <select id="filter-property-type">
+                            <option value="">All Property Types</option>
+                            <option value="Apartment">Apartment</option>
+                            <option value="House">House</option>
+                            <option value="Condo">Condo</option>
+                            <option value="Townhouse">Townhouse</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <input type="number" id="filter-budget" placeholder="Max Budget ($)">
+                    </div>
+                    <div class="filter-item">
+                        <select id="sort-by">
+                            <option value="newest">Sort by: Newest</option>
+                            <option value="oldest">Sort by: Oldest</option>
+                            <option value="price-asc">Rent: Low to High</option>
+                            <option value="price-desc">Rent: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Listings Grid -->
+        <section class="listings-section">
+            <div class="container">
+                <div id="loader" class="loader-container">
+                    <div class="spinner"></div>
+                    <p>Loading available rooms...</p>
+                </div>
+                <div id="listings-grid" class="listings-grid"></div>
+                <div id="no-results" class="no-results" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h3>No rooms found matching your criteria.</h3>
+                    <p>Try clearing your filters or search terms.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo">Room<span>Bridge</span></a>
+                <p>Connecting verified landlords and tenants safely and seamlessly.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="rooms.html">Rooms Available</a>
+                <a href="list-room.html">List Your Room</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> support@roombridge.com</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 234-5678</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RoomBridge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
