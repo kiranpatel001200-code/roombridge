@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RoomBridge Find a Room in the US</title>
+<title>RoomBridge — Find a Room in the US</title>
 <link rel="icon" type="image/png" href="logo.png">
 <meta property="og:title" content="The smarter way to find a room in the US." />
-<meta property="og:description" content="Skip the back-and-forth. We verify both sides then send direct contact details. Fast, honest, done." />
+<meta property="og:description" content="Skip the back-and-forth. We verify both sides — then send direct contact details. Fast, honest, done." />
 <meta property="og:image" content="logo.png" />
 <meta property="og:url" content="https://roombridge.vercel.app" />
 <meta property="og:type" content="website" />
@@ -214,6 +214,90 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
   .hiw-step:not(:last-child)::after{display:none;}
   .hiw-guarantee{grid-template-columns:1fr;}
 }
+
+/* ═══ RENTALS ═══ */
+.rentals-toolbar{display:flex;justify-content:center;margin-bottom:24px;}
+.rentals-count{font-size:13px;color:var(--muted);font-weight:500;}
+.rentals-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+.rcard{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .15s;cursor:pointer;}
+.rcard:hover{box-shadow:0 6px 20px rgba(15,27,45,.08);}
+.rcard-photo{width:100%;height:140px;background:var(--bg);background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;position:relative;}
+.rcard-photo-ph{color:var(--muted);}
+.rcard-badge{position:absolute;top:10px;left:10px;background:rgba(15,27,45,.85);color:#fff;font-size:10px;font-weight:700;padding:4px 9px;border-radius:20px;letter-spacing:.03em;}
+.rcard-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.rcard-price{font-family:'Sora',sans-serif;font-size:19px;font-weight:700;color:var(--text);}
+.rcard-price span{font-size:12px;font-weight:500;color:var(--muted);}
+.rcard-city{font-size:13px;color:var(--text);font-weight:600;display:flex;align-items:center;gap:5px;}
+.rcard-meta{display:flex;gap:6px;flex-wrap:wrap;}
+.rcard-tag{font-size:11px;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 8px;font-weight:500;}
+.rcard-notes{font-size:12px;color:var(--muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:18px;}
+.rcard-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:10px;border-top:1px solid var(--border);}
+.rcard-poster{font-size:11px;color:var(--muted);}
+.rcard-poster strong{color:var(--text);}
+.rcard-btn{background:var(--primary);color:#fff;border:none;border-radius:7px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
+.rcard-btn:hover{background:var(--pd);}
+.rentals-empty,.rentals-loading{text-align:center;padding:48px 20px;color:var(--muted);font-size:14px;}
+.rentals-spinner{width:26px;height:26px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;margin:0 auto 12px;animation:rspin .8s linear infinite;}
+@keyframes rspin{to{transform:rotate(360deg);}}
+
+.reqm-overlay{display:none;position:fixed;inset:0;background:rgba(15,27,45,.55);z-index:500;align-items:center;justify-content:center;padding:16px;}
+.reqm-overlay.on{display:flex;}
+.reqm-box{background:#fff;border-radius:16px;max-width:400px;width:100%;padding:24px 22px;max-height:88vh;overflow-y:auto;}
+.reqm-box h3{font-family:'Sora',sans-serif;font-size:18px;margin-bottom:4px;}
+.reqm-box .fsb{font-size:12.5px;color:var(--muted);margin-bottom:16px;line-height:1.6;}
+.reqm-close{float:right;background:none;border:none;font-size:20px;color:var(--muted);cursor:pointer;line-height:1;}
+.premium-box{background:var(--navy);border-radius:12px;padding:18px;text-align:center;}
+.premium-box h4{color:#fff;font-family:'Sora',sans-serif;font-size:15px;margin-bottom:6px;}
+.premium-box p{color:#8aa0b8;font-size:12.5px;line-height:1.6;margin-bottom:14px;}
+.premium-btn{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:11px 20px;font-size:13px;font-weight:700;cursor:pointer;width:100%;font-family:'Plus Jakarta Sans',sans-serif;}
+
+/* Room detail view */
+.rdet-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;margin-bottom:18px;}
+.rdet-back:hover{color:var(--primary);}
+.rdet-main-img{width:100%;height:280px;border-radius:14px;background:var(--bg);background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.rdet-thumbs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;}
+.rdet-thumb{width:64px;height:64px;border-radius:8px;background-size:cover;background-position:center;cursor:pointer;border:2px solid transparent;flex-shrink:0;}
+.rdet-thumb.on{border-color:var(--primary);}
+.rdet-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+.rdet-price{font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:var(--text);}
+.rdet-price span{font-size:13px;font-weight:500;color:var(--muted);}
+.rdet-city{font-size:15px;color:var(--text);font-weight:600;margin-top:4px;}
+.rdet-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+.rdet-tag{font-size:12px;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:6px 12px;font-weight:600;}
+.rdet-desc-title{font-size:11px;font-weight:700;color:#7a8a9a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
+.rdet-desc{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:22px;}
+.rdet-poster{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.rdet-poster-name{font-size:13px;color:var(--muted);}
+.rdet-poster-name strong{color:var(--text);}
+.rdet-cta{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:11px 20px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
+
+/* ═══ ADMIN ═══ */
+.admin-gate{max-width:360px;margin:70px auto;text-align:center;padding:0 20px;}
+.admin-gate-icon{width:52px;height:52px;background:var(--navy);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+.admin-gate h2{font-family:'Sora',sans-serif;font-size:20px;margin-bottom:8px;}
+.admin-gate p{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6;}
+.admin-gate input{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;margin-bottom:12px;font-family:'Plus Jakarta Sans',sans-serif;outline:none;}
+.admin-gate input:focus{border-color:var(--primary);}
+.admin-gate button{width:100%;padding:12px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
+.admin-gate .err{color:var(--primary);font-size:12.5px;margin-top:10px;display:none;font-weight:600;}
+.admin-topbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:20px;}
+.admin-refresh{background:var(--navy);color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
+.admin-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;}
+.admin-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:1000px;}
+.admin-table th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
+.admin-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text);}
+.admin-table tr:last-child td{border-bottom:none;}
+.admin-table tr:hover td{background:var(--bg);}
+.admin-id-cell{display:flex;align-items:center;gap:6px;font-family:monospace;font-size:11px;color:var(--muted);white-space:nowrap;}
+.admin-copy-btn{background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:3px 7px;font-size:10px;cursor:pointer;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif;flex-shrink:0;}
+.admin-copy-btn:hover{border-color:var(--primary);color:var(--primary);}
+.admin-photo-cell img{width:44px;height:44px;border-radius:6px;object-fit:cover;display:block;}
+.admin-notes-cell{max-width:200px;}
+.admin-note-banner{background:var(--pp);border:1px solid #ffd4c4;border-radius:9px;padding:12px 14px;font-size:12.5px;color:#a03d1f;margin-bottom:18px;line-height:1.6;}
+.admin-logout{font-size:11.5px;color:var(--muted);cursor:pointer;text-decoration:underline;}
+.admin-remove-btn{background:var(--primary);color:#fff;border:none;border-radius:6px;padding:6px 11px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap;}
+.admin-remove-btn:hover{background:var(--pd);}
+.admin-remove-btn:disabled{opacity:.6;cursor:not-allowed;}
 </style>
 </head>
 <body>
@@ -228,6 +312,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
     <span class="nl on" id="nl-home" onclick="go('home')">Home</span>
     <span class="nl" id="nl-renter" onclick="go('renter')">Find a Room</span>
     <span class="nl" id="nl-landlord" onclick="go('landlord')">List a Room</span>
+    <span class="nl" id="nl-rentals" onclick="go('rentals')">Rentals</span>
     <span class="nl" id="nl-howitworks" onclick="go('howitworks')">How It Works</span>
     <span class="nl" id="nl-reviews" onclick="go('reviews')">Reviews</span>
 <button class="nav-cta" onclick="window.location.href='contact.html'">
@@ -260,6 +345,10 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
   <div class="mbn-item" id="mb-landlord" onclick="go('landlord')">
     <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="10" width="14" height="9" rx="1.5" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M1 10L10 2l9 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="7.5" y="13" width="5" height="6" rx="1" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
     <span class="mbn-label">List Room</span>
+  </div>
+  <div class="mbn-item" id="mb-rentals" onclick="go('rentals')">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.6"/><rect x="11" y="3" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.6"/><rect x="2" y="12" width="7" height="5" rx="1.3" stroke="currentColor" stroke-width="1.6"/><rect x="11" y="12" width="7" height="5" rx="1.3" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span class="mbn-label">Rentals</span>
   </div>
   <div class="mbn-item" id="mb-howitworks" onclick="go('howitworks')">
     <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -370,7 +459,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
         <div class="social-section">
           <div class="social-section-title">
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="#FF5C35" stroke-width="1.4" fill="none"/><circle cx="7.5" cy="7.5" r="2" fill="#FF5C35"/></svg>
-            Social Media Handles &nbsp;<span style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">(optional helps verify your identity)</span>
+            Social Media Handles &nbsp;<span style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">(optional — helps verify your identity)</span>
           </div>
           <div class="social-row">
             <div class="fgrp" style="margin-bottom:0;">
@@ -441,7 +530,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
         </div>
         <!-- Photo upload -->
         <div class="fgrp">
-          <label class="fl">Room Photos <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">(optional max 5, JPG/PNG)</span></label>
+          <label class="fl">Room Photos <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">(optional — max 5, JPG/PNG)</span></label>
           <div class="photo-upload-area" id="pua" ondragover="puaDrag(event)" ondragleave="puaDragLeave(event)" ondrop="puaDrop(event)">
             <input type="file" id="l-photos" accept="image/jpeg,image/png,image/webp" multiple onchange="puaChange(event)"/>
             <div class="pua-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 13V4M6 7l4-4 4 4" stroke="#FF5C35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 14v1a2 2 0 002 2h10a2 2 0 002-2v-1" stroke="#FF5C35" stroke-width="1.6" stroke-linecap="round"/></svg></div>
@@ -458,7 +547,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
         <div class="social-section">
           <div class="social-section-title">
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="#FF5C35" stroke-width="1.4" fill="none"/><circle cx="7.5" cy="7.5" r="2" fill="#FF5C35"/></svg>
-            Social Media Handles &nbsp;<span style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">(optional builds trust with renters)</span>
+            Social Media Handles &nbsp;<span style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">(optional — builds trust with renters)</span>
           </div>
           <div class="social-row">
             <div class="fgrp" style="margin-bottom:0;">
@@ -502,9 +591,56 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
   </div>
 </div>
 
+<!-- ═══ RENTALS ═══ -->
+<div class="pg" id="pg-rentals">
+  <div id="rentals-list-view">
+    <div class="ph"><h1>Rentals</h1><p>Browse rooms listed by verified landlords across the US.</p></div>
+    <div class="sec" style="max-width:1040px;">
+      <div class="rentals-toolbar"><span class="rentals-count" id="rentals-count">Loading listings…</span></div>
+      <div id="rentals-loading" class="rentals-loading"><div class="rentals-spinner"></div>Fetching rooms…</div>
+      <div id="rentals-empty" class="rentals-empty" style="display:none;">No rooms listed yet. Check back soon, or <span style="color:var(--primary);font-weight:600;cursor:pointer;" onclick="go('landlord')">list your own room</span>.</div>
+      <div id="rentals-grid" class="rentals-grid"></div>
+    </div>
+  </div>
+  <div id="rentals-detail-view" style="display:none;">
+    <div class="sec" style="max-width:760px;">
+      <span class="rdet-back" onclick="closeRoomDetail()">&larr; Back to Rentals</span>
+      <div id="rdet-body"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Request Contact modal -->
+<div class="reqm-overlay" id="reqm-overlay">
+  <div class="reqm-box">
+    <button class="reqm-close" onclick="closeReqModal()">&times;</button>
+    <div id="reqm-form-view">
+      <h3>Request contact</h3>
+      <p class="fsb">Share your details — our team verifies and sends you this landlord's direct contact within 24 hrs.</p>
+      <div class="fgrp"><label class="fl">Full name *</label><input class="fi" id="req-nm" placeholder="Your full name"/></div>
+      <div class="fgrp"><label class="fl">Email *</label><input class="fi" type="email" id="req-em" placeholder="you@email.com"/></div>
+      <div class="fgrp"><label class="fl">WhatsApp / Phone *</label><input class="fi" id="req-ph" placeholder="+1 415 000 0000"/></div>
+      <button class="fsub" id="req-btn" style="background:var(--primary);color:#fff;" onclick="submitReq()">Request Contact &rarr;</button>
+    </div>
+    <div id="reqm-ok-view" class="ok" style="display:none;">
+      <h3>Request sent!</h3>
+      <p>Our team will verify and share this landlord's contact within 24 hours to your email and WhatsApp.</p>
+    </div>
+    <div id="reqm-dup-view" class="ok" style="display:none;">
+      <h3>Already requested</h3>
+      <p>You've already requested this listing. Our team will reach out within 24 hours.</p>
+    </div>
+    <div id="reqm-limit-view" style="display:none;" class="premium-box">
+      <h4>Free limit reached</h4>
+      <p>You've used your <span id="reqm-limit-count"></span> free contact requests. Activate Premium to unlock more verified landlord contacts.</p>
+      <button class="premium-btn" onclick="goPremium()">Activate Premium &rarr;</button>
+    </div>
+  </div>
+</div>
+
 <!-- ═══ HOW IT WORKS ═══ -->
 <div class="pg" id="pg-howitworks">
-  <div class="ph"><h1>How It Works</h1><p>From signup to move-in most users are done in under a week.</p></div>
+  <div class="ph"><h1>How It Works</h1><p>From signup to move-in — most users are done in under a week.</p></div>
   <div class="sec">
     <div class="eyebrow">Simple process</div>
     <h2>Four steps. Direct contact. Zero drama.</h2>
@@ -518,7 +654,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
         <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">1</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="4" y="3" width="14" height="16" rx="2" stroke="#FF5C35" stroke-width="1.7" fill="none"/><path d="M7 8h8M7 11h8M7 14h5" stroke="#FF5C35" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Fill your details</h3><p>City, budget, move-in date, and a few trust questions. Takes 2 minutes.</p></div>
         <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">2</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="7.5" stroke="#FF5C35" stroke-width="1.7" fill="none"/><path d="M8 11l2.5 2.5 4-4" stroke="#FF5C35" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Pay &amp; get verified</h3><p>Secure $9 one-time payment via PayPal.</p></div>
         <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">3</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 4h14v11H4z" stroke="#FF5C35" stroke-width="1.7" rx="2" fill="none"/><path d="M8 19h6M11 15v4" stroke="#FF5C35" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Get direct contact</h3><p>Within 24 hours you receive the landlord&rsquo;s real phone and email.</p></div>
-        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">4</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 12l4 4 10-9" stroke="#FF5C35" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Move in done</h3><p>Schedule a viewing, sign your lease. Most renters move in within a week.</p></div>
+        <div class="hiw-step"><div class="hiw-icon-ring"><span class="hiw-num">4</span><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 12l4 4 10-9" stroke="#FF5C35" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Move in — done</h3><p>Schedule a viewing, sign your lease. Most renters move in within a week.</p></div>
       </div>
     </div>
     <div class="hiw-tab-content" id="hiw-landlord">
@@ -549,7 +685,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
   <div class="sec">
     <div class="rv-grid">
       <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"Spent 3 weeks on Craigslist getting ghosted. RoomBridge gave me 3 landlord numbers in 20 hours. Found my SF room in 2 days."</div><div class="rv-auth"><div class="rv-av">TH</div><div><div class="rv-name">Taylor Herr</div><div class="rv-loc">San Francisco, CA · Renter</div></div></div></div>
-      <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"New F1 student, terrified of scams. RoomBridge verified everything. Peace of mind for $9 incredible."</div><div class="rv-auth"><div class="rv-av">CM</div><div><div class="rv-name">Caroline McCarthy</div><div class="rv-loc">New York, NY · Renter</div></div></div></div>
+      <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"New F1 student, terrified of scams. RoomBridge verified everything. Peace of mind for $9 — incredible."</div><div class="rv-auth"><div class="rv-av">CM</div><div><div class="rv-name">Caroline McCarthy</div><div class="rv-loc">New York, NY · Renter</div></div></div></div>
       <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"Listed my room, had 4 genuine renter contacts next morning. All serious. Worth every dollar of $19."</div><div class="rv-auth"><div class="rv-av">JM</div><div><div class="rv-name">James M.</div><div class="rv-loc">Austin, TX · Landlord</div></div></div></div>
       <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"Moving from India to California for work. RoomBridge had me a confirmed room before I even landed."</div><div class="rv-auth"><div class="rv-av">AN</div><div><div class="rv-name">Ana Natalia</div><div class="rv-loc">Sunnyvale, CA · Renter</div></div></div></div>
       <div class="rv"><div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rv-text">"My last Craigslist tenant was a nightmare. RoomBridge sends verified, professional renters only. Never going back."</div><div class="rv-auth"><div class="rv-av">SL</div><div><div class="rv-name">Sandra L.</div><div class="rv-loc">Chicago, IL · Landlord</div></div></div></div>
@@ -583,6 +719,41 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
   </div>
 </div>
 
+<!-- ═══ ADMIN ═══ -->
+<div class="pg" id="pg-admin">
+  <div id="admin-gate-view" class="admin-gate">
+    <div class="admin-gate-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="11" rx="2" stroke="white" stroke-width="1.8" fill="none"/><path d="M8 10V7a4 4 0 018 0v3" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+    <h2>Admin Access</h2>
+    <p>Enter the admin password to view all listings and their IDs, so you can remove any manually from your sheet.</p>
+    <input type="password" id="admin-pw" placeholder="Password" onkeydown="if(event.key==='Enter')adminLogin()"/>
+    <button onclick="adminLogin()">Enter</button>
+    <div class="err" id="admin-err">Incorrect password. Try again.</div>
+  </div>
+  <div id="admin-panel-view" style="display:none;">
+    <div class="ph"><h1>Admin — Listings</h1><p>Review every listing here, then delete any of them manually from your Google Sheet / Cloudinary.</p></div>
+    <div class="sec" style="max-width:1100px;">
+      <div class="admin-topbar">
+        <span class="rentals-count" id="admin-count">Loading…</span>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <span class="admin-logout" onclick="adminLogout()">Log out</span>
+          <button class="admin-refresh" onclick="loadAdminListings()">Refresh</button>
+        </div>
+      </div>
+      <div class="admin-note-banner">Clicking <strong>Remove</strong> deletes the listing everywhere — it disappears from the Rentals page immediately. This calls <code>?action=deleteListing</code> on your Google Apps Script, so Code.gs needs a handler for it (see the alert if it's missing yet). Prefer to delete by hand instead? Use the <strong>Listing ID</strong> + Copy button and remove that row from your Sheet yourself. If you want Email/Phone visible in this table too, have Code.gs include them in the <code>?action=list</code> response — this page will pick them up automatically.</div>
+      <div id="admin-loading" class="rentals-loading"><div class="rentals-spinner"></div>Fetching listings…</div>
+      <div id="admin-empty" class="rentals-empty" style="display:none;">No listings found.</div>
+      <div id="admin-table-wrap" class="admin-table-wrap" style="display:none;">
+        <table class="admin-table">
+          <thead><tr>
+            <th>Photo</th><th>Listing ID</th><th>Posted by</th><th>Email</th><th>Phone</th><th>City</th><th>Rent</th><th>Type</th><th>Lease</th><th>Available</th><th>Notes</th><th>Action</th>
+          </tr></thead>
+          <tbody id="admin-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer style="background:#1a1f2e;color:#e2e8f0;font-family:'Sora',sans-serif;padding:48px 40px 28px;">
   <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;padding-bottom:32px;border-bottom:0.5px solid rgba(255,255,255,0.12);">
     <div>
@@ -609,11 +780,19 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
 <script>
 var PP_R = "https://www.paypal.com/ncp/payment/EHAAXMCW2V5JS";
 var PP_L = "https://www.paypal.com/ncp/payment/BP2P2LBJYHP8A";
-var SH   = "https://script.google.com/macros/s/AKfycbxMAO5djDP4V0F9yhVYXnPdN7aQadiC6OIUJEZCMsyhkbSk4UsdsecVSL0AH_OzX_n8Aw/exec";
+var SH   = "https://script.google.com/macros/s/AKfycbx0MFNto8vXR7geuLsao8NgR4RNDOwp3dNv_z2p5VqBqz2PxIrvIeyq7baBbvkaZGh8tQ/exec"; // deploy apps-script/Code.gs, paste the /exec URL here (handles submit + list + leads, all in one)
 var DRIVE_UPLOAD_URL = "https://script.google.com/macros/s/AKfycbxMAO5djDP4V0F9yhVYXnPdN7aQadiC6OIUJEZCMsyhkbSk4UsdsecVSL0AH_OzX_n8Aw/exec";
 var SESSION_ID = String(Date.now());
 var CLOUDINARY_CLOUD_NAME   = 'duev0qyea';
 var CLOUDINARY_UPLOAD_PRESET = 'roombridge_unsigned';
+var PP_PREMIUM = "PASTE_YOUR_PAYPAL_PREMIUM_LINK_HERE"; // create this on PayPal.com same way PP_R/PP_L were made
+var FREE_LEADS = 2;
+var ADMIN_PASSWORD = "roombridge-admin-2026"; // change this to your own password
+var ADMIN_URL_KEY = "rb-admin-8k2p9x"; // secret link — open yoursite.com/#rb-admin-8k2p9x to reach the admin panel. Change this string too, then use the new one.
+var _rentalsLoaded = false;
+var _reqListingId = null;
+var _rentalsData = [];
+var _adminLoaded = false;
 
 function go(p) {
   if (p === 'contact') { window.location.href = 'contact.html'; return; }
@@ -631,6 +810,22 @@ function go(p) {
 
   var n = document.getElementById('nl-' + p); if (n) n.classList.add('on');
   var m = document.getElementById('mb-' + p); if (m) m.classList.add('on');
+
+  if (p === 'rentals') {
+    closeRoomDetail();
+    if (!_rentalsLoaded) loadRentals();
+  }
+
+  if (p === 'admin') {
+    if (sessionStorage.getItem('rb_admin_ok') === '1') {
+      showAdminPanel();
+    } else {
+      document.getElementById('admin-gate-view').style.display = 'block';
+      document.getElementById('admin-panel-view').style.display = 'none';
+      document.getElementById('admin-err').style.display = 'none';
+      document.getElementById('admin-pw').value = '';
+    }
+  }
 
   setTimeout(function() { window.scrollTo(0, 0); }, 10);
 }
@@ -863,10 +1058,278 @@ document.addEventListener('click', function(e) {
     document.querySelectorAll('.cal-dropdown').forEach(function(el) { el.classList.remove('open'); }); 
 });
 
+/* ═══ RENTALS ═══ */
+function esc(s) { var d = document.createElement('div'); d.textContent = (s == null ? '' : s); return d.innerHTML; }
+
+function loadRentals() {
+  _rentalsLoaded = true;
+  document.getElementById('rentals-loading').style.display = 'block';
+  document.getElementById('rentals-empty').style.display = 'none';
+  document.getElementById('rentals-grid').innerHTML = '';
+  fetch(SH + '?action=list')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      document.getElementById('rentals-loading').style.display = 'none';
+      var listings = (data && data.listings) ? data.listings : [];
+      renderRentals(listings);
+    })
+    .catch(function() {
+      document.getElementById('rentals-loading').style.display = 'none';
+      document.getElementById('rentals-count').textContent = 'Could not load listings — check back shortly.';
+    });
+}
+
+function renderRentals(listings) {
+  _rentalsData = listings;
+  var grid = document.getElementById('rentals-grid');
+  var count = document.getElementById('rentals-count');
+  if (!listings.length) {
+    document.getElementById('rentals-empty').style.display = 'block';
+    count.textContent = '';
+    return;
+  }
+  count.textContent = listings.length + ' room' + (listings.length === 1 ? '' : 's') + ' available';
+  grid.innerHTML = listings.map(function(l) {
+    var photo = (l.photos && l.photos.length) ? l.photos[0] : '';
+    var photoHtml = photo
+      ? '<div class="rcard-photo" style="background-image:url(\'' + esc(photo) + '\')"><span class="rcard-badge">' + esc(l.roomType || 'Room') + '</span></div>'
+      : '<div class="rcard-photo"><span class="rcard-badge">' + esc(l.roomType || 'Room') + '</span><svg class="rcard-photo-ph" width="30" height="30" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="1.5" stroke="currentColor" stroke-width="1.4"/><circle cx="7" cy="9" r="1.4" stroke="currentColor" stroke-width="1.2"/><path d="M3 15l4.5-4.5L11 14l3-3 3 3" stroke="currentColor" stroke-width="1.2"/></svg></div>';
+    return '<div class="rcard" onclick="openRoomDetail(\'' + esc(l.listingId) + '\')">' + photoHtml +
+      '<div class="rcard-body">' +
+        '<div class="rcard-price">' + esc(l.rent) + '<span> /month</span></div>' +
+        '<div class="rcard-city">' + esc(l.city) + '</div>' +
+        '<div class="rcard-meta">' +
+          (l.lease ? '<span class="rcard-tag">' + esc(l.lease) + '</span>' : '') +
+          (l.availableFrom ? '<span class="rcard-tag">From ' + esc(l.availableFrom) + '</span>' : '') +
+        '</div>' +
+        (l.notes ? '<div class="rcard-notes">' + esc(l.notes) + '</div>' : '') +
+        '<div class="rcard-foot">' +
+          '<span class="rcard-poster">Posted by <strong>' + esc(l.firstName || 'Landlord') + '</strong></span>' +
+          '<button class="rcard-btn" onclick="event.stopPropagation();openReqModal(\'' + esc(l.listingId) + '\')">Contact</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function openReqModal(listingId) {
+  _reqListingId = listingId;
+  document.getElementById('reqm-form-view').style.display = 'block';
+  document.getElementById('reqm-ok-view').style.display = 'none';
+  document.getElementById('reqm-dup-view').style.display = 'none';
+  document.getElementById('reqm-limit-view').style.display = 'none';
+  var savedName = localStorage.getItem('rb_renter_name') || '';
+  var savedEmail = localStorage.getItem('rb_renter_email') || '';
+  var savedPhone = localStorage.getItem('rb_renter_phone') || '';
+  document.getElementById('req-nm').value = savedName;
+  document.getElementById('req-em').value = savedEmail;
+  document.getElementById('req-ph').value = savedPhone;
+  document.getElementById('req-btn').disabled = false;
+  document.getElementById('req-btn').textContent = 'Request Contact →';
+  document.getElementById('reqm-overlay').classList.add('on');
+}
+function closeReqModal() { document.getElementById('reqm-overlay').classList.remove('on'); }
+
+function submitReq() {
+  var nm = document.getElementById('req-nm').value.trim();
+  var em = document.getElementById('req-em').value.trim();
+  var ph = document.getElementById('req-ph').value.trim();
+  if (!nm || !em || !ph) { alert('Please fill all fields.'); return; }
+  localStorage.setItem('rb_renter_name', nm);
+  localStorage.setItem('rb_renter_email', em);
+  localStorage.setItem('rb_renter_phone', ph);
+
+  var btn = document.getElementById('req-btn');
+  btn.disabled = true; btn.textContent = 'Sending...';
+
+  var params = new URLSearchParams({
+    action: 'requestContact', listingId: _reqListingId,
+    renterName: nm, renterEmail: em, renterPhone: ph
+  });
+  fetch(SH + '?' + params.toString())
+    .then(function(r) { return r.json(); })
+    .then(function(res) {
+      document.getElementById('reqm-form-view').style.display = 'none';
+      if (res.status === 'ok') {
+        document.getElementById('reqm-ok-view').style.display = 'block';
+      } else if (res.status === 'duplicate') {
+        document.getElementById('reqm-dup-view').style.display = 'block';
+      } else if (res.status === 'limit') {
+        document.getElementById('reqm-limit-count').textContent = res.allowed || FREE_LEADS;
+        document.getElementById('reqm-limit-view').style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again.');
+        btn.disabled = false; btn.textContent = 'Request Contact →';
+        document.getElementById('reqm-form-view').style.display = 'block';
+      }
+    })
+    .catch(function() {
+      alert('Network error — please try again.');
+      btn.disabled = false; btn.textContent = 'Request Contact →';
+    });
+}
+
+function goPremium() { window.open(PP_PREMIUM, '_blank'); }
+
+function openRoomDetail(listingId) {
+  var l = _rentalsData.find(function(x) { return x.listingId === listingId; });
+  if (!l) return;
+
+  var photos = (l.photos && l.photos.length) ? l.photos : [];
+  var mainImg = photos.length
+    ? '<div class="rdet-main-img" id="rdet-main-img" style="background-image:url(\'' + esc(photos[0]) + '\')"></div>'
+    : '<div class="rdet-main-img"><svg width="48" height="48" viewBox="0 0 20 20" fill="none" style="color:var(--muted);"><rect x="2" y="4" width="16" height="12" rx="1.5" stroke="currentColor" stroke-width="1.2"/><circle cx="7" cy="9" r="1.4" stroke="currentColor" stroke-width="1"/><path d="M3 15l4.5-4.5L11 14l3-3 3 3" stroke="currentColor" stroke-width="1"/></svg></div>';
+  var thumbs = photos.length > 1
+    ? '<div class="rdet-thumbs">' + photos.map(function(p, i) {
+        return '<div class="rdet-thumb' + (i === 0 ? ' on' : '') + '" style="background-image:url(\'' + esc(p) + '\')" onclick="rdetSwap(this,\'' + esc(p) + '\')"></div>';
+      }).join('') + '</div>'
+    : '';
+
+  document.getElementById('rdet-body').innerHTML =
+    mainImg + thumbs +
+    '<div class="rdet-top">' +
+      '<div><div class="rdet-price">' + esc(l.rent) + '<span> /month</span></div>' +
+        '<div class="rdet-city">' + esc(l.city) + '</div></div>' +
+    '</div>' +
+    '<div class="rdet-meta">' +
+      '<span class="rdet-tag">' + esc(l.roomType || 'Room') + '</span>' +
+      (l.lease ? '<span class="rdet-tag">' + esc(l.lease) + '</span>' : '') +
+      (l.availableFrom ? '<span class="rdet-tag">Available from ' + esc(l.availableFrom) + '</span>' : '') +
+    '</div>' +
+    (l.notes ? '<div class="rdet-desc-title">About this room</div><div class="rdet-desc">' + esc(l.notes) + '</div>' : '') +
+    '<div class="rdet-poster">' +
+      '<span class="rdet-poster-name">Posted by <strong>' + esc(l.firstName || 'Landlord') + '</strong></span>' +
+      '<button class="rdet-cta" onclick="openReqModal(\'' + esc(l.listingId) + '\')">Request Contact &rarr;</button>' +
+    '</div>';
+
+  document.getElementById('rentals-list-view').style.display = 'none';
+  document.getElementById('rentals-detail-view').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+function rdetSwap(el, url) {
+  document.getElementById('rdet-main-img').style.backgroundImage = "url('" + url + "')";
+  document.querySelectorAll('.rdet-thumb').forEach(function(t) { t.classList.remove('on'); });
+  el.classList.add('on');
+}
+function closeRoomDetail() {
+  document.getElementById('rentals-detail-view').style.display = 'none';
+  document.getElementById('rentals-list-view').style.display = 'block';
+}
+
+/* ═══ ADMIN ═══ */
+function adminLogin() {
+  var pw = document.getElementById('admin-pw').value;
+  if (pw === ADMIN_PASSWORD) {
+    sessionStorage.setItem('rb_admin_ok', '1');
+    document.getElementById('admin-err').style.display = 'none';
+    showAdminPanel();
+  } else {
+    document.getElementById('admin-err').style.display = 'block';
+  }
+}
+function adminLogout() {
+  sessionStorage.removeItem('rb_admin_ok');
+  _adminLoaded = false;
+  go('home');
+}
+function showAdminPanel() {
+  document.getElementById('admin-gate-view').style.display = 'none';
+  document.getElementById('admin-panel-view').style.display = 'block';
+  if (!_adminLoaded) loadAdminListings();
+}
+function loadAdminListings() {
+  _adminLoaded = true;
+  document.getElementById('admin-loading').style.display = 'block';
+  document.getElementById('admin-empty').style.display = 'none';
+  document.getElementById('admin-table-wrap').style.display = 'none';
+  fetch(SH + '?action=list')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      document.getElementById('admin-loading').style.display = 'none';
+      _rentalsData = (data && data.listings) ? data.listings : [];
+      _rentalsLoaded = true;
+      renderAdminTable(_rentalsData);
+    })
+    .catch(function() {
+      document.getElementById('admin-loading').style.display = 'none';
+      document.getElementById('admin-count').textContent = 'Could not load listings.';
+    });
+}
+function renderAdminTable(listings) {
+  var count = document.getElementById('admin-count');
+  var tbody = document.getElementById('admin-tbody');
+  if (!listings.length) {
+    document.getElementById('admin-empty').style.display = 'block';
+    document.getElementById('admin-table-wrap').style.display = 'none';
+    count.textContent = '';
+    return;
+  }
+  document.getElementById('admin-empty').style.display = 'none';
+  count.textContent = listings.length + ' listing' + (listings.length === 1 ? '' : 's') + ' total';
+  document.getElementById('admin-table-wrap').style.display = 'block';
+  tbody.innerHTML = listings.map(function(l) {
+    var photo = (l.photos && l.photos.length)
+      ? '<div class="admin-photo-cell"><img src="' + esc(l.photos[0]) + '"/></div>'
+      : '—';
+    var email = l.email || l.Email || '—';
+    var phone = l.phone || l.Phone || '—';
+    return '<tr>' +
+      '<td>' + photo + '</td>' +
+      '<td><div class="admin-id-cell">' + esc(l.listingId) + ' <button class="admin-copy-btn" onclick="copyId(this,\'' + esc(l.listingId) + '\')">Copy</button></div></td>' +
+      '<td>' + esc(l.firstName || '—') + '</td>' +
+      '<td>' + esc(email) + '</td>' +
+      '<td>' + esc(phone) + '</td>' +
+      '<td>' + esc(l.city || '—') + '</td>' +
+      '<td>' + esc(l.rent || '—') + '</td>' +
+      '<td>' + esc(l.roomType || '—') + '</td>' +
+      '<td>' + esc(l.lease || '—') + '</td>' +
+      '<td>' + esc(l.availableFrom || '—') + '</td>' +
+      '<td class="admin-notes-cell">' + esc(l.notes || '—') + '</td>' +
+      '<td><button class="admin-remove-btn" onclick="adminDeleteListing(\'' + esc(l.listingId) + '\', this)">Remove</button></td>' +
+    '</tr>';
+  }).join('');
+}
+function copyId(btn, id) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(id).then(function() {
+      var orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(function() { btn.textContent = orig; }, 1200);
+    });
+  }
+}
+function adminDeleteListing(id, btn) {
+  if (!confirm('Remove this listing? It disappears from Rentals immediately for everyone, and this cannot be undone.')) return;
+  btn.disabled = true;
+  btn.textContent = 'Removing…';
+  var params = new URLSearchParams({ action: 'deleteListing', listingId: id, key: ADMIN_PASSWORD });
+  fetch(SH + '?' + params.toString())
+    .then(function(r) { return r.json(); })
+    .then(function(res) {
+      if (res && res.status === 'ok') {
+        var idx = _rentalsData.findIndex(function(x) { return x.listingId === id; });
+        if (idx > -1) _rentalsData.splice(idx, 1);
+        renderAdminTable(_rentalsData);
+        renderRentals(_rentalsData);
+      } else {
+        alert('Could not remove the listing — your Google Apps Script (Code.gs) needs an "action=deleteListing" handler. See the note above the table.');
+        btn.disabled = false;
+        btn.textContent = 'Remove';
+      }
+    })
+    .catch(function() {
+      alert('Network error — please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Remove';
+    });
+}
+
 // Allow deep-linking from outside pages, e.g. index.html#renter, index.html#contact
+// The admin panel only opens via the secret ADMIN_URL_KEY hash, never via a plain #admin link.
 (function() {
   var h = window.location.hash.replace('#', '');
-  if (h) go(h);
+  if (h === ADMIN_URL_KEY) { go('admin'); }
+  else if (h && h !== 'admin') { go(h); }
 })();
 </script>
 </body>
