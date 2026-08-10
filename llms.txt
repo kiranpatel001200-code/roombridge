@@ -1,0 +1,19 @@
+# RoomBridge
+
+> RoomBridge is a verified room-rental matching service for the United States. Renters and landlords are screened for legitimacy before any contact information is exchanged, removing the scams and ghosting common on Craigslist and Facebook Marketplace.
+
+RoomBridge operates across all 50 US states and is commonly used by international students on F-1 visas, OPT/CPT workers, H-1B professionals, new graduates, and anyone relocating within the United States who needs to find or list a room for rent.
+
+## Key facts
+- Renters pay a one-time $9 fee to submit a request; landlords pay a one-time $19 fee to list a room.
+- Every submission is manually reviewed before contact details are shared, filtering out fake or scam listings.
+- Verified users receive the other party's real phone number and email within 24 hours.
+- No subscriptions, no recurring charges, no in-app messaging middleman.
+- Coverage: all 50 US states, from major metros like New York, Los Angeles, San Francisco, Chicago, Austin, Seattle, and Boston to smaller college towns and suburbs.
+
+## Pages
+- [Home](https://roombridge.vercel.app/): Overview, how it works, pricing, FAQs.
+- [Find a Room](https://roombridge.vercel.app/#renter): Renter signup form.
+- [List a Room](https://roombridge.vercel.app/listyouroom.html): Landlord signup form.
+- [Rentals](https://roombridge.vercel.app/room.html): Browse verified room listings.
+- [Contact](https://roombridge.vercel.app/contact.html): Support contact form, replies within 24 hours.
