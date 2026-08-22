@@ -397,6 +397,11 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--text);background:var(--w
       <h3>Already requested</h3>
       <p>You've already requested this listing. Our team will reach out within 24 hours.</p>
     </div>
+    <div id="reqm-limit-view" style="display:none;" class="premium-box">
+      <h4>Free limit reached</h4>
+      <p>You've used your <span id="reqm-limit-count"></span> free contact requests. Activate Premium to unlock more verified landlord contacts.</p>
+      <button class="premium-btn" onclick="goPremium()">Activate Premium &rarr;</button>
+    </div>
   </div>
 </div>
 
@@ -426,6 +431,7 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--text);background:var(--w
 <script>
 var SH = "https://script.google.com/macros/s/AKfycbwyiBGZkMRVyCOmRZylBE_HAMQ5me7ViwW_7T4Dz075fRHi5gJNmNa7LzsW7lvS09lRPg/exec";
 var FREE_LEADS = 2;
+var PP_PREMIUM = "PASTE_YOUR_PAYPAL_PREMIUM_LINK_HERE"; // create this on PayPal.com same way PP_L was made
 var _reqListingId = null;
 var _listing = null;
 
@@ -500,6 +506,7 @@ function openReqModal(listingId) {
   document.getElementById('reqm-form-view').style.display = 'block';
   document.getElementById('reqm-ok-view').style.display = 'none';
   document.getElementById('reqm-dup-view').style.display = 'none';
+  document.getElementById('reqm-limit-view').style.display = 'none';
   var savedName = localStorage.getItem('rb_renter_name') || '';
   var savedEmail = localStorage.getItem('rb_renter_email') || '';
   var savedPhone = localStorage.getItem('rb_renter_phone') || '';
@@ -529,9 +536,21 @@ function submitReq() {
       document.getElementById('reqm-form-view').style.display = 'none';
       if (res.status === 'ok') { document.getElementById('reqm-ok-view').style.display = 'block'; }
       else if (res.status === 'duplicate') { document.getElementById('reqm-dup-view').style.display = 'block'; }
+      else if (res.status === 'limit') {
+        document.getElementById('reqm-limit-count').textContent = res.allowed || FREE_LEADS;
+        document.getElementById('reqm-limit-view').style.display = 'block';
+      }
       else { alert('Something went wrong. Please try again.'); btn.disabled = false; btn.textContent = 'Request Contact \u2192'; document.getElementById('reqm-form-view').style.display = 'block'; }
     })
     .catch(function() { alert('Network error please try again.'); btn.disabled = false; btn.textContent = 'Request Contact \u2192'; });
+}
+
+function goPremium() {
+  if (!PP_PREMIUM || PP_PREMIUM.indexOf('PASTE_YOUR') === 0) {
+    alert('Premium isn\'t set up yet reach out via the Contact page and we\'ll help you get more contacts.');
+    return;
+  }
+  window.open(PP_PREMIUM, '_blank');
 }
 
 loadRoom();
