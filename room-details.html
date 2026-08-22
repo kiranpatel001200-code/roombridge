@@ -1,137 +1,540 @@
-<!-- room-details.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Room Details | RoomBridge</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Room Details | RoomBridge</title>
+<meta name="description" content="View this verified room for rent on RoomBridge. Request contact and get the landlord's real phone and email within 24 hours.">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="canonical" href="https://roombridge.vercel.app/room-details.html">
+<meta property="og:title" content="Room for Rent | RoomBridge" />
+<meta property="og:description" content="A verified room for rent, listed on RoomBridge. Request contact to get the landlord's direct phone and email." />
+<meta property="og:image" content="logo.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="RoomBridge" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,500;0,600;0,700;1,600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --primary:#B8862E;--pd:#96701F;--pp:#F7EEDC;
+  --navy:#101A2E;--navy2:#1C2B47;
+  --sky:#1B6E63;--green:#1B6E63;--green-pale:#E1EFEC;
+  --white:#fff;--bg:#F3F5F7;--border:#E1E4EA;
+  --text:#101A2E;--muted:#5B6472;--gold:#B8862E;
+}
+body{font-family:'IBM Plex Sans',sans-serif;color:var(--text);background:var(--white);padding-bottom:64px;}
+.desk-nav{background:var(--navy);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:100;}
+.logo{display:flex;align-items:center;gap:9px;cursor:pointer;}
+.logo-icon{width:30px;height:30px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-text{font-family:'Fraunces',sans-serif;font-size:17px;color:#fff;font-weight:700;letter-spacing:-.3px;}
+.logo-text em{color:var(--primary);font-style:normal;}
+.desk-links{display:flex;align-items:center;gap:2px;}
+.nl{font-size:13px;color:#8a9bb0;padding:6px 11px;border-radius:6px;cursor:pointer;transition:all .15s;font-weight:500;}
+.nl:hover,.nl.on{background:rgba(255,255,255,.08);color:#fff;}
+.nav-cta{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;margin-left:8px;}
+.nav-cta:hover{background:var(--pd);}
+.mob-topbar{display:none;background:var(--navy);padding:0 18px;height:52px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.mob-logo-text{font-family:'Fraunces',sans-serif;font-size:16px;color:#fff;font-weight:700;}
+.mob-logo-text em{color:var(--primary);font-style:normal;}
+.mob-cta{background:var(--primary);color:#fff;border:none;border-radius:7px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;}
+.mob-bottom{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);height:60px;z-index:200;align-items:center;justify-content:space-around;padding:0 4px;}
+.mbn-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:1;min-width:0;padding:8px 4px;cursor:pointer;border-radius:8px;transition:background .15s;text-decoration:none;}
+.mbn-item.on .mbn-icon,.mbn-item.on .mbn-label{color:var(--primary);}
+.mbn-icon{color:#5a7090;transition:color .15s;}
+.mbn-label{font-size:10px;color:#5a7090;font-weight:600;transition:color .15s;text-align:center;}
+.pg{display:none !important;}
+.pg.on{display:block !important;}
+.hero{background:var(--navy);padding:52px 20px 44px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-60px;right:-80px;width:280px;height:280px;background:rgba(184,134,46,.07);border-radius:50%;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(184,134,46,.15);color:#E7CE9C;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.07em;padding:5px 13px;border-radius:20px;margin-bottom:18px;text-transform:uppercase;}
+.bdot{width:6px;height:6px;background:var(--primary);border-radius:50%;flex-shrink:0;}
+.hero h1{font-family:'Fraunces',sans-serif;font-size:32px;font-weight:700;color:#fff;line-height:1.18;margin-bottom:14px;letter-spacing:-.4px;}
+.hero h1 span{color:var(--primary);}
+.hero-sub{font-size:14px;color:#7a95b0;max-width:440px;margin:0 auto 28px;line-height:1.7;}
+.hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
+.btn-p{background:var(--primary);color:#fff;border:none;border-radius:10px;padding:13px 24px;font-size:14px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;}
+.btn-g{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:13px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;}
+.hpills{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.hpill{display:flex;align-items:center;gap:6px;font-size:12px;color:#7a95b0;font-weight:500;}
+.hck{width:17px;height:17px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--navy2);border-bottom:1px solid rgba(255,255,255,.06);}
+.stat{padding:18px 10px;text-align:center;border-right:1px solid rgba(255,255,255,.06);}
+.stat:last-child{border-right:none;}
+.stn{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:var(--primary);line-height:1;}
+.stl{font-size:11px;color:#6a7f96;margin-top:3px;font-weight:500;letter-spacing:.02em;}
+.sec{padding:52px 20px;max-width:860px;margin:0 auto;}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:var(--primary);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
+.sec h2{font-family:'Fraunces',sans-serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-.3px;}
+.sec-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.7;}
+.ubox{background:var(--navy);border-radius:12px;padding:18px 20px;margin-bottom:28px;border-left:4px solid var(--primary);}
+.ubox p{font-size:13px;color:#8aa0b8;line-height:1.75;}
+.ubox strong{color:#fff;font-weight:600;}
+.steps{display:flex;flex-direction:column;}
+.step{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--border);}
+.step:last-child{border:none;}
+.step-num{width:36px;height:36px;background:var(--primary);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',sans-serif;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;margin-top:2px;}
+.step h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.step p{font-size:13px;color:var(--muted);line-height:1.6;}
+.fg2{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;}
+.fc{background:var(--bg);border-radius:12px;padding:18px 16px;border:1px solid var(--border);}
+.fc-icon{width:38px;height:38px;background:var(--primary);border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+.fc h3{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.fc p{font-size:13px;color:var(--muted);line-height:1.5;}
+.rv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;}
+.rv{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;}
+.rv-stars{color:var(--gold);font-size:14px;margin-bottom:9px;}
+.rv-text{font-size:13px;color:#444;line-height:1.65;margin-bottom:12px;font-style:italic;}
+.rv-auth{display:flex;align-items:center;gap:9px;}
+.rv-av{width:34px;height:34px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;}
+.rv-name{font-size:13px;font-weight:700;color:var(--text);}
+.rv-loc{font-size:11px;color:var(--muted);}
+.fw{max-width:540px;margin:0 auto;background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:28px 22px;}
+.fw h2{font-family:'Fraunces',sans-serif;font-size:20px;font-weight:700;margin-bottom:5px;}
+.fw .fsb{font-size:13px;color:var(--muted);margin-bottom:22px;}
+.fgrp{margin-bottom:14px;}
+.fl{font-size:11px;font-weight:700;color:#7a8a9a;margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:.05em;}
+.fi,.fs,.ft{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;color:var(--text);font-family:'IBM Plex Sans',sans-serif;outline:none;background:#fff;transition:border-color .15s;}
+.fi:focus,.fs:focus,.ft:focus{border-color:var(--primary);}
+.ft{min-height:75px;resize:vertical;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.fnote{background:var(--navy);border-radius:9px;padding:12px 14px;font-size:13px;color:#8aa0b8;margin-bottom:18px;line-height:1.6;}
+.fnote strong{color:#fff;}
+.fsub{width:100%;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;margin-top:4px;}
+.fsub:disabled{opacity:.6;cursor:not-allowed;}
+.fsub.sky{background:var(--sky);}
+.ok{background:var(--green-pale);border:1px solid #5FA89C;border-radius:10px;padding:22px;text-align:center;display:none;}
+.ok h3{font-family:'Fraunces',sans-serif;font-size:18px;color:#0F3D37;margin-bottom:5px;}
+.ok p{font-size:13px;color:#1B6E63;line-height:1.6;}
+/* Social handles - FIXED */
+.social-section{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:18px;margin-bottom:18px;}
+.social-section-title{font-size:11px;font-weight:700;color:#7a8a9a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px;display:flex;align-items:center;gap:7px;}
+.social-section-title svg{flex-shrink:0;width:15px;height:15px;}
+.social-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.social-row:last-of-type{margin-bottom:0;}
+.social-input-wrap{position:relative;display:flex;align-items:center;}
+.social-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);pointer-events:none;display:flex;align-items:center;justify-content:center;width:16px;height:16px;flex-shrink:0;z-index:1;}
+.social-icon svg{width:14px;height:14px;display:block;}
+.fi-social{width:100%;padding:10px 13px 10px 38px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;color:var(--text);font-family:'IBM Plex Sans',sans-serif;outline:none;background:#fff;transition:border-color .15s;box-sizing:border-box;}
+.fi-social:focus{border-color:var(--primary);}
+.fi-social::placeholder{color:#a0a8b5;}
+/* Photo upload */
+.photo-upload-area{border:2px dashed var(--border);border-radius:10px;padding:20px 16px;text-align:center;cursor:pointer;transition:all .2s;background:#fff;margin-bottom:8px;position:relative;overflow:hidden;}
+.photo-upload-area:hover,.photo-upload-area.drag-over{border-color:var(--primary);background:var(--pp);}
+.photo-upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.pua-icon{width:40px;height:40px;background:var(--pp);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;}
+.pua-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.pua-sub{font-size:12px;color:var(--muted);}
+.photo-previews{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+.photo-thumb{width:64px;height:64px;border-radius:8px;object-fit:cover;border:2px solid var(--border);}
+.photo-thumb-wrap{position:relative;display:inline-block;}
+.photo-remove{position:absolute;top:-5px;right:-5px;width:18px;height:18px;background:var(--primary);border-radius:50%;border:none;cursor:pointer;color:#fff;font-weight:700;font-size:12px;line-height:18px;text-align:center;padding:0;}
+.upload-progress{display:none;margin-bottom:10px;}
+.upload-bar-wrap{background:#e0e7ef;border-radius:4px;height:4px;overflow:hidden;margin-bottom:4px;}
+.upload-bar{height:100%;background:var(--primary);border-radius:4px;transition:width .3s;width:0%;}
+.upload-status{font-size:11px;color:var(--muted);}
+/* Amenities picker */
+.amenity-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:8px;}
+.amenity-chip{position:relative;display:flex;align-items:center;gap:7px;padding:9px 11px;border:1.5px solid var(--border);border-radius:9px;font-size:12.5px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s;background:#fff;user-select:none;}
+.amenity-chip:hover{border-color:var(--primary);}
+.amenity-chip input{position:absolute;opacity:0;width:0;height:0;margin:0;}
+.amenity-chip svg{flex-shrink:0;width:15px;height:15px;color:#9aa8b8;transition:color .15s;}
+.amenity-chip:has(input:checked){background:var(--pp);border-color:var(--primary);color:var(--primary);}
+.amenity-chip:has(input:checked) svg{color:var(--primary);}
+/* Calendar */
+.cal-wrap{position:relative;display:inline-block;width:100%;}
+.cal-input{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;color:var(--text);font-family:'IBM Plex Sans',sans-serif;outline:none;background:#fff;cursor:pointer;box-sizing:border-box;}
+.cal-input:focus{border-color:var(--primary);}
+.cal-dropdown{position:absolute;top:calc(100% + 6px);left:0;z-index:999;background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:14px;box-shadow:0 8px 28px rgba(0,0,0,0.12);min-width:280px;display:none;}
+.cal-dropdown.open{display:block;}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.cal-nav{background:none;border:none;cursor:pointer;font-size:16px;padding:4px 8px;border-radius:6px;color:var(--text);}
+.cal-nav:hover{background:#f0f0f0;}
+.cal-month-lbl{font-size:14px;font-weight:700;color:var(--text);}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.cal-day-lbl{font-size:11px;font-weight:600;color:#8a9bb0;text-align:center;padding:4px 0;}
+.cal-cell{font-size:13px;text-align:center;padding:7px 0;border-radius:7px;cursor:pointer;color:var(--text);}
+.cal-cell:hover:not(.empty):not(.past){background:var(--pp);color:var(--primary);}
+.cal-cell.selected{background:var(--primary);color:#fff;font-weight:700;}
+.cal-cell.today{font-weight:700;color:var(--primary);}
+.cal-cell.past{color:#ccc;cursor:default;}
+.cal-cell.empty{cursor:default;}
+/* contact grid */
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
+.ct-info{background:var(--navy);border-radius:14px;padding:24px;}
+.ct-info h3{font-family:'Fraunces',sans-serif;font-size:18px;color:#fff;margin-bottom:7px;}
+.ct-info p{font-size:13px;color:#7a95b0;line-height:1.65;margin-bottom:18px;}
+.ct-item{display:flex;align-items:flex-start;gap:11px;margin-bottom:14px;}
+.ct-ic{width:32px;height:32px;background:rgba(184,134,46,.18);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ct-lbl{font-size:10px;color:#5a7090;margin-bottom:2px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
+.ct-val{font-size:13px;color:#a0b8cc;}
+.ct-form{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:22px;}
+.ct-form h3{font-family:'Fraunces',sans-serif;font-size:16px;margin-bottom:16px;}
+.ph{background:var(--navy);padding:36px 20px 28px;text-align:center;}
+.ph h1{font-family:'Fraunces',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.3px;}
+.ph p{font-size:14px;color:#7a95b0;}
+.cta-band{background:var(--primary);padding:48px 20px;text-align:center;}
+.cta-band h2{font-family:'Fraunces',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:9px;letter-spacing:-.3px;}
+.cta-band p{font-size:14px;color:rgba(255,255,255,.8);margin-bottom:24px;line-height:1.7;}
+.cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.cwb{background:#fff;color:var(--primary);border:none;border-radius:9px;padding:12px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;}
+.cdb{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4);border-radius:9px;padding:12px 22px;font-size:14px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;}
+/* HIW */
+.hiw-tabs-row{display:flex;gap:8px;justify-content:center;margin-bottom:36px;}
+.hiw-tab{padding:9px 22px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--muted);transition:all .15s;font-family:'IBM Plex Sans',sans-serif;}
+.hiw-tab.on{background:var(--primary);color:#fff;border-color:var(--primary);}
+.hiw-steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-bottom:40px;}
+.hiw-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px;position:relative;}
+.hiw-step:not(:last-child)::after{content:'';position:absolute;top:23px;left:calc(50% + 24px);right:calc(-50% + 24px);height:1px;border-top:2px dashed #dce4ef;z-index:0;}
+.hiw-icon-ring{width:48px;height:48px;border-radius:50%;background:var(--pp);border:2px solid var(--primary);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;margin:0 auto 14px;flex-shrink:0;}
+.hiw-num{position:absolute;top:-5px;right:-5px;width:18px;height:18px;border-radius:50%;background:var(--primary);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',sans-serif;}
+.hiw-step h3{font-size:13px;font-weight:700;color:var(--text);margin-bottom:5px;}
+.hiw-step p{font-size:12px;color:var(--muted);line-height:1.55;}
+.hiw-tab-content{display:none;}
+.hiw-tab-content.on{display:block;}
+.hiw-guarantee{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px;}
+.hiw-g{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:18px 16px;}
+.hiw-g-icon{width:36px;height:36px;background:var(--primary);border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.hiw-g h4{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.hiw-g p{font-size:12px;color:var(--muted);line-height:1.5;}
+.hiw-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:36px 0 0;}
+@media(max-width:768px){
+  body{padding-bottom:80px;}
+  .desk-nav{display:none!important;}
+  .mob-topbar{display:flex!important;}
+  .mob-bottom{display:flex!important;}
+  .hero{padding:36px 16px 32px;}
+  .hero h1{font-size:24px;}
+  .hero-sub{font-size:13px;}
+  .hero-btns{flex-direction:column;align-items:stretch;gap:8px;max-width:280px;margin-left:auto;margin-right:auto;margin-bottom:24px;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .sec{padding:36px 16px;}
+  .sec h2{font-size:20px;}
+  .fg2,.rv-grid{grid-template-columns:1fr;}
+  .ct-grid,.frow,.social-row{grid-template-columns:1fr;}
+  .fw{padding:22px 16px;border-radius:12px;}
+  .fw h2{font-size:18px;}
+  .ph{padding:28px 16px 22px;}
+  .ph h1{font-size:22px;}
+  .cta-band{padding:36px 16px;}
+  .cta-band h2{font-size:20px;}
+  .cta-btns{flex-direction:column;align-items:center;}
+  .cwb,.cdb{width:100%;max-width:280px;}
+  .hiw-steps-grid{grid-template-columns:1fr 1fr;gap:24px 8px;}
+  .hiw-step:not(:last-child)::after{display:none;}
+  .hiw-guarantee{grid-template-columns:1fr;}
+}
+
+/* ═══ RENTALS ═══ */
+.rentals-toolbar{display:flex;justify-content:center;margin-bottom:24px;}
+.rentals-count{font-size:13px;color:var(--muted);font-weight:500;}
+.rentals-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+.rcard{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .15s;cursor:pointer;}
+.rcard:hover{box-shadow:0 6px 20px rgba(16,26,46,.08);}
+.rcard-photo{width:100%;height:140px;background:var(--bg);background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;position:relative;}
+.rcard-photo-ph{color:var(--muted);}
+.rcard-badge{position:absolute;top:10px;left:10px;background:rgba(16,26,46,.85);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;padding:4px 9px;border-radius:20px;letter-spacing:.03em;}
+.rcard-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.rcard-price{font-family:'Fraunces',sans-serif;font-size:19px;font-weight:700;color:var(--text);}
+.rcard-price span{font-size:12px;font-weight:500;color:var(--muted);}
+.rcard-city{font-size:13px;color:var(--text);font-weight:600;display:flex;align-items:center;gap:5px;}
+.rcard-meta{display:flex;gap:6px;flex-wrap:wrap;}
+.rcard-tag{font-size:11px;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 8px;font-weight:500;}
+.rcard-amenities{display:flex;flex-wrap:wrap;gap:5px;}
+.rcard-notes{font-size:12px;color:var(--muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:18px;}
+.rcard-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:10px;border-top:1px solid var(--border);}
+.rcard-poster{font-size:11px;color:var(--muted);}
+.rcard-poster strong{color:var(--text);}
+.rcard-btn{background:var(--primary);color:#fff;border:none;border-radius:7px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;}
+.rcard-btn:hover{background:var(--pd);}
+.rentals-empty,.rentals-loading{text-align:center;padding:48px 20px;color:var(--muted);font-size:14px;}
+.rentals-spinner{width:26px;height:26px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;margin:0 auto 12px;animation:rspin .8s linear infinite;}
+@keyframes rspin{to{transform:rotate(360deg);}}
+
+.reqm-overlay{display:none;position:fixed;inset:0;background:rgba(16,26,46,.55);z-index:500;align-items:center;justify-content:center;padding:16px;}
+.reqm-overlay.on{display:flex;}
+.reqm-box{background:#fff;border-radius:16px;max-width:400px;width:100%;padding:24px 22px;max-height:88vh;overflow-y:auto;}
+.reqm-box h3{font-family:'Fraunces',sans-serif;font-size:18px;margin-bottom:4px;}
+.reqm-box .fsb{font-size:12.5px;color:var(--muted);margin-bottom:16px;line-height:1.6;}
+.reqm-close{float:right;background:none;border:none;font-size:20px;color:var(--muted);cursor:pointer;line-height:1;}
+.premium-box{background:var(--navy);border-radius:12px;padding:18px;text-align:center;}
+.premium-box h4{color:#fff;font-family:'Fraunces',sans-serif;font-size:15px;margin-bottom:6px;}
+.premium-box p{color:#8aa0b8;font-size:12.5px;line-height:1.6;margin-bottom:14px;}
+.premium-btn{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:11px 20px;font-size:13px;font-weight:700;cursor:pointer;width:100%;font-family:'IBM Plex Sans',sans-serif;}
+
+/* Room detail view */
+.rdet-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;margin-bottom:18px;}
+.rdet-back:hover{color:var(--primary);}
+.rdet-main-img{width:100%;height:280px;border-radius:14px;background:var(--bg);background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.rdet-thumbs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;}
+.rdet-thumb{width:64px;height:64px;border-radius:8px;background-size:cover;background-position:center;cursor:pointer;border:2px solid transparent;flex-shrink:0;}
+.rdet-thumb.on{border-color:var(--primary);}
+.rdet-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+.rdet-price{font-family:'Fraunces',sans-serif;font-size:28px;font-weight:700;color:var(--text);}
+.rdet-price span{font-size:13px;font-weight:500;color:var(--muted);}
+.rdet-city{font-size:15px;color:var(--text);font-weight:600;margin-top:4px;}
+.rdet-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+.rdet-tag{font-size:12px;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:6px 12px;font-weight:600;}
+.rdet-desc-title{font-size:11px;font-weight:700;color:#7a8a9a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
+.rdet-desc{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:22px;}
+.rdet-amenities{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px;}
+.rdet-poster{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.rdet-poster-name{font-size:13px;color:var(--muted);}
+.rdet-poster-name strong{color:var(--text);}
+.rdet-cta{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:11px 20px;font-size:13px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;}
+
+/* ═══ ADMIN ═══ */
+.admin-gate{max-width:360px;margin:70px auto;text-align:center;padding:0 20px;}
+.admin-gate-icon{width:52px;height:52px;background:var(--navy);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+.admin-gate h2{font-family:'Fraunces',sans-serif;font-size:20px;margin-bottom:8px;}
+.admin-gate p{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6;}
+.admin-gate input{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;margin-bottom:12px;font-family:'IBM Plex Sans',sans-serif;outline:none;}
+.admin-gate input:focus{border-color:var(--primary);}
+.admin-gate button{width:100%;padding:12px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;}
+.admin-gate .err{color:var(--primary);font-size:12.5px;margin-top:10px;display:none;font-weight:600;}
+.admin-topbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:20px;}
+.admin-refresh{background:var(--navy);color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;}
+.admin-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;}
+.admin-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:1000px;}
+.admin-table th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
+.admin-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text);}
+.admin-table tr:last-child td{border-bottom:none;}
+.admin-table tr:hover td{background:var(--bg);}
+.admin-id-cell{display:flex;align-items:center;gap:6px;font-family:monospace;font-size:11px;color:var(--muted);white-space:nowrap;}
+.admin-copy-btn{background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:3px 7px;font-size:10px;cursor:pointer;color:var(--muted);font-family:'IBM Plex Sans',sans-serif;flex-shrink:0;}
+.admin-copy-btn:hover{border-color:var(--primary);color:var(--primary);}
+.admin-photo-cell img{width:44px;height:44px;border-radius:6px;object-fit:cover;display:block;}
+.admin-notes-cell{max-width:200px;}
+.admin-note-banner{background:var(--pp);border:1px solid #E7CE9C;border-radius:9px;padding:12px 14px;font-size:12.5px;color:#7A5A1E;margin-bottom:18px;line-height:1.6;}
+.admin-logout{font-size:11.5px;color:var(--muted);cursor:pointer;text-decoration:underline;}
+.admin-remove-btn{background:var(--primary);color:#fff;border:none;border-radius:6px;padding:6px 11px;font-size:11px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;white-space:nowrap;}
+.admin-remove-btn:hover{background:var(--pd);}
+.admin-remove-btn:disabled{opacity:.6;cursor:not-allowed;}
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">Room<span>Bridge</span></a>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#find-room" class="nav-link">Find a Room</a>
-                <a href="list-room.html" class="nav-link">List Your Room</a>
-                <a href="rooms.html" class="nav-link active">Rooms Available</a>
-                <a href="index.html#how-it-works" class="nav-link">How It Works</a>
-                <a href="index.html#reviews" class="nav-link">Reviews</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </nav>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container details-container">
-            <div id="details-loader" class="loader-container">
-                <div class="spinner"></div>
-                <p>Loading room details...</p>
-            </div>
-            <div id="room-details-content" style="display: none;">
-                <!-- Gallery -->
-                <div class="gallery-section">
-                    <div class="main-gallery-image" id="main-gallery-image"></div>
-                    <div class="gallery-thumbs" id="gallery-thumbs"></div>
-                </div>
+<!-- DESKTOP NAV -->
+<nav class="desk-nav">
+  <a class="logo" href="index.html">
+    <div class="logo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 11Q8 2 15 11" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="1" y="10" width="5" height="5" rx="1.5" fill="white"/><rect x="10" y="10" width="5" height="5" rx="1.5" fill="white"/></svg></div>
+    <div class="logo-text">Room<em>Bridge</em></div>
+  </a>
+  <div class="desk-links">
+    <a class="nl" href="index.html">Home</a>
+    <a class="nl" href="index.html#renter">Find a Room</a>
+    <a class="nl" href="listyouroom.html">List a Room</a>
+    <a class="nl on" href="index.html#rentals">Rentals</a>
+    <a class="nl" href="index.html#howitworks">How It Works</a>
+    <a class="nl" href="index.html#reviews">Reviews</a>
+    <a class="nl" href="contact.html">Contact</a>
+  </div>
+  <a class="nav-cta" href="index.html#renter">Find a Room &rarr;</a>
+</nav>
 
-                <!-- Info Grid -->
-                <div class="room-info-grid">
-                    <div class="room-main-info">
-                        <div class="room-title-row">
-                            <div>
-                                <span class="badge" id="detail-room-type"></span>
-                                <h1 id="detail-title"></h1>
-                                <p class="location-text"><i class="fas fa-map-marker-alt"></i> <span id="detail-address"></span></p>
-                            </div>
-                            <div class="price-tag">
-                                <span class="currency">$</span><span id="detail-rent"></span><span class="period">/month</span>
-                            </div>
-                        </div>
+<!-- MOBILE TOP BAR -->
+<div class="mob-topbar">
+  <a class="logo" href="index.html">
+    <div class="logo-icon" style="width:26px;height:26px;border-radius:7px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M1 11Q8 2 15 11" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="1" y="10" width="5" height="5" rx="1.5" fill="white"/><rect x="10" y="10" width="5" height="5" rx="1.5" fill="white"/></svg></div>
+    <div class="mob-logo-text">Room<em>Bridge</em></div>
+  </a>
+  <a class="mob-cta" href="index.html#renter">Find a Room &rarr;</a>
+</div>
 
-                        <hr class="divider">
+<!-- MOBILE BOTTOM NAV -->
+<div class="mob-bottom">
+  <a class="mbn-item" href="index.html">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 9.5L10 3l7 6.5V18H13v-5H7v5H3V9.5z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    <span class="mbn-label">Home</span>
+  </a>
+  <a class="mbn-item" href="index.html#renter">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M3 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+    <span class="mbn-label">Find Room</span>
+  </a>
+  <a class="mbn-item" href="listyouroom.html">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="10" width="14" height="9" rx="1.5" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M1 10L10 2l9 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="7.5" y="13" width="5" height="6" rx="1" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
+    <span class="mbn-label">List Room</span>
+  </a>
+  <div class="mbn-item on">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.6"/><rect x="11" y="3" width="7" height="7" rx="1.3" stroke="currentColor" stroke-width="1.6"/><rect x="2" y="12" width="7" height="5" rx="1.3" stroke="currentColor" stroke-width="1.6"/><rect x="11" y="12" width="7" height="5" rx="1.3" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span class="mbn-label">Rentals</span>
+  </div>
+  <a class="mbn-item" href="contact.html">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 4h16v12H2V4z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M2 4l8 7 8-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <span class="mbn-label">Contact</span>
+  </a>
+</div>
 
-                        <div class="quick-specs">
-                            <div class="spec-item"><i class="fas fa-home"></i> <span id="detail-property-type"></span></div>
-                            <div class="spec-item"><i class="fas fa-calendar-alt"></i> Available: <span id="detail-available"></span></div>
-                            <div class="spec-item"><i class="fas fa-file-contract"></i> Lease: <span id="detail-lease"></span></div>
-                            <div class="spec-item"><i class="fas fa-venus-mars"></i> Preference: <span id="detail-gender"></span></div>
-                        </div>
+<div class="sec" style="max-width:760px;">
+  <a href="index.html#rentals" class="rdet-back">&larr; Back to Rentals</a>
+  <div id="rdet-body">
+    <div class="rentals-loading"><div class="rentals-spinner"></div>Loading room&hellip;</div>
+  </div>
+  <div id="rdet-notfound" style="display:none;text-align:center;padding:48px 20px;">
+    <h2 style="margin-bottom:8px;">Room not found</h2>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:20px;">This listing may have been removed, or the link is missing its room ID.</p>
+    <a href="index.html#rentals" class="btn-p" style="display:inline-block;text-decoration:none;">Browse all Rentals</a>
+  </div>
+</div>
 
-                        <hr class="divider">
+<!-- Request Contact modal -->
+<div class="reqm-overlay" id="reqm-overlay">
+  <div class="reqm-box">
+    <button class="reqm-close" onclick="closeReqModal()">&times;</button>
+    <div id="reqm-form-view">
+      <h3>Request contact</h3>
+      <p class="fsb">Share your details our team verifies and sends you this landlord's direct contact within 24 hrs.</p>
+      <div class="fgrp"><label class="fl">Full name *</label><input class="fi" id="req-nm" placeholder="Your full name"/></div>
+      <div class="fgrp"><label class="fl">Email *</label><input class="fi" type="email" id="req-em" placeholder="you@email.com"/></div>
+      <div class="fgrp"><label class="fl">WhatsApp / Phone *</label><input class="fi" id="req-ph" placeholder="+1 415 000 0000"/></div>
+      <button class="fsub" id="req-btn" style="background:var(--primary);color:#fff;" onclick="submitReq()">Request Contact &rarr;</button>
+    </div>
+    <div id="reqm-ok-view" class="ok" style="display:none;">
+      <h3>Request sent!</h3>
+      <p>Our team will verify and share this landlord's contact within 24 hours to your email and WhatsApp.</p>
+    </div>
+    <div id="reqm-dup-view" class="ok" style="display:none;">
+      <h3>Already requested</h3>
+      <p>You've already requested this listing. Our team will reach out within 24 hours.</p>
+    </div>
+  </div>
+</div>
 
-                        <div class="section-block">
-                            <h3>Description</h3>
-                            <p id="detail-description"></p>
-                        </div>
+<footer style="background:#101A2E;color:#e2e8f0;font-family:'Fraunces',sans-serif;padding:48px 40px 28px;">
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;padding-bottom:32px;border-bottom:0.5px solid rgba(255,255,255,0.12);">
+    <div>
+      <p style="font-size:22px;font-weight:700;margin:0 0 6px;color:#fff;">Room<span style="color:#E7CE9C;">Bridge</span></p>
+      <p style="font-size:13px;color:#94a3b8;margin:0 0 20px;">The smarter way to find a room in the US.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="https://www.instagram.com/roombridge.vercel.app/" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;font-size:13px;color:#e2e8f0;text-decoration:none;">Instagram</a>
+        <a href="https://www.facebook.com/groups/31743317415255510" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;font-size:13px;color:#e2e8f0;text-decoration:none;">Facebook</a>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#E7CE9C;margin:0 0 14px;">Contact Us</p>
+      <p style="font-size:12px;color:#64748b;">We reply within 24 hours</p>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding-top:22px;flex-wrap:wrap;gap:10px;">
+    <p style="font-size:12px;color:#64748b;margin:0;">&copy; 2026 RoomBridge</p>
+    <div style="display:inline-flex;gap:6px;align-items:center;font-size:12px;color:#64748b;">
+      <span>Verified rooms</span><span style="color:#334155;">&middot;</span><span>Direct contact</span><span style="color:#334155;">&middot;</span><span>All 50 US states</span>
+    </div>
+  </div>
+</footer>
 
-                        <hr class="divider">
+<script>
+var SH = "https://script.google.com/macros/s/AKfycbwyiBGZkMRVyCOmRZylBE_HAMQ5me7ViwW_7T4Dz075fRHi5gJNmNa7LzsW7lvS09lRPg/exec";
+var FREE_LEADS = 2;
+var _reqListingId = null;
+var _listing = null;
 
-                        <div class="section-block">
-                            <h3>Amenities & Features</h3>
-                            <div class="amenities-grid" id="detail-amenities"></div>
-                        </div>
-                    </div>
+function esc(s) { var d = document.createElement('div'); d.textContent = (s == null ? '' : s); return d.innerHTML; }
+function parseAmenities(raw) {
+  if (!raw) return [];
+  if (Array.isArray(raw)) return raw.map(function(s) { return String(s).trim(); }).filter(Boolean);
+  return String(raw).split(/[|,]/).map(function(s) { return s.trim(); }).filter(Boolean);
+}
+function getParam(name) {
+  return new URLSearchParams(window.location.search).get(name);
+}
 
-                    <!-- Sidebar / Landlord Contact Card -->
-                    <div class="room-sidebar">
-                        <div class="contact-card">
-                            <h3>Landlord Contact</h3>
-                            <div class="landlord-profile">
-                                <div class="avatar-placeholder"><i class="fas fa-user"></i></div>
-                                <div>
-                                    <h4 id="detail-landlord-name"></h4>
-                                    <p class="verified-badge"><i class="fas fa-check-circle"></i> Verified Landlord</p>
-                                </div>
-                            </div>
-                            <div class="contact-masked-info">
-                                <p><i class="fas fa-envelope"></i> <span id="detail-masked-email"></span></p>
-                                <p><i class="fas fa-phone"></i> <span id="detail-masked-phone"></span></p>
-                            </div>
-                            <a id="whatsapp-inquiry-btn" href="#" target="_blank" class="btn-whatsapp" style="display: none;">
-                                <i class="fab fa-whatsapp"></i> Inquire via WhatsApp
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+function loadRoom() {
+  var id = getParam('id') || getParam('listingId');
+  if (!id) { showNotFound(); return; }
+  fetch(SH + '?action=list')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var listings = (data && data.listings) ? data.listings : [];
+      var l = listings.find(function(x) { return x.listingId === id; });
+      if (!l) { showNotFound(); return; }
+      _listing = l;
+      renderRoom(l);
+      document.title = (l.roomType || 'Room') + ' in ' + (l.city || 'the US') + ' | RoomBridge';
+    })
+    .catch(showNotFound);
+}
+function showNotFound() {
+  document.getElementById('rdet-body').style.display = 'none';
+  document.getElementById('rdet-notfound').style.display = 'block';
+}
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-container">
-            <div class="footer-col">
-                <a href="index.html" class="logo">Room<span>Bridge</span></a>
-                <p>Connecting verified landlords and tenants safely and seamlessly.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <a href="index.html">Home</a>
-                <a href="rooms.html">Rooms Available</a>
-                <a href="list-room.html">List Your Room</a>
-                <a href="contact.html">Contact Us</a>
-            </div>
-            <div class="footer-col">
-                <h3>Contact</h3>
-                <p><i class="fas fa-envelope"></i> support@roombridge.com</p>
-                <p><i class="fas fa-phone"></i> +1 (555) 234-5678</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 RoomBridge. All rights reserved.</p>
-        </div>
-    </footer>
+function renderRoom(l) {
+  var photos = (l.photos && l.photos.length) ? l.photos : [];
+  var mainImg = photos.length
+    ? '<div class="rdet-main-img" id="rdet-main-img" style="background-image:url(\'' + esc(photos[0]) + '\')"></div>'
+    : '<div class="rdet-main-img"><svg width="48" height="48" viewBox="0 0 20 20" fill="none" style="color:var(--muted);"><rect x="2" y="4" width="16" height="12" rx="1.5" stroke="currentColor" stroke-width="1.2"/><circle cx="7" cy="9" r="1.4" stroke="currentColor" stroke-width="1"/><path d="M3 15l4.5-4.5L11 14l3-3 3 3" stroke="currentColor" stroke-width="1"/></svg></div>';
+  var thumbs = photos.length > 1
+    ? '<div class="rdet-thumbs">' + photos.map(function(p, i) {
+        return '<div class="rdet-thumb' + (i === 0 ? ' on' : '') + '" style="background-image:url(\'' + esc(p) + '\')" onclick="rdetSwap(this,\'' + esc(p) + '\')"></div>';
+      }).join('') + '</div>'
+    : '';
+  var amenitiesArr = parseAmenities(l.amenities);
+  var amenitiesHtml = amenitiesArr.length
+    ? '<div class="rdet-desc-title">Amenities</div><div class="rdet-amenities">' + amenitiesArr.map(function(a) { return '<span class="rdet-tag">' + esc(a) + '</span>'; }).join('') + '</div>'
+    : '';
+  document.getElementById('rdet-body').innerHTML =
+    mainImg + thumbs +
+    '<div class="rdet-top"><div><div class="rdet-price">' + esc(l.rent) + '<span> /month</span></div>' +
+      '<div class="rdet-city">' + esc(l.city) + '</div></div></div>' +
+    '<div class="rdet-meta">' +
+      '<span class="rdet-tag">' + esc(l.roomType || 'Room') + '</span>' +
+      (l.lease ? '<span class="rdet-tag">' + esc(l.lease) + '</span>' : '') +
+      (l.availableFrom ? '<span class="rdet-tag">Available from ' + esc(l.availableFrom) + '</span>' : '') +
+    '</div>' +
+    amenitiesHtml +
+    (l.notes ? '<div class="rdet-desc-title">About this room</div><div class="rdet-desc">' + esc(l.notes) + '</div>' : '') +
+    '<div class="rdet-poster">' +
+      '<span class="rdet-poster-name">Posted by <strong>' + esc(l.firstName || 'Landlord') + '</strong></span>' +
+      '<button class="rdet-cta" onclick="openReqModal(\'' + esc(l.listingId) + '\')">Request Contact &rarr;</button>' +
+    '</div>';
+}
+function rdetSwap(el, url) {
+  document.getElementById('rdet-main-img').style.backgroundImage = "url('" + url + "')";
+  document.querySelectorAll('.rdet-thumb').forEach(function(t) { t.classList.remove('on'); });
+  el.classList.add('on');
+}
 
-    <script src="script.js"></script>
+function openReqModal(listingId) {
+  _reqListingId = listingId;
+  document.getElementById('reqm-form-view').style.display = 'block';
+  document.getElementById('reqm-ok-view').style.display = 'none';
+  document.getElementById('reqm-dup-view').style.display = 'none';
+  var savedName = localStorage.getItem('rb_renter_name') || '';
+  var savedEmail = localStorage.getItem('rb_renter_email') || '';
+  var savedPhone = localStorage.getItem('rb_renter_phone') || '';
+  document.getElementById('req-nm').value = savedName;
+  document.getElementById('req-em').value = savedEmail;
+  document.getElementById('req-ph').value = savedPhone;
+  document.getElementById('req-btn').disabled = false;
+  document.getElementById('req-btn').textContent = 'Request Contact \u2192';
+  document.getElementById('reqm-overlay').classList.add('on');
+}
+function closeReqModal() { document.getElementById('reqm-overlay').classList.remove('on'); }
+
+function submitReq() {
+  var nm = document.getElementById('req-nm').value.trim();
+  var em = document.getElementById('req-em').value.trim();
+  var ph = document.getElementById('req-ph').value.trim();
+  if (!nm || !em || !ph) { alert('Please fill all fields.'); return; }
+  localStorage.setItem('rb_renter_name', nm);
+  localStorage.setItem('rb_renter_email', em);
+  localStorage.setItem('rb_renter_phone', ph);
+  var btn = document.getElementById('req-btn');
+  btn.disabled = true; btn.textContent = 'Sending...';
+  var params = new URLSearchParams({ action: 'requestContact', listingId: _reqListingId, renterName: nm, renterEmail: em, renterPhone: ph });
+  fetch(SH + '?' + params.toString())
+    .then(function(r) { return r.json(); })
+    .then(function(res) {
+      document.getElementById('reqm-form-view').style.display = 'none';
+      if (res.status === 'ok') { document.getElementById('reqm-ok-view').style.display = 'block'; }
+      else if (res.status === 'duplicate') { document.getElementById('reqm-dup-view').style.display = 'block'; }
+      else { alert('Something went wrong. Please try again.'); btn.disabled = false; btn.textContent = 'Request Contact \u2192'; document.getElementById('reqm-form-view').style.display = 'block'; }
+    })
+    .catch(function() { alert('Network error please try again.'); btn.disabled = false; btn.textContent = 'Request Contact \u2192'; });
+}
+
+loadRoom();
+</script>
 </body>
 </html>
