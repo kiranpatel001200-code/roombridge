@@ -11,59 +11,59 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="RoomBridge" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,500;0,600;0,700;1,600&family=IBM+Plex+Mono:wght@500;600&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --primary:#FF5C35;--pd:#e04520;--pp:#fff3f0;
-  --navy:#0F1B2D;--navy2:#1a2e48;
-  --sky:#00B4D8;--green:#1DB954;--green-pale:#e6f9ee;
-  --white:#fff;--bg:#F8F9FC;--border:#E8ECF2;
-  --text:#0F1B2D;--muted:#5a6a7e;--gold:#F5A623;
+  --primary:#B8862E;--pd:#96701F;--pp:#F7EEDC;
+  --navy:#101A2E;--navy2:#1C2B47;
+  --sky:#1B6E63;--green:#1B6E63;--green-pale:#E1EFEC;
+  --white:#fff;--bg:#F3F5F7;--border:#E1E4EA;
+  --text:#101A2E;--muted:#5B6472;--gold:#B8862E;
 }
-body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var(--white);padding-bottom:64px;}
+body{font-family:'IBM Plex Sans',sans-serif;color:var(--text);background:var(--white);padding-bottom:64px;}
 .desk-nav{background:var(--navy);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:100;}
 .logo{display:flex;align-items:center;gap:9px;cursor:pointer;text-decoration:none;}
 .logo-icon{width:30px;height:30px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.logo-text{font-family:'Sora',sans-serif;font-size:17px;color:#fff;font-weight:700;letter-spacing:-.3px;}
+.logo-text{font-family:'Fraunces',sans-serif;font-size:17px;color:#fff;font-weight:700;letter-spacing:-.3px;}
 .logo-text em{color:var(--primary);font-style:normal;}
 .desk-links{display:flex;align-items:center;gap:2px;}
 .nl{font-size:13px;color:#8a9bb0;padding:6px 11px;border-radius:6px;cursor:pointer;transition:all .15s;font-weight:500;text-decoration:none;}
 .nl:hover,.nl.on{background:rgba(255,255,255,.08);color:#fff;}
-.nav-cta{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-left:8px;text-decoration:none;display:inline-block;}
+.nav-cta{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;margin-left:8px;text-decoration:none;display:inline-block;}
 .nav-cta:hover{background:var(--pd);}
 .mob-topbar{display:none;background:var(--navy);padding:0 18px;height:52px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-.mob-logo-text{font-family:'Sora',sans-serif;font-size:16px;color:#fff;font-weight:700;}
+.mob-logo-text{font-family:'Fraunces',sans-serif;font-size:16px;color:#fff;font-weight:700;}
 .mob-logo-text em{color:var(--primary);font-style:normal;}
-.mob-cta{background:var(--primary);color:#fff;border:none;border-radius:7px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;text-decoration:none;}
+.mob-cta{background:var(--primary);color:#fff;border:none;border-radius:7px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;text-decoration:none;}
 .mob-bottom{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);height:60px;z-index:200;align-items:center;justify-content:space-around;padding:0 4px;}
 .mbn-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:1;min-width:0;padding:8px 4px;cursor:pointer;border-radius:8px;transition:background .15s;text-decoration:none;}
 .mbn-item.on .mbn-icon,.mbn-item.on .mbn-label{color:var(--primary);}
 .mbn-icon{color:#5a7090;transition:color .15s;}
 .mbn-label{font-size:10px;color:#5a7090;font-weight:600;transition:color .15s;text-align:center;}
 .ph{background:var(--navy);padding:36px 20px 28px;text-align:center;}
-.ph h1{font-family:'Sora',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.3px;}
+.ph h1{font-family:'Fraunces',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.3px;}
 .ph p{font-size:14px;color:#7a95b0;}
 .sec{padding:52px 20px;max-width:860px;margin:0 auto;}
 .ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
 .ct-info{background:var(--navy);border-radius:14px;padding:24px;}
-.ct-info h3{font-family:'Sora',sans-serif;font-size:18px;color:#fff;margin-bottom:7px;}
+.ct-info h3{font-family:'Fraunces',sans-serif;font-size:18px;color:#fff;margin-bottom:7px;}
 .ct-info p{font-size:13px;color:#7a95b0;line-height:1.65;margin-bottom:18px;}
 .ct-item{display:flex;align-items:flex-start;gap:11px;margin-bottom:14px;}
-.ct-ic{width:32px;height:32px;background:rgba(255,92,53,.18);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ct-ic{width:32px;height:32px;background:rgba(184,134,46,.18);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .ct-lbl{font-size:10px;color:#5a7090;margin-bottom:2px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
 .ct-val{font-size:13px;color:#a0b8cc;}
 .ct-form{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:22px;}
-.ct-form h3{font-family:'Sora',sans-serif;font-size:16px;margin-bottom:16px;}
+.ct-form h3{font-family:'Fraunces',sans-serif;font-size:16px;margin-bottom:16px;}
 .fgrp{margin-bottom:14px;}
 .fl{font-size:11px;font-weight:700;color:#7a8a9a;margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:.05em;}
-.fi,.fs,.ft{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;outline:none;background:#fff;transition:border-color .15s;}
+.fi,.fs,.ft{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;color:var(--text);font-family:'IBM Plex Sans',sans-serif;outline:none;background:#fff;transition:border-color .15s;}
 .fi:focus,.fs:focus,.ft:focus{border-color:var(--primary);}
 .ft{min-height:75px;resize:vertical;}
-.fsub{width:100%;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-top:4px;}
+.fsub{width:100%;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;margin-top:4px;}
 .fsub:disabled{opacity:.6;cursor:not-allowed;}
-.ok{background:var(--green-pale);border:1px solid #5dcaa5;border-radius:10px;padding:22px;text-align:center;display:none;}
-.ok h3{font-family:'Sora',sans-serif;font-size:18px;color:#0a5c42;margin-bottom:5px;}
-.ok p{font-size:13px;color:#0f6e56;line-height:1.6;}
+.ok{background:var(--green-pale);border:1px solid #5FA89C;border-radius:10px;padding:22px;text-align:center;display:none;}
+.ok h3{font-family:'Fraunces',sans-serif;font-size:18px;color:#0F3D37;margin-bottom:5px;}
+.ok p{font-size:13px;color:#1B6E63;line-height:1.6;}
 .err{color:var(--pd);font-size:12px;margin-top:10px;display:none;}
 @media(max-width:768px){
   body{padding-bottom:80px;}
@@ -136,7 +136,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
     <div class="ct-info">
       <h3>We&rsquo;re here to help.</h3>
       <p>Question about your submission, payment, or how RoomBridge works? We reply within 24 hours.</p>
-      <div class="ct-item"><div class="ct-ic"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="#FF5C35" stroke-width="1.4" fill="none"/><path d="M7.5 4v3.5l2 1.5" stroke="#FF5C35" stroke-width="1.4" stroke-linecap="round"/></svg></div><div><div class="ct-lbl">Response time</div><div class="ct-val">Within 24 hours</div></div></div>
+      <div class="ct-item"><div class="ct-ic"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="#B8862E" stroke-width="1.4" fill="none"/><path d="M7.5 4v3.5l2 1.5" stroke="#B8862E" stroke-width="1.4" stroke-linecap="round"/></svg></div><div><div class="ct-lbl">Response time</div><div class="ct-val">Within 24 hours</div></div></div>
     </div>
     <div class="ct-form">
       <h3>Send a message</h3>
@@ -153,10 +153,10 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
   </div>
 </div>
 
-<footer style="background:#1a1f2e;color:#e2e8f0;font-family:'Sora',sans-serif;padding:48px 40px 28px;">
+<footer style="background:#101A2E;color:#e2e8f0;font-family:'Fraunces',sans-serif;padding:48px 40px 28px;">
   <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;padding-bottom:32px;border-bottom:0.5px solid rgba(255,255,255,0.12);">
     <div>
-      <p style="font-size:22px;font-weight:700;margin:0 0 6px;color:#fff;">Room<span style="color:#f97316;">Bridge</span></p>
+      <p style="font-size:22px;font-weight:700;margin:0 0 6px;color:#fff;">Room<span style="color:#E7CE9C;">Bridge</span></p>
       <p style="font-size:13px;color:#94a3b8;margin:0 0 20px;">The smarter way to find a room in the US.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
         <a href="https://www.instagram.com/roombridge.vercel.app/" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;font-size:13px;color:#e2e8f0;text-decoration:none;">Instagram</a>
@@ -164,7 +164,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:var
       </div>
     </div>
     <div>
-      <p style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#f97316;margin:0 0 14px;">Contact Us</p>
+      <p style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#E7CE9C;margin:0 0 14px;">Contact Us</p>
       <p style="font-size:12px;color:#64748b;">We reply within 24 hours</p>
     </div>
   </div>
