@@ -37,28 +37,54 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:20px 24px;
+    gap:16px;
+    padding:16px 24px;
     border-bottom:1px solid var(--border);
     position:sticky;
     top:0;
     background:rgba(16,26,46,0.9);
     backdrop-filter:blur(8px);
     z-index:10;
+    flex-wrap:wrap;
   }
   .logo{
-    font-weight:800;
-    font-size:20px;
-    color:var(--text);
+    display:flex;
+    align-items:center;
     text-decoration:none;
+    white-space:nowrap;
   }
-  .logo em{color:var(--blue); font-style:italic;}
-  .back-link{
+  .logo-img{
+    height:32px;
+    width:auto;
+    display:block;
+  }
+  .main-nav{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+    justify-content:center;
+    flex:1;
+  }
+  .main-nav a{
     font-size:14px;
     font-weight:600;
-    text-decoration:none;
     color:var(--text-dim);
+    text-decoration:none;
+    white-space:nowrap;
   }
-  .back-link:hover{color:var(--blue);}
+  .main-nav a:hover{color:var(--text);}
+  .cta-btn{
+    background:var(--blue);
+    color:#0b1220;
+    padding:9px 16px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:700;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .cta-btn:hover{opacity:0.9;}
   .hero{
     max-width:900px;
     margin:0 auto;
@@ -169,8 +195,17 @@
 <body>
 
 <header class="site-header">
-  <a href="index.html" class="logo">Room<em>Bridge</em></a>
-  <a href="index.html" class="back-link">← Back to RoomBridge</a>
+  <a href="index.html" class="logo"><img src="logo.png" alt="RoomBridge" class="logo-img"></a>
+  <nav class="main-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="index.html#find-room">Find Room</a>
+    <a href="index.html#list-room">List Room</a>
+    <a href="index.html#rentals">Rentals</a>
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a href="index.html#find-room" class="cta-btn">Find a Room →</a>
 </header>
 
 <div class="hero">
