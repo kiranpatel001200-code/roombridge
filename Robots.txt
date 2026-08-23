@@ -57,6 +57,4 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-google-site-verification=B2pxdbHxgFPM6pY9rDS9fxMiJYJI-UZF_MGMydFF5IM
-
 Sitemap: https://roombridge.vercel.app/sitemap.xml
