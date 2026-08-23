@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101A2E">
+<title>Privacy Policy | RoomBridge</title>
+<meta name="description" content="How RoomBridge collects, uses, and protects your information when you find or list a verified room for rent in the US.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://roombridge.vercel.app/privacy.html">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,500;0,600;0,700;1,600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<meta property="og:title" content="Privacy Policy | RoomBridge" />
+<meta property="og:description" content="How RoomBridge collects, uses, and protects your information." />
+<meta property="og:image" content="https://roombridge.vercel.app/logo.png" />
+<meta property="og:url" content="https://roombridge.vercel.app/privacy.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="RoomBridge" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Privacy Policy | RoomBridge" />
+<meta name="twitter:description" content="How RoomBridge collects, uses, and protects your information." />
+<meta name="twitter:image" content="https://roombridge.vercel.app/logo.png" />
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --primary:#B8862E;--pd:#96701F;--pp:#F7EEDC;
+  --navy:#101A2E;--navy2:#1C2B47;
+  --sky:#1B6E63;--green:#1B6E63;--green-pale:#E1EFEC;
+  --white:#fff;--bg:#F3F5F7;--border:#E1E4EA;
+  --text:#101A2E;--muted:#5B6472;--gold:#B8862E;
+}
+body{font-family:'IBM Plex Sans',sans-serif;color:var(--text);background:var(--white);padding-bottom:64px;}
+.desk-nav{background:var(--navy);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:100;}
+.logo{display:flex;align-items:center;gap:9px;cursor:pointer;text-decoration:none;}
+.logo-icon{width:30px;height:30px;background:linear-gradient(135deg,#CDA65E,#8C6A26);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 5px -1px rgba(140,106,38,.55);}
+.logo-text{font-family:'Fraunces',sans-serif;font-size:17px;color:#fff;font-weight:700;letter-spacing:-.3px;}
+.logo-text em{color:var(--primary);font-style:normal;}
+.desk-links{display:flex;align-items:center;gap:2px;}
+.nl{font-size:13px;color:#8a9bb0;padding:6px 11px;border-radius:6px;cursor:pointer;transition:all .15s;font-weight:500;text-decoration:none;}
+.nl:hover,.nl.on{background:rgba(255,255,255,.08);color:#fff;}
+.nav-cta{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;margin-left:8px;text-decoration:none;display:inline-block;}
+.nav-cta:hover{background:var(--pd);}
+.mob-topbar{display:none;background:var(--navy);padding:0 18px;height:52px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.mob-logo-text{font-family:'Fraunces',sans-serif;font-size:16px;color:#fff;font-weight:700;}
+.mob-logo-text em{color:var(--primary);font-style:normal;}
+.mob-cta{background:var(--primary);color:#fff;border:none;border-radius:7px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;text-decoration:none;}
+.mob-bottom{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);height:60px;z-index:200;align-items:center;justify-content:space-around;padding:0 4px;}
+.mbn-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex:1;min-width:0;padding:8px 4px;cursor:pointer;border-radius:8px;transition:background .15s;text-decoration:none;}
+.mbn-item.on .mbn-icon,.mbn-item.on .mbn-label{color:var(--primary);}
+.mbn-icon{color:#5a7090;transition:color .15s;}
+.mbn-label{font-size:10px;color:#5a7090;font-weight:600;transition:color .15s;text-align:center;}
+.ph{background:var(--navy);padding:36px 20px 28px;text-align:center;}
+.ph .eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);border:1px solid rgba(184,134,46,.4);background:rgba(184,134,46,.1);padding:4px 12px;border-radius:999px;margin-bottom:14px;}
+.ph h1{font-family:'Fraunces',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.3px;}
+.ph p{font-size:14px;color:#7a95b0;}
+.sec{padding:52px 20px;max-width:1000px;margin:0 auto;}
+.lp-grid{display:grid;grid-template-columns:230px 1fr;gap:24px;align-items:start;}
+.lp-toc{background:var(--navy);border-radius:14px;padding:22px 20px;position:sticky;top:78px;}
+.lp-toc h3{font-family:'Fraunces',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);margin-bottom:12px;}
+.lp-toc ol{list-style:none;}
+.lp-toc li{margin-bottom:9px;}
+.lp-toc a{font-size:13px;color:#a0b8cc;text-decoration:none;line-height:1.4;display:block;}
+.lp-toc a:hover{color:#fff;}
+.lp-content{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:30px 32px;}
+.lp-content section{margin-bottom:30px;scroll-margin-top:78px;}
+.lp-content section:last-child{margin-bottom:0;}
+.lp-content h2{font-family:'Fraunces',sans-serif;font-size:18px;font-weight:700;margin-bottom:10px;color:var(--text);}
+.lp-content p,.lp-content li{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:10px;}
+.lp-content ul{padding-left:20px;margin-bottom:10px;}
+.lp-content strong{color:var(--text);}
+.callout{background:var(--pp);border:1px solid rgba(184,134,46,.35);border-radius:10px;padding:16px 18px;margin:14px 0;}
+.callout p{color:var(--pd);margin:0;font-size:13.5px;}
+.callout strong{color:var(--pd);}
+.placeholder{background:rgba(184,134,46,.14);color:var(--pd);padding:1px 7px;border-radius:5px;font-size:13.5px;font-weight:600;}
+@media(max-width:768px){
+  body{padding-bottom:80px;}
+  .desk-nav{display:none!important;}
+  .mob-topbar{display:flex!important;}
+  .mob-bottom{display:flex!important;}
+  .sec{padding:36px 16px;}
+  .ph{padding:28px 16px 22px;}
+  .ph h1{font-size:22px;}
+  .lp-grid{grid-template-columns:1fr;}
+  .lp-toc{position:static;order:2;margin-top:8px;}
+  .lp-content{order:1;padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- DESKTOP NAV -->
+<nav class="desk-nav">
+  <a class="logo" href="index.html">
+    <div class="logo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" d="M8 3L13.5 7.5L13.5 12.6L2.5 12.6L2.5 7.5Z M6 13.4L6 10.7A2 2 0 0 1 10 10.7L10 13.4Z" fill="white"/><circle cx="8" cy="3.15" r="0.5" fill="white"/><rect x="1.6" y="12.9" width="12.8" height="1.15" rx="0.575" fill="white"/></svg></div>
+    <div class="logo-text">Room<em>Bridge</em></div>
+  </a>
+  <div class="desk-links">
+    <a class="nl" href="index.html">Home</a>
+    <a class="nl" href="index.html#renter">Find a Room</a>
+    <a class="nl" href="index.html#landlord">List a Room</a>
+    <a class="nl" href="index.html#howitworks">How It Works</a>
+    <a class="nl" href="index.html#reviews">Reviews</a>
+    <a class="nl" href="contact.html">Contact</a>
+  </div>
+  <a class="nav-cta" href="index.html#renter">Find a Room &rarr;</a>
+</nav>
+
+<!-- MOBILE TOP BAR -->
+<div class="mob-topbar">
+  <a class="logo" href="index.html">
+    <div class="logo-icon" style="width:26px;height:26px;border-radius:7px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" d="M8 3L13.5 7.5L13.5 12.6L2.5 12.6L2.5 7.5Z M6 13.4L6 10.7A2 2 0 0 1 10 10.7L10 13.4Z" fill="white"/><circle cx="8" cy="3.15" r="0.5" fill="white"/><rect x="1.6" y="12.9" width="12.8" height="1.15" rx="0.575" fill="white"/></svg></div>
+    <div class="mob-logo-text">Room<em>Bridge</em></div>
+  </a>
+  <a class="mob-cta" href="index.html#renter">Find a Room &rarr;</a>
+</div>
+
+<!-- MOBILE BOTTOM NAV -->
+<div class="mob-bottom">
+  <a class="mbn-item" href="index.html">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 9.5L10 3l7 6.5V18H13v-5H7v5H3V9.5z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    <span class="mbn-label">Home</span>
+  </a>
+  <a class="mbn-item" href="index.html#renter">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M3 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+    <span class="mbn-label">Find Room</span>
+  </a>
+  <a class="mbn-item" href="index.html#landlord">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="10" width="14" height="9" rx="1.5" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M1 10L10 2l9 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="7.5" y="13" width="5" height="6" rx="1" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
+    <span class="mbn-label">List Room</span>
+  </a>
+  <a class="mbn-item" href="index.html#howitworks">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <span class="mbn-label">How It Works</span>
+  </a>
+  <a class="mbn-item" href="contact.html">
+    <svg class="mbn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 4h16v12H2V4z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M2 4l8 7 8-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <span class="mbn-label">Contact</span>
+  </a>
+</div>
+
+<div class="ph">
+  <span class="eyebrow">Legal</span>
+  <h1>Privacy Policy</h1>
+  <p>Last updated: August 23, 2026</p>
+</div>
+
+<div class="sec">
+  <div class="lp-grid">
+    <nav class="lp-toc" aria-label="Table of contents">
+      <h3>On this page</h3>
+      <ol>
+        <li><a href="#overview">1. Overview</a></li>
+        <li><a href="#collect">2. Information We Collect</a></li>
+        <li><a href="#use">3. How We Use It</a></li>
+        <li><a href="#share">4. How We Share It</a></li>
+        <li><a href="#public">5. Public Listings</a></li>
+        <li><a href="#cookies">6. Cookies & Local Storage</a></li>
+        <li><a href="#security">7. Data Security</a></li>
+        <li><a href="#retention">8. Data Retention</a></li>
+        <li><a href="#rights">9. Your Rights & Choices</a></li>
+        <li><a href="#children">10. Children's Privacy</a></li>
+        <li><a href="#thirdparty">11. Third-Party Links</a></li>
+        <li><a href="#international">12. US-Based Service</a></li>
+        <li><a href="#changes">13. Changes to This Policy</a></li>
+        <li><a href="#contact">14. Contact Us</a></li>
+      </ol>
+    </nav>
+
+    <article class="lp-content">
+      <section id="overview">
+        <h2>1. Overview</h2>
+        <p>This Privacy Policy explains how RoomBridge ("we," "us") collects, uses, and shares information when you use roombridge.vercel.app to find a room, list a room, browse Rentals, or contact us (together, the "Service"). By using the Service, you agree to the collection and use of information as described here. If you don't agree, please don't use the Service.</p>
+      </section>
+
+      <section id="collect">
+        <h2>2. Information We Collect</h2>
+        <p><strong>If you're looking for a room</strong>, we collect your full name, email, WhatsApp/phone number, city & state, budget, room type preference, move-in date, and your status (e.g. employed, F-1 student, OPT/CPT/H-1B). Social media handles and specific needs are optional and only used to help us verify you.</p>
+        <p><strong>If you're listing a room</strong>, we collect your full name, email, phone, the property's address/city, monthly rent, room type, lease terms, availability, amenities, and up to 5 room photos you upload. Social media handles are optional.</p>
+        <p><strong>If you contact us</strong>, we collect your name, email, subject, and message.</p>
+        <div class="callout">
+          <p><strong>We never store your payment card details.</strong> All payments are processed securely by PayPal — RoomBridge never sees or stores your card or bank information.</p>
+        </div>
+      </section>
+
+      <section id="use">
+        <h2>3. How We Use It</h2>
+        <ul>
+          <li>To review and verify your submission before any contact is shared.</li>
+          <li>To match renters and landlords and send verified direct contact details (phone + email) within 24 hours.</li>
+          <li>To respond to messages sent through the Contact page.</li>
+          <li>To publish your listing's non-personal details in the Rentals tab (see Section 5).</li>
+          <li>To enforce free-request limits and prevent duplicate or fraudulent submissions.</li>
+          <li>To improve the Service and keep it safe from scams.</li>
+        </ul>
+      </section>
+
+      <section id="share">
+        <h2>4. How We Share It</h2>
+        <p>We share your name, phone, and email with your verified match on the other side (renter ↔ landlord) only after both sides have been reviewed — never before. We also share data with the service providers that run the Service on our behalf: our backend spreadsheet/automation system for storing and processing submissions, Cloudinary for hosting uploaded room photos, and PayPal for payment processing. These providers only receive what they need to do their job.</p>
+        <p><strong>We do not sell your personal information</strong> to advertisers, data brokers, or any other third party. We may disclose information if required by law, subpoena, or to protect the safety of our users.</p>
+      </section>
+
+      <section id="public">
+        <h2>5. Public Listings</h2>
+        <p>When a room is listed, its city, rent, room type, amenities, availability, and photos appear publicly in the Rentals tab so renters can browse. Your <strong>name, phone number, and email are never shown publicly</strong> — they're only released to a renter after our team verifies them and you've been matched.</p>
+      </section>
+
+      <section id="cookies">
+        <h2>6. Cookies & Local Storage</h2>
+        <p>We don't use third-party advertising or tracking cookies. To save you time, we use your browser's <strong>local storage</strong> to remember your name, email, and phone so your next form on this device is pre-filled. Our admin panel uses <strong>session storage</strong> to keep an administrator logged in during their session. You can clear either at any time from your browser's settings.</p>
+      </section>
+
+      <section id="security">
+        <h2>7. Data Security</h2>
+        <p>We use industry-standard measures, including HTTPS encryption in transit, to protect the information you share with us. Access to submitted data and the admin panel is password-restricted to our team. That said, no method of transmission or storage is 100% secure, and we can't guarantee absolute security.</p>
+      </section>
+
+      <section id="retention">
+        <h2>8. Data Retention</h2>
+        <p>We retain your information for as long as needed to provide the Service — including matching you, resolving disputes, and keeping basic records — or until you ask us to delete it, whichever comes first. Listings are removed from the public Rentals tab once filled, expired, or removed by request.</p>
+      </section>
+
+      <section id="rights">
+        <h2>9. Your Rights & Choices</h2>
+        <ul>
+          <li>Ask us what personal information we hold about you.</li>
+          <li>Ask us to correct inaccurate information.</li>
+          <li>Ask us to delete your information or remove your listing.</li>
+          <li>Opt out of future contact from us at any time.</li>
+        </ul>
+        <p>To exercise any of these, reach us through our <a href="contact.html" style="color:var(--primary);font-weight:600;text-decoration:none;">Contact page</a> or at <span class="placeholder">[insert privacy contact email]</span>. Depending on your state or country, you may have additional rights (for example under the CCPA or GDPR) — we'll honor valid requests to the extent required by applicable law.</p>
+      </section>
+
+      <section id="children">
+        <h2>10. Children's Privacy</h2>
+        <p>The Service is intended for users who are at least 18 years old, consistent with our <a href="terms.html" style="color:var(--primary);font-weight:600;text-decoration:none;">Terms & Conditions</a>. We don't knowingly collect information from anyone under 18. If you believe a minor has submitted information to us, contact us and we'll remove it.</p>
+      </section>
+
+      <section id="thirdparty">
+        <h2>11. Third-Party Links</h2>
+        <p>Our Instagram and Facebook links, and our PayPal checkout, take you to third-party sites with their own privacy practices. We're not responsible for how those sites handle your information — please review their policies separately.</p>
+      </section>
+
+      <section id="international">
+        <h2>12. US-Based Service</h2>
+        <p>RoomBridge focuses on room rentals within the United States, and the information we collect is processed and stored accordingly. If you access the Service from outside the US, you do so understanding your information will be handled as described in this Policy.</p>
+      </section>
+
+      <section id="changes">
+        <h2>13. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Changes take effect once posted on this page, and we'll update the "Last updated" date above. Continuing to use the Service after an update means you accept the revised Policy.</p>
+      </section>
+
+      <section id="contact">
+        <h2>14. Contact Us</h2>
+        <p>Questions about this Privacy Policy or your data? Reach us at <span class="placeholder">[insert privacy contact email]</span> or through our <a href="contact.html" style="color:var(--primary);font-weight:600;text-decoration:none;">Contact page</a>. We reply within 24 hours.</p>
+      </section>
+    </article>
+  </div>
+</div>
+
+<footer style="background:#101A2E;color:#e2e8f0;font-family:'Fraunces',sans-serif;padding:48px 40px 28px;">
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;padding-bottom:32px;border-bottom:0.5px solid rgba(255,255,255,0.12);">
+    <div>
+      <p style="font-size:22px;font-weight:700;margin:0 0 6px;color:#fff;">Room<span style="color:#E7CE9C;">Bridge</span></p>
+      <p style="font-size:13px;color:#94a3b8;margin:0 0 20px;">The smarter way to find a room in the US.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="https://www.instagram.com/roombridge.vercel.app/" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;font-size:13px;color:#e2e8f0;text-decoration:none;">Instagram</a>
+        <a href="https://www.facebook.com/groups/31743317415255510" style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.07);border:0.5px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 14px;font-size:13px;color:#e2e8f0;text-decoration:none;">Facebook</a>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#E7CE9C;margin:0 0 14px;">Contact Us</p>
+      <p style="font-size:12px;color:#64748b;">We reply within 24 hours</p>
+    </div>
+  </div>
+  <div style="display:flex;gap:18px;flex-wrap:wrap;padding-top:20px;">
+    <a href="terms.html" style="font-size:12px;color:#94a3b8;text-decoration:none;">Terms &amp; Conditions</a>
+    <a href="privacy.html" style="font-size:12px;color:#94a3b8;text-decoration:none;">Privacy Policy</a>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;flex-wrap:wrap;gap:10px;">
+    <p style="font-size:12px;color:#64748b;margin:0;">&copy; 2026 RoomBridge</p>
+    <div style="display:inline-flex;gap:6px;align-items:center;font-size:12px;color:#64748b;">
+      <span>Verified rooms</span><span style="color:#334155;">&middot;</span><span>Direct contact</span><span style="color:#334155;">&middot;</span><span>All 50 US states</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
