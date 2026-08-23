@@ -3,18 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101A2E">
 <title>Room Details | RoomBridge</title>
 <meta name="description" content="View this verified room for rent on RoomBridge. Request contact and get the landlord's real phone and email within 24 hours.">
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/png" href="logo.png">
-<link rel="canonical" href="https://roombridge.vercel.app/room-details.html">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="canonical" href="https://roombridge.vercel.app/room.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,500;0,600;0,700;1,600&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <meta property="og:title" content="Room for Rent | RoomBridge" />
 <meta property="og:description" content="A verified room for rent, listed on RoomBridge. Request contact to get the landlord's direct phone and email." />
-<meta property="og:image" content="logo.png" />
+<meta property="og:image" content="https://roombridge.vercel.app/logo.png" />
+<meta property="og:url" content="https://roombridge.vercel.app/room.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="RoomBridge" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Room for Rent | RoomBridge" />
+<meta name="twitter:description" content="A verified room for rent, listed on RoomBridge. Request contact to get the landlord's direct phone and email." />
+<meta name="twitter:image" content="https://roombridge.vercel.app/logo.png" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,500;0,600;0,700;1,600&family=IBM+Plex+Mono:wght@500;600&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
   --primary:#B8862E;--pd:#96701F;--pp:#F7EEDC;
@@ -26,7 +35,7 @@
 body{font-family:'IBM Plex Sans',sans-serif;color:var(--text);background:var(--white);padding-bottom:64px;}
 .desk-nav{background:var(--navy);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:100;}
 .logo{display:flex;align-items:center;gap:9px;cursor:pointer;}
-.logo-icon{width:30px;height:30px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-icon{width:30px;height:30px;background:linear-gradient(135deg,#CDA65E,#8C6A26);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 5px -1px rgba(140,106,38,.55);}
 .logo-text{font-family:'Fraunces',sans-serif;font-size:17px;color:#fff;font-weight:700;letter-spacing:-.3px;}
 .logo-text em{color:var(--primary);font-style:normal;}
 .desk-links{display:flex;align-items:center;gap:2px;}
@@ -317,7 +326,7 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--text);background:var(--w
 <!-- DESKTOP NAV -->
 <nav class="desk-nav">
   <a class="logo" href="index.html">
-    <div class="logo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 11Q8 2 15 11" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="1" y="10" width="5" height="5" rx="1.5" fill="white"/><rect x="10" y="10" width="5" height="5" rx="1.5" fill="white"/></svg></div>
+    <div class="logo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" d="M8 3L13.5 7.5L13.5 12.6L2.5 12.6L2.5 7.5Z M6 13.4L6 10.7A2 2 0 0 1 10 10.7L10 13.4Z" fill="white"/><circle cx="8" cy="3.15" r="0.5" fill="white"/><rect x="1.6" y="12.9" width="12.8" height="1.15" rx="0.575" fill="white"/></svg></div>
     <div class="logo-text">Room<em>Bridge</em></div>
   </a>
   <div class="desk-links">
@@ -335,7 +344,7 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--text);background:var(--w
 <!-- MOBILE TOP BAR -->
 <div class="mob-topbar">
   <a class="logo" href="index.html">
-    <div class="logo-icon" style="width:26px;height:26px;border-radius:7px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M1 11Q8 2 15 11" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round"/><rect x="1" y="10" width="5" height="5" rx="1.5" fill="white"/><rect x="10" y="10" width="5" height="5" rx="1.5" fill="white"/></svg></div>
+    <div class="logo-icon" style="width:26px;height:26px;border-radius:7px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path fill-rule="evenodd" d="M8 3L13.5 7.5L13.5 12.6L2.5 12.6L2.5 7.5Z M6 13.4L6 10.7A2 2 0 0 1 10 10.7L10 13.4Z" fill="white"/><circle cx="8" cy="3.15" r="0.5" fill="white"/><rect x="1.6" y="12.9" width="12.8" height="1.15" rx="0.575" fill="white"/></svg></div>
     <div class="mob-logo-text">Room<em>Bridge</em></div>
   </a>
   <a class="mob-cta" href="index.html#renter">Find a Room &rarr;</a>
@@ -380,7 +389,7 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--text);background:var(--w
 <!-- Request Contact modal -->
 <div class="reqm-overlay" id="reqm-overlay">
   <div class="reqm-box">
-    <button class="reqm-close" onclick="closeReqModal()">&times;</button>
+    <button class="reqm-close" onclick="closeReqModal()" aria-label="Close">&times;</button>
     <div id="reqm-form-view">
       <h3>Request contact</h3>
       <p class="fsb">Share your details our team verifies and sends you this landlord's direct contact within 24 hrs.</p>
